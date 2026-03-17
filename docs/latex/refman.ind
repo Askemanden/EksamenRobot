@@ -1,0 +1,104 @@
+\begin{theindex}
+
+  \item {Arm}, \hyperpage{9}
+
+  \indexspace
+
+  \item {base\_angle}
+    \subitem {IK.ino}, \hyperpage{12}
+  \item {base\_angle\_rad}
+    \subitem {IK.ino}, \hyperpage{12}
+
+  \indexspace
+
+  \item {calculateArmAngles}
+    \subitem {IK.ino}, \hyperpage{12}
+  \item {calculateBaseAngle}
+    \subitem {IK.ino}, \hyperpage{12}
+  \item {calculateNextTargetUV}
+    \subitem {IK.ino}, \hyperpage{12}
+
+  \indexspace
+
+  \item {getDistanceCM}
+    \subitem {UltralydDist.ino}, \hyperpage{15}
+
+  \indexspace
+
+  \item {IK Directory Reference}, \hyperpage{7}
+  \item {IK.ino}, \hyperpage{11}, \hyperpage{14}
+    \subitem {base\_angle}, \hyperpage{12}
+    \subitem {base\_angle\_rad}, \hyperpage{12}
+    \subitem {calculateArmAngles}, \hyperpage{12}
+    \subitem {calculateBaseAngle}, \hyperpage{12}
+    \subitem {calculateNextTargetUV}, \hyperpage{12}
+    \subitem {L1}, \hyperpage{12}
+    \subitem {L2}, \hyperpage{13}
+    \subitem {L3}, \hyperpage{13}
+    \subitem {sensor\_angle\_rad}, \hyperpage{13}
+    \subitem {sensor\_position\_distance}, \hyperpage{13}
+    \subitem {sensor\_reading\_distance}, \hyperpage{13}
+    \subitem {theta1}, \hyperpage{13}
+    \subitem {theta2}, \hyperpage{13}
+    \subitem {theta3}, \hyperpage{14}
+    \subitem {u}, \hyperpage{14}
+    \subitem {v}, \hyperpage{14}
+
+  \indexspace
+
+  \item {L1}
+    \subitem {IK.ino}, \hyperpage{12}
+  \item {L2}
+    \subitem {IK.ino}, \hyperpage{13}
+  \item {L3}
+    \subitem {IK.ino}, \hyperpage{13}
+
+  \indexspace
+
+  \item {recv\_pin}
+    \subitem {UltralydDist.ino}, \hyperpage{16}
+
+  \indexspace
+
+  \item {sensor\_angle\_rad}
+    \subitem {IK.ino}, \hyperpage{13}
+  \item {sensor\_position\_distance}
+    \subitem {IK.ino}, \hyperpage{13}
+  \item {sensor\_reading\_distance}
+    \subitem {IK.ino}, \hyperpage{13}
+  \item {setup}
+    \subitem {UltralydDist.ino}, \hyperpage{15}
+
+  \indexspace
+
+  \item {theta1}
+    \subitem {IK.ino}, \hyperpage{13}
+  \item {theta2}
+    \subitem {IK.ino}, \hyperpage{13}
+  \item {theta3}
+    \subitem {IK.ino}, \hyperpage{14}
+  \item {trans\_pin}
+    \subitem {UltralydDist.ino}, \hyperpage{16}
+
+  \indexspace
+
+  \item {u}
+    \subitem {IK.ino}, \hyperpage{14}
+    \subitem {Vector2}, \hyperpage{10}
+  \item {UltralydDist Directory Reference}, \hyperpage{7}
+  \item {UltralydDist.ino}, \hyperpage{15, 16}
+    \subitem {getDistanceCM}, \hyperpage{15}
+    \subitem {recv\_pin}, \hyperpage{16}
+    \subitem {setup}, \hyperpage{15}
+    \subitem {trans\_pin}, \hyperpage{16}
+
+  \indexspace
+
+  \item {v}
+    \subitem {IK.ino}, \hyperpage{14}
+    \subitem {Vector2}, \hyperpage{10}
+  \item {Vector2}, \hyperpage{9}
+    \subitem {u}, \hyperpage{10}
+    \subitem {v}, \hyperpage{10}
+
+\end{theindex}
