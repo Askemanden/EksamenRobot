@@ -48,7 +48,7 @@ double getDistanceCM() {
 
     duration = pulseIn(recv_pin, HIGH);
 
-    double distance_cm = duration / 58.0;
+    double distance_cm = duration * 0.0172;
 
     return distance_cm;
 }
