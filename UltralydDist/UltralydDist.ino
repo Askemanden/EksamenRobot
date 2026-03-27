@@ -1,4 +1,4 @@
-const int trans_pin = 5; //Trig
+  const int trans_pin = 5; //Trig
 const int recv_pin = 7; //Echo
 
 void setup() {
@@ -29,3 +29,15 @@ double getDistanceCM() {
   return distance_cm;
 }
 
+void loop() {
+  double distance = getDistanceCM();
+  if (distance > 0 && distance < 400) {  // Typical HC-SR04 range
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+  } else {
+    Serial.println("Out of range");
+  }
+  
+  delay(200);
+}
