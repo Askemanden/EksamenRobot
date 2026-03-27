@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['v_0',['v',['../struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4',1,'Vector2::v'],['../_i_k_8ino.html#a3b90d5a73541ab9402511d87bed076ef',1,'v:&#160;IK.ino']]]
+  ['gear_5fratio_0',['GEAR_RATIO',['../_angle_to_rotation_8ino.html#ac981f98e8b41b0e5f0d753279da10c82',1,'GEAR_RATIO:&#160;AngleToRotation.ino'],['../motor__pid_8ino.html#ac981f98e8b41b0e5f0d753279da10c82',1,'GEAR_RATIO:&#160;motor_pid.ino']]]
 ];

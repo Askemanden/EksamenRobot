@@ -1,0 +1,97 @@
+\doxysection{Color\+Sensor.\+ino}
+\hypertarget{_color_sensor_8ino_source}{}\label{_color_sensor_8ino_source}\index{ColorSensor.ino@{ColorSensor.ino}}
+\doxymbox{\hyperlink{_color_sensor_8ino}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <Adafruit\_TCS34725.h>}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00007}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8e}{00007}}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8e}{DetectedColor}}\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00008}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950}{00008}}\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950}{COLOR\_RED}},}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00009}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02}{00009}}\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02}{COLOR\_GREEN}},}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00010}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696}{00010}}\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696}{COLOR\_BLUE}},}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00011}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1}{00011}}\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}},}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00012}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{00012}}\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{COLOR\_WHITE}},}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00013}\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00}{00013}}\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00}{COLOR\_UNCERTAIN}}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00014}00014\ \};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00019}\doxymbox{\hyperlink{_color_sensor_8ino_a45c0f204e407e3ec89083b79cb38c8f9}{00019}}\ Adafruit\_TCS34725\ \doxymbox{\hyperlink{_color_sensor_8ino_a45c0f204e407e3ec89083b79cb38c8f9}{tcs}}\ =\ Adafruit\_TCS34725(}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00020}00020\ \ \ \ \ TCS34725\_INTEGRATIONTIME\_50MS,}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00021}00021\ \ \ \ \ TCS34725\_GAIN\_4X}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00022}00022\ );}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00030}\doxymbox{\hyperlink{_color_sensor_8ino_a5900f965f098bd4256e491d9faf1922d}{00030}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_color_sensor_8ino_a5900f965f098bd4256e491d9faf1922d}{initColorSensor}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00031}00031\ \ \ \ \ Serial.begin(9600);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00032}00032\ \ \ \ \ delay(200);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{_color_sensor_8ino_a45c0f204e407e3ec89083b79cb38c8f9}{tcs}}.begin())\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00035}00035\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}ERROR:\ TCS34725\ not\ detected"{}});}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00039}00039\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}TCS34725\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00050}\doxymbox{\hyperlink{_color_sensor_8ino_a26bff309cee7214d34c4c8b9167b7cc1}{00050}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_color_sensor_8ino_a26bff309cee7214d34c4c8b9167b7cc1}{readColorRaw}}(uint16\_t\ \&r,\ uint16\_t\ \&g,\ uint16\_t\ \&b,\ uint16\_t\ \&c)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00051}00051\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a45c0f204e407e3ec89083b79cb38c8f9}{tcs}}.getRawData(\&r,\ \&g,\ \&b,\ \&c);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00063}\doxymbox{\hyperlink{_color_sensor_8ino_ac618e3f9b7d0c8ee2af5d5c7b890609e}{00063}}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8e}{DetectedColor}}\ \doxymbox{\hyperlink{_color_sensor_8ino_ac618e3f9b7d0c8ee2af5d5c7b890609e}{categorizeColor}}(uint16\_t\ r,\ uint16\_t\ g,\ uint16\_t\ b,\ uint16\_t\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ <\ 200)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ >\ 45000)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{COLOR\_WHITE}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{float}\ rn\ =\ (float)r\ /\ c;}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{float}\ gn\ =\ (float)g\ /\ c;}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{float}\ bn\ =\ (float)b\ /\ c;}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minDiff\ =\ 0.05;}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minRatio\ =\ 1.25;}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (rn\ >\ gn\ *\ minRatio\ \&\&\ rn\ >\ bn\ *\ minRatio\ \&\&}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00080}00080\ \ \ \ \ \ \ \ \ (rn\ -\/\ gn)\ >\ minDiff\ \&\&\ (rn\ -\/\ bn)\ >\ minDiff)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950}{COLOR\_RED}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (gn\ >\ rn\ *\ minRatio\ \&\&\ gn\ >\ bn\ *\ minRatio\ \&\&}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00085}00085\ \ \ \ \ \ \ \ \ (gn\ -\/\ rn)\ >\ minDiff\ \&\&\ (gn\ -\/\ bn)\ >\ minDiff)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02}{COLOR\_GREEN}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (bn\ >\ rn\ *\ minRatio\ \&\&\ bn\ >\ gn\ *\ minRatio\ \&\&}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00090}00090\ \ \ \ \ \ \ \ \ (bn\ -\/\ rn)\ >\ minDiff\ \&\&\ (bn\ -\/\ gn)\ >\ minDiff)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696}{COLOR\_BLUE}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00}{COLOR\_UNCERTAIN}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00103}\doxymbox{\hyperlink{_color_sensor_8ino_ab6c76577f952028284cc6ed3bfc5b839}{00103}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{_color_sensor_8ino_ab6c76577f952028284cc6ed3bfc5b839}{colorToString}}(\doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8e}{DetectedColor}}\ color)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{switch}\ (color)\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950}{COLOR\_RED}}:\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RED"{}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02}{COLOR\_GREEN}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GREEN"{}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696}{COLOR\_BLUE}}:\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLUE"{}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLACK"{}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{COLOR\_WHITE}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}WHITE"{}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNCERTAIN"{}};}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00117}\doxymbox{\hyperlink{_color_sensor_8ino_a08d2a41c46a5ad4c7cfc9207f55f555a}{00117}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_color_sensor_8ino_a08d2a41c46a5ad4c7cfc9207f55f555a}{detectAndPrintColor}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00118}00118\ \ \ \ \ uint16\_t\ r,\ g,\ b,\ c;}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00119}00119\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a26bff309cee7214d34c4c8b9167b7cc1}{readColorRaw}}(r,\ g,\ b,\ c);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00121}00121\ \ \ \ \ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8e}{DetectedColor}}\ color\ =\ \doxymbox{\hyperlink{_color_sensor_8ino_ac618e3f9b7d0c8ee2af5d5c7b890609e}{categorizeColor}}(r,\ g,\ b,\ c);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00123}00123\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}R:\ "{}});\ Serial.print(r);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00124}00124\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ G:\ "{}});\ Serial.print(g);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00125}00125\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ B:\ "{}});\ Serial.print(b);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00126}00126\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ C:\ "{}});\ Serial.print(c);}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00127}00127\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ -\/>\ Detected:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00128}00128\ \ \ \ \ Serial.println(\doxymbox{\hyperlink{_color_sensor_8ino_ab6c76577f952028284cc6ed3bfc5b839}{colorToString}}(color));}
+\DoxyCodeLine{\Hypertarget{_color_sensor_8ino_source_l00129}00129\ \}}
+
+\end{DoxyCode}
