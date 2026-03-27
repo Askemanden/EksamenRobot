@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-  const int trans_pin = 5; //Trig
+const int trans_pin = 5; //Trig
 const int recv_pin = 7; //Echo
-=======
 /**
  * @file UltralydDist.ino
  * @brief Ultrasonic distance measurement using trigger/echo pins.
  */
->>>>>>> c3166c707212d895821d9c4a88f1a387fcdaf003
 
 /**
  * @brief Pin used to trigger the ultrasonic transmitter.
@@ -57,7 +54,7 @@ double getDistanceCM() {
 
     return distance_cm;
 }
-<<<<<<< HEAD
+
 
 void loop() {
   double distance = getDistanceCM();
@@ -71,5 +68,4 @@ void loop() {
   
   delay(200);
 }
-=======
->>>>>>> c3166c707212d895821d9c4a88f1a387fcdaf003
+
