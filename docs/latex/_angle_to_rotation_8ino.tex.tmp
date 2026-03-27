@@ -1,0 +1,458 @@
+\doxysection{Angle\+To\+Rotation.\+ino File Reference}
+\hypertarget{_angle_to_rotation_8ino}{}\label{_angle_to_rotation_8ino}\index{AngleToRotation.ino@{AngleToRotation.ino}}
+{\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for Angle\+To\+Rotation.\+ino:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}{encoder\+ISR}} ()
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{turn}} (bool cw, int speed)
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\+\_\+motor}} ()
+\item 
+long \doxymbox{\hyperlink{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f}{degrees\+\_\+to\+\_\+counts}} (double degrees)
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{rotate\+Degrees}} (double degrees)
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\+\_\+motor\+\_\+update}} ()
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\+\_\+\+TO\+\_\+\+TURN}} = 90.\+0
+\item 
+const double \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\+\_\+\+RATIO}} = 102.\+083
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}} = 9
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}} = 10
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}} = 3
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}} = 2
+\item 
+const long \doxymbox{\hyperlink{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}{COUNTS\+\_\+\+PER\+\_\+\+REV}} = 16 \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\+\_\+\+RATIO}}
+\item 
+const int \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}} = 5
+\item 
+const double \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{Kp}} = 0.\+5
+\item 
+const double \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{Ki}} = 0.\+0
+\item 
+const double \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{Kd}} = 100.\+0
+\item 
+const int \doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{MIN\+\_\+\+SPEED}} = 40
+\item 
+const int \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\+\_\+\+SPEED}} = 180
+\item 
+volatile long \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\+\_\+position}} = 0
+\item 
+long \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\+\_\+position}} = 0
+\item 
+bool \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}} = false
+\item 
+double \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}} = 0
+\item 
+long \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\+\_\+error}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_angle_to_rotation_8ino_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}\index{AngleToRotation.ino@{AngleToRotation.ino}!dc\_motor\_update@{dc\_motor\_update}}
+\index{dc\_motor\_update@{dc\_motor\_update}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{dc\_motor\_update()}{dc\_motor\_update()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8} 
+void dc\+\_\+motor\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00068}{68}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{long}\ error\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{if}\ (abs(error)\ <=\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}})\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +=\ error;}
+\DoxyCodeLine{00080\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ \ =\ constrain(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}},\ -\/1000,\ 1000);}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{double}\ derivative\ =\ error\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}};}
+\DoxyCodeLine{00082\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ error;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{double}\ output\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{Kp}}\ *\ error\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{Ki}}\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{Kd}}\ *\ derivative;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{int}\ speed\ =\ (int)abs(output);}
+\DoxyCodeLine{00087\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{turn}}(output\ >\ 0,\ speed);}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 1
+Here is the caller graph for this function:\+
+% FIG 2
+\Hypertarget{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f}\index{AngleToRotation.ino@{AngleToRotation.ino}!degrees\_to\_counts@{degrees\_to\_counts}}
+\index{degrees\_to\_counts@{degrees\_to\_counts}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{degrees\_to\_counts()}{degrees\_to\_counts()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f} 
+long degrees\+\_\+to\+\_\+counts (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00057}{57}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{long})(degrees\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}{COUNTS\_PER\_REV}}\ /\ 360.0);}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 3
+\Hypertarget{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}\index{AngleToRotation.ino@{AngleToRotation.ino}!encoderISR@{encoderISR}}
+\index{encoderISR@{encoderISR}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{encoderISR()}{encoderISR()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a} 
+void encoder\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00023}{23}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordflow}{if}\ (digitalRead(\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}})\ ==\ HIGH)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}++;}
+\DoxyCodeLine{00026\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}-\/-\/;}
+\DoxyCodeLine{00028\ \ \ \}}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 4
+\Hypertarget{_angle_to_rotation_8ino_afe461d27b9c48d5921c00d521181f12f}\index{AngleToRotation.ino@{AngleToRotation.ino}!loop@{loop}}
+\index{loop@{loop}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00105}{105}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}();}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 5
+\Hypertarget{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}\index{AngleToRotation.ino@{AngleToRotation.ino}!rotateDegrees@{rotateDegrees}}
+\index{rotateDegrees@{rotateDegrees}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{rotateDegrees()}{rotateDegrees()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674} 
+void rotate\+Degrees (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00061}{61}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f}{degrees\_to\_counts}}(degrees);}
+\DoxyCodeLine{00063\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 6
+Here is the caller graph for this function:\+
+% FIG 7
+\Hypertarget{_angle_to_rotation_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{AngleToRotation.ino@{AngleToRotation.ino}!setup@{setup}}
+\index{setup@{setup}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00090}{90}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ Serial.begin(9600);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ OUTPUT);}
+\DoxyCodeLine{00094\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ OUTPUT);}
+\DoxyCodeLine{00095\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}},\ INPUT\_PULLUP);}
+\DoxyCodeLine{00096\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}},\ INPUT\_PULLUP);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ attachInterrupt(digitalPinToInterrupt(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}}),\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}{encoderISR}},\ RISING);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
+\DoxyCodeLine{00101\ \ \ delay(500);}
+\DoxyCodeLine{00102\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{rotateDegrees}}(\doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\_TO\_TURN}});}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 8
+\Hypertarget{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}\index{AngleToRotation.ino@{AngleToRotation.ino}!stop\_motor@{stop\_motor}}
+\index{stop\_motor@{stop\_motor}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{stop\_motor()}{stop\_motor()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989} 
+void stop\+\_\+motor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00047}{47}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 255);}
+\DoxyCodeLine{00049\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 255);}
+\DoxyCodeLine{00050\ \ \ delay(30);}
+\DoxyCodeLine{00051\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
+\DoxyCodeLine{00052\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 0);}
+\DoxyCodeLine{00053\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 9
+\Hypertarget{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}\index{AngleToRotation.ino@{AngleToRotation.ino}!turn@{turn}}
+\index{turn@{turn}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{turn()}{turn()}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700} 
+void turn (\begin{DoxyParamCaption}\item[{bool}]{cw}{, }\item[{int}]{speed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00036}{36}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ speed\ =\ constrain(speed,\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{MIN\_SPEED}},\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\_SPEED}});}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (cw)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ speed);}
+\DoxyCodeLine{00040\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 0);}
+\DoxyCodeLine{00041\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
+\DoxyCodeLine{00043\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ speed);}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 10
+
+
+\label{doc-var-members}
+\Hypertarget{_angle_to_rotation_8ino_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}\index{AngleToRotation.ino@{AngleToRotation.ino}!COUNTS\_PER\_REV@{COUNTS\_PER\_REV}}
+\index{COUNTS\_PER\_REV@{COUNTS\_PER\_REV}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{COUNTS\_PER\_REV}{COUNTS\_PER\_REV}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df} 
+const long COUNTS\+\_\+\+PER\+\_\+\+REV = 16 \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\+\_\+\+RATIO}}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00011}{11}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}\index{AngleToRotation.ino@{AngleToRotation.ino}!current\_position@{current\_position}}
+\index{current\_position@{current\_position}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{current\_position}{current\_position}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5} 
+volatile long current\+\_\+position = 0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00021}{21}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}\index{AngleToRotation.ino@{AngleToRotation.ino}!DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}}
+\index{DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{DEGREES\_TO\_TURN}{DEGREES\_TO\_TURN}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1} 
+const double DEGREES\+\_\+\+TO\+\_\+\+TURN = 90.\+0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00003}{3}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}\index{AngleToRotation.ino@{AngleToRotation.ino}!encoder1@{encoder1}}
+\index{encoder1@{encoder1}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{encoder1}{encoder1}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb} 
+const uint8\+\_\+t encoder1 = 3}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00008}{8}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}\index{AngleToRotation.ino@{AngleToRotation.ino}!encoder2@{encoder2}}
+\index{encoder2@{encoder2}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{encoder2}{encoder2}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401} 
+const uint8\+\_\+t encoder2 = 2}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00009}{9}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}\index{AngleToRotation.ino@{AngleToRotation.ino}!finished@{finished}}
+\index{finished@{finished}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce} 
+bool finished = false}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00032}{32}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}\index{AngleToRotation.ino@{AngleToRotation.ino}!GEAR\_RATIO@{GEAR\_RATIO}}
+\index{GEAR\_RATIO@{GEAR\_RATIO}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{GEAR\_RATIO}{GEAR\_RATIO}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82} 
+const double GEAR\+\_\+\+RATIO = 102.\+083}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00004}{4}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}\index{AngleToRotation.ino@{AngleToRotation.ino}!IN1@{IN1}}
+\index{IN1@{IN1}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{IN1}{IN1}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390} 
+const uint8\+\_\+t IN1 = 9}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00006}{6}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}\index{AngleToRotation.ino@{AngleToRotation.ino}!IN2@{IN2}}
+\index{IN2@{IN2}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{IN2}{IN2}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8} 
+const uint8\+\_\+t IN2 = 10}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00007}{7}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}\index{AngleToRotation.ino@{AngleToRotation.ino}!integral@{integral}}
+\index{integral@{integral}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{integral}{integral}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c} 
+double integral = 0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00033}{33}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}\index{AngleToRotation.ino@{AngleToRotation.ino}!Kd@{Kd}}
+\index{Kd@{Kd}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{Kd}{Kd}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd} 
+const double Kd = 100.\+0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00016}{16}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}\index{AngleToRotation.ino@{AngleToRotation.ino}!Ki@{Ki}}
+\index{Ki@{Ki}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{Ki}{Ki}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087} 
+const double Ki = 0.\+0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00015}{15}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}\index{AngleToRotation.ino@{AngleToRotation.ino}!Kp@{Kp}}
+\index{Kp@{Kp}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{Kp}{Kp}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181} 
+const double Kp = 0.\+5}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00014}{14}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}\index{AngleToRotation.ino@{AngleToRotation.ino}!last\_error@{last\_error}}
+\index{last\_error@{last\_error}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{last\_error}{last\_error}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af} 
+long last\+\_\+error = 0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00034}{34}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}\index{AngleToRotation.ino@{AngleToRotation.ino}!MAX\_SPEED@{MAX\_SPEED}}
+\index{MAX\_SPEED@{MAX\_SPEED}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{MAX\_SPEED}{MAX\_SPEED}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc} 
+const int MAX\+\_\+\+SPEED = 180}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00019}{19}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}\index{AngleToRotation.ino@{AngleToRotation.ino}!MIN\_SPEED@{MIN\_SPEED}}
+\index{MIN\_SPEED@{MIN\_SPEED}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{MIN\_SPEED}{MIN\_SPEED}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519} 
+const int MIN\+\_\+\+SPEED = 40}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00018}{18}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}\index{AngleToRotation.ino@{AngleToRotation.ino}!target\_position@{target\_position}}
+\index{target\_position@{target\_position}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{target\_position}{target\_position}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91} 
+long target\+\_\+position = 0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00031}{31}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+
+\Hypertarget{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}\index{AngleToRotation.ino@{AngleToRotation.ino}!threshold@{threshold}}
+\index{threshold@{threshold}!AngleToRotation.ino@{AngleToRotation.ino}}
+\doxysubsubsection{\texorpdfstring{threshold}{threshold}}
+{\footnotesize\ttfamily \label{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06} 
+const int threshold = 5}
+
+
+
+Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00012}{12}} of file \doxymbox{\hyperlink{_angle_to_rotation_8ino_source}{Angle\+To\+Rotation.\+ino}}.
+

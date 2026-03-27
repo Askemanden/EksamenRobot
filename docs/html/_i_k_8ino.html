@@ -107,27 +107,47 @@ Macros</h2></td></tr>
 <tr class="memdesc:ab983f03862f557a786ccc43b26522e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">$L_2$  <br /></td></tr>
 <tr class="memitem:a7771a73a8014204aeeecaaf58527b670" id="r_a7771a73a8014204aeeecaaf58527b670"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7771a73a8014204aeeecaaf58527b670">L3</a>&#160;&#160;&#160;(10);</td></tr>
 <tr class="memdesc:a7771a73a8014204aeeecaaf58527b670"><td class="mdescLeft">&#160;</td><td class="mdescRight">$L_3$  <br /></td></tr>
+<tr class="memitem:a6176466626e15053271fac0d36e7e36b" id="r_a6176466626e15053271fac0d36e7e36b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a>&#160;&#160;&#160;(1);</td></tr>
+<tr class="memitem:aa09c5511d44d7d29fcb5c8236ab9b77e" id="r_aa09c5511d44d7d29fcb5c8236ab9b77e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa09c5511d44d7d29fcb5c8236ab9b77e">GRAB_HEIGHT</a>&#160;&#160;&#160;(3);</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:acd420a59a2a5aef479b4a913c1555dea" id="r_acd420a59a2a5aef479b4a913c1555dea"><td class="memItemLeft"><a class="el" href="struct_vector2.html">Vector2</a>&#160;</td><td class="memItemRight"><a class="el" href="#acd420a59a2a5aef479b4a913c1555dea">vectorAdd</a> (<a class="el" href="struct_vector2.html">Vector2</a> self, <a class="el" href="struct_vector2.html">Vector2</a> other)</td></tr>
 <tr class="memitem:a3e56209d824a0b6f9c6d41c6f747a436" id="r_a3e56209d824a0b6f9c6d41c6f747a436"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3e56209d824a0b6f9c6d41c6f747a436">calculateBaseAngle</a> (<a class="el" href="struct_arm.html">Arm</a> *self, double sensor_position_distance, double sensor_reading_distance, double sensor_angle_rad)</td></tr>
 <tr class="memdesc:a3e56209d824a0b6f9c6d41c6f747a436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates base_angle and writes it to self.  <br /></td></tr>
-<tr class="memitem:a300d9e3d17bbf51f5bd4077732e399a0" id="r_a300d9e3d17bbf51f5bd4077732e399a0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a300d9e3d17bbf51f5bd4077732e399a0">calculateNextTargetUV</a> (<a class="el" href="struct_arm.html">Arm</a> *self, <a class="el" href="struct_vector2.html">Vector2</a> final_targetUV)</td></tr>
-<tr class="memdesc:a300d9e3d17bbf51f5bd4077732e399a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the next UV coordinate in the path of self and writes to self on targetUV.  <br /></td></tr>
-<tr class="memitem:a5f460c2c67cf4f2cdcc7f90b150a0593" id="r_a5f460c2c67cf4f2cdcc7f90b150a0593"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a5f460c2c67cf4f2cdcc7f90b150a0593">calculateArmAngles</a> (<a class="el" href="struct_arm.html">Arm</a> *self, <a class="el" href="struct_vector2.html">Vector2</a> final_targetUV)</td></tr>
-<tr class="memdesc:a5f460c2c67cf4f2cdcc7f90b150a0593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the angles ($\theta_1 \, \theta_2 \, \theta_3$) of self and write to self.  <br /></td></tr>
+<tr class="memitem:a2f915f5edd8058b087973fa18b1c2fce" id="r_a2f915f5edd8058b087973fa18b1c2fce"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a2f915f5edd8058b087973fa18b1c2fce">calculateNextTargetUV</a> (<a class="el" href="struct_arm.html">Arm</a> *self)</td></tr>
+<tr class="memdesc:a2f915f5edd8058b087973fa18b1c2fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the next UV coordinate in the path of self and writes to self on targetUV.  <br /></td></tr>
+<tr class="memitem:a958ed0c716782aaad74d8a9e59ffd554" id="r_a958ed0c716782aaad74d8a9e59ffd554"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a958ed0c716782aaad74d8a9e59ffd554">calculateArmAngles</a> (<a class="el" href="struct_arm.html">Arm</a> *self)</td></tr>
+<tr class="memdesc:a958ed0c716782aaad74d8a9e59ffd554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the angles ($\theta_1 \, \theta_2 \, \theta_3$) of self and write to self.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aed08c8478a62910aab06ba708a0e5b5f" id="r_aed08c8478a62910aab06ba708a0e5b5f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aed08c8478a62910aab06ba708a0e5b5f">u</a></td></tr>
 <tr class="memitem:a3b90d5a73541ab9402511d87bed076ef" id="r_a3b90d5a73541ab9402511d87bed076ef"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3b90d5a73541ab9402511d87bed076ef">v</a></td></tr>
-<tr class="memitem:a2cf96fa7be4da51b322bb84a54d95f79" id="r_a2cf96fa7be4da51b322bb84a54d95f79"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2cf96fa7be4da51b322bb84a54d95f79">theta1</a></td></tr>
+<tr class="memitem:aa27143df48106ad0eb6a0c5f44c34447" id="r_aa27143df48106ad0eb6a0c5f44c34447"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a></td></tr>
+<tr class="memitem:a068139926647d9667ce322b19aa6ef3d" id="r_a068139926647d9667ce322b19aa6ef3d"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a068139926647d9667ce322b19aa6ef3d">theta1</a></td></tr>
 <tr class="memitem:a9e69d3405be2f92e5c51252adb09d25d" id="r_a9e69d3405be2f92e5c51252adb09d25d"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a9e69d3405be2f92e5c51252adb09d25d">theta2</a></td></tr>
 <tr class="memitem:a3e9893485a25687993de73b8533251ad" id="r_a3e9893485a25687993de73b8533251ad"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3e9893485a25687993de73b8533251ad">theta3</a></td></tr>
 <tr class="memitem:afc4bae0faf547d571869266caa6f63ba" id="r_afc4bae0faf547d571869266caa6f63ba"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#afc4bae0faf547d571869266caa6f63ba">base_angle</a></td></tr>
 <tr class="memitem:af90ee9a299c5dcd7135b53cb5e55cdde" id="r_af90ee9a299c5dcd7135b53cb5e55cdde"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#af90ee9a299c5dcd7135b53cb5e55cdde">targetUV</a></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="aa09c5511d44d7d29fcb5c8236ab9b77e" name="aa09c5511d44d7d29fcb5c8236ab9b77e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa09c5511d44d7d29fcb5c8236ab9b77e">&#9670;&#160;</a></span>GRAB_HEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GRAB_HEIGHT&#160;&#160;&#160;(3);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00018">18</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+
+</div>
+</div>
 <a id="a1ce864b284ac751ffd8a0d98d5ccab55" name="a1ce864b284ac751ffd8a0d98d5ccab55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ce864b284ac751ffd8a0d98d5ccab55">&#9670;&#160;</a></span>L1</h2>
 
@@ -182,9 +202,25 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a6176466626e15053271fac0d36e7e36b" name="a6176466626e15053271fac0d36e7e36b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6176466626e15053271fac0d36e7e36b">&#9670;&#160;</a></span>STEP_DIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STEP_DIST&#160;&#160;&#160;(1);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00016">16</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a5f460c2c67cf4f2cdcc7f90b150a0593" name="a5f460c2c67cf4f2cdcc7f90b150a0593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f460c2c67cf4f2cdcc7f90b150a0593">&#9670;&#160;</a></span>calculateArmAngles()</h2>
+<a id="a958ed0c716782aaad74d8a9e59ffd554" name="a958ed0c716782aaad74d8a9e59ffd554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a958ed0c716782aaad74d8a9e59ffd554">&#9670;&#160;</a></span>calculateArmAngles()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,12 +228,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int calculateArmAngles </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_arm.html">Arm</a> *</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="struct_arm.html">Arm</a> *</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_vector2.html">Vector2</a></td>          <td class="paramname"><span class="paramname"><em>final_targetUV</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -206,34 +238,28 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">self</td><td>The arm to which to write. </td></tr>
-    <tr><td class="paramname">final_targetUV</td><td>The final UV coordinates which the arm should reach and based on which the path is calculated. Passed to <span class="tt">calculalteNextTargetUV</span> to get coordinates for next position </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00078">78</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   78</span>                                                          {</div>
-<div class="line"><span class="lineno">   79</span>  <a class="code hl_function" href="#a300d9e3d17bbf51f5bd4077732e399a0">calculateNextTargetUV</a>(self, final_targetUV);</div>
-<div class="line"><span class="lineno">   80</span>  <a class="code hl_struct" href="struct_vector2.html">Vector2</a> target = self-&gt;targetUV;</div>
-<div class="line"><span class="lineno">   81</span>  self-&gt;theta2 = acos((sq(target.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a>)+sq(target.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a>)-sq(<a class="code hl_define" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a>)-sq(<a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a>))/(2*<a class="code hl_define" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a>*<a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a>));</div>
-<div class="line"><span class="lineno">   82</span>  <span class="keywordtype">double</span> k1 = <a class="code hl_define" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a>+<a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a>*cos(self-&gt;theta2);</div>
-<div class="line"><span class="lineno">   83</span>  <span class="keywordtype">double</span> k2 = <a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a>*sin(self-&gt;theta2);</div>
-<div class="line"><span class="lineno">   84</span>  self-&gt;theta1 = atan2(target.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a>,target.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a>) - atan2(k2,k1);</div>
-<div class="line"><span class="lineno">   85</span>  self-&gt;theta3 = 2*PI-self-&gt;theta1 - self-&gt;theta2 - PI/2;</div>
-<div class="line"><span class="lineno">   86</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   87</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00112">112</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>                                  {</div>
+<div class="line"><span class="lineno">  113</span>  <a class="code hl_struct" href="struct_vector2.html">Vector2</a> <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a> = self-&gt;final_targetUV;</div>
+<div class="line"><span class="lineno">  114</span>  <a class="code hl_struct" href="struct_vector2.html">Vector2</a> target = self-&gt;targetUV;</div>
+<div class="line"><span class="lineno">  115</span>  self-&gt;theta2 = acos((sq(target.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a>) + sq(target.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a>) - sq(<a class="code hl_define" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a>) - sq(<a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a>)) / (2 * <a class="code hl_define" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a> * <a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a>));</div>
+<div class="line"><span class="lineno">  116</span>  <span class="keywordtype">double</span> k1 = <a class="code hl_define" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a> + <a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a> * cos(self-&gt;theta2);</div>
+<div class="line"><span class="lineno">  117</span>  <span class="keywordtype">double</span> k2 = <a class="code hl_define" href="#ab983f03862f557a786ccc43b26522e16">L2</a> * sin(self-&gt;theta2);</div>
+<div class="line"><span class="lineno">  118</span>  self-&gt;theta1 = atan2(target.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a>, target.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a>) - atan2(k2, k1);</div>
+<div class="line"><span class="lineno">  119</span>  self-&gt;theta3 = 2 * PI - self-&gt;theta1 - self-&gt;theta2 - PI / 2;</div>
+<div class="line"><span class="lineno">  120</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  121</span>}</div>
 <div class="ttc" id="a_i_k_8ino_html_a1ce864b284ac751ffd8a0d98d5ccab55"><div class="ttname"><a href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a></div><div class="ttdeci">#define L1</div><div class="ttdoc">$L_1$</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00004">IK.ino:4</a></div></div>
-<div class="ttc" id="a_i_k_8ino_html_a300d9e3d17bbf51f5bd4077732e399a0"><div class="ttname"><a href="#a300d9e3d17bbf51f5bd4077732e399a0">calculateNextTargetUV</a></div><div class="ttdeci">int calculateNextTargetUV(Arm *self, Vector2 final_targetUV)</div><div class="ttdoc">Finds the next UV coordinate in the path of self and writes to self on targetUV.</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00068">IK.ino:68</a></div></div>
+<div class="ttc" id="a_i_k_8ino_html_aa27143df48106ad0eb6a0c5f44c34447"><div class="ttname"><a href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a></div><div class="ttdeci">final_targetUV</div></div>
 <div class="ttc" id="a_i_k_8ino_html_ab983f03862f557a786ccc43b26522e16"><div class="ttname"><a href="#ab983f03862f557a786ccc43b26522e16">L2</a></div><div class="ttdeci">#define L2</div><div class="ttdoc">$L_2$</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00009">IK.ino:9</a></div></div>
-<div class="ttc" id="astruct_vector2_html"><div class="ttname"><a href="struct_vector2.html">Vector2</a></div><div class="ttdoc">A 2d vector in the uv plane of the arm.</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00017">IK.ino:17</a></div></div>
-<div class="ttc" id="astruct_vector2_html_a1dd2c4439c9da375f8b6cfc3bbf048f4"><div class="ttname"><a href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">Vector2::v</a></div><div class="ttdeci">double v</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00019">IK.ino:19</a></div></div>
-<div class="ttc" id="astruct_vector2_html_a5fe6a3687078f9ea3d9c8d830880006e"><div class="ttname"><a href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">Vector2::u</a></div><div class="ttdeci">double u</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00018">IK.ino:18</a></div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_i_k_8ino_a5f460c2c67cf4f2cdcc7f90b150a0593_cgraph.png" border="0" usemap="#a_i_k_8ino_a5f460c2c67cf4f2cdcc7f90b150a0593_cgraph" loading="lazy" alt=""/></div>
-</div>
-
+<div class="ttc" id="astruct_vector2_html"><div class="ttname"><a href="struct_vector2.html">Vector2</a></div><div class="ttdoc">A 2d vector in the uv plane of the arm.</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00026">IK.ino:26</a></div></div>
+<div class="ttc" id="astruct_vector2_html_a1dd2c4439c9da375f8b6cfc3bbf048f4"><div class="ttname"><a href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">Vector2::v</a></div><div class="ttdeci">double v</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00028">IK.ino:28</a></div></div>
+<div class="ttc" id="astruct_vector2_html_a5fe6a3687078f9ea3d9c8d830880006e"><div class="ttname"><a href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">Vector2::u</a></div><div class="ttdeci">double u</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00027">IK.ino:27</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3e56209d824a0b6f9c6d41c6f747a436" name="a3e56209d824a0b6f9c6d41c6f747a436"></a>
@@ -276,20 +302,21 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00054">54</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>                                                                                                                            {</div>
-<div class="line"><span class="lineno">   55</span>  <span class="comment">/*$d_s*/</span></div>
-<div class="line"><span class="lineno">   56</span>  <span class="keywordtype">double</span> target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_distance_reading * cos(sensor_angle_rad));</div>
-<div class="line"><span class="lineno">   57</span>  <span class="keywordtype">double</span> sin_theta_O = sin(sensor_angle_rad) * sensor_distance_reading / target_distance;</div>
-<div class="line"><span class="lineno">   58</span>  <span class="keywordtype">double</span> cos_theta_O = (sq(target_distance) + sq(sensor_position_distance) - sq(sensor_reading_distance)) / (2 * target_distance * sensor_position_distance);</div>
-<div class="line"><span class="lineno">   59</span>  self-&gt;base_angle = atan2(sin_theta_O, cos_theta_O);</div>
-<div class="line"><span class="lineno">   60</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   61</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00062">62</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                                                                                                            {</div>
+<div class="line"><span class="lineno">   63</span>  <span class="comment">/*$d_s*/</span></div>
+<div class="line"><span class="lineno">   64</span>  <span class="keywordtype">double</span> target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_distance_reading * cos(sensor_angle_rad));</div>
+<div class="line"><span class="lineno">   65</span>  <span class="keywordtype">double</span> sin_theta_O = sin(sensor_angle_rad) * sensor_distance_reading / target_distance;</div>
+<div class="line"><span class="lineno">   66</span>  <span class="keywordtype">double</span> cos_theta_O = (sq(target_distance) + sq(sensor_position_distance) - sq(sensor_reading_distance)) / (2 * target_distance * sensor_position_distance);</div>
+<div class="line"><span class="lineno">   67</span>  self-&gt;base_angle = atan2(sin_theta_O, cos_theta_O);</div>
+<div class="line"><span class="lineno">   68</span>  self-&gt;final_targetUV = target_distance</div>
+<div class="line"><span class="lineno">   69</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   70</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a300d9e3d17bbf51f5bd4077732e399a0" name="a300d9e3d17bbf51f5bd4077732e399a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a300d9e3d17bbf51f5bd4077732e399a0">&#9670;&#160;</a></span>calculateNextTargetUV()</h2>
+<a id="a2f915f5edd8058b087973fa18b1c2fce" name="a2f915f5edd8058b087973fa18b1c2fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f915f5edd8058b087973fa18b1c2fce">&#9670;&#160;</a></span>calculateNextTargetUV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,12 +324,8 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int calculateNextTargetUV </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_arm.html">Arm</a> *</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="struct_arm.html">Arm</a> *</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_vector2.html">Vector2</a></td>          <td class="paramname"><span class="paramname"><em>final_targetUV</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -311,19 +334,79 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">self</td><td>The arm to which to write </td></tr>
-    <tr><td class="paramname">final_targetUV</td><td>The final coordinate of the path. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00068">68</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                             {</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00076">76</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   76</span>                                     {</div>
+<div class="line"><span class="lineno">   77</span>  <a class="code hl_struct" href="struct_vector2.html">Vector2</a> <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a> = self-&gt;final_targetUV;</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>  <a class="code hl_struct" href="struct_vector2.html">Vector2</a> previous_target = self-&gt;targetUV;</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>  <span class="keywordtype">double</span> safe_v = <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.v + <a class="code hl_define" href="#aa09c5511d44d7d29fcb5c8236ab9b77e">GRAB_HEIGHT</a>;</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>  <span class="keywordflow">if</span> (abs(previous_target.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a> - <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.u) &lt; 0.01) {</div>
+<div class="line"><span class="lineno">   84</span>    self-&gt;targetUV = <a class="code hl_function" href="#acd420a59a2a5aef479b4a913c1555dea">vectorAdd</a>(previous_target, (<a class="code hl_struct" href="struct_vector2.html">Vector2</a>){ .u = 0, .v = -<a class="code hl_define" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a> });</div>
+<div class="line"><span class="lineno">   85</span>  }</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (previous_target.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a> &lt; safe_v) {</div>
+<div class="line"><span class="lineno">   88</span>    self-&gt;targetUV = <a class="code hl_function" href="#acd420a59a2a5aef479b4a913c1555dea">vectorAdd</a>(previous_target, (<a class="code hl_struct" href="struct_vector2.html">Vector2</a>){ .u = 0, .v = <a class="code hl_define" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a> });</div>
+<div class="line"><span class="lineno">   89</span>  }</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (previous_target.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a> &lt; <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.u) {</div>
+<div class="line"><span class="lineno">   92</span>    self-&gt;targetUV = <a class="code hl_function" href="#acd420a59a2a5aef479b4a913c1555dea">vectorAdd</a>(previous_target, (<a class="code hl_struct" href="struct_vector2.html">Vector2</a>){ .u = <a class="code hl_define" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a>, .v = 0 });</div>
+<div class="line"><span class="lineno">   93</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   94</span>    self-&gt;targetUV = <a class="code hl_function" href="#acd420a59a2a5aef479b4a913c1555dea">vectorAdd</a>(previous_target, (<a class="code hl_struct" href="struct_vector2.html">Vector2</a>){ .u = -<a class="code hl_define" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a>, .v = 0 });</div>
+<div class="line"><span class="lineno">   95</span>  }</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>  <span class="keywordflow">if</span> (abs(self-&gt;targetUV.u - <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.u) &lt; <a class="code hl_define" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a>) {</div>
+<div class="line"><span class="lineno">   98</span>    self-&gt;targetUV.u = <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.u;</div>
+<div class="line"><span class="lineno">   99</span>  }</div>
+<div class="line"><span class="lineno">  100</span>  <span class="keywordflow">if</span> (abs(self-&gt;targetUV.v - <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.v) &lt; <a class="code hl_define" href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a>) {</div>
+<div class="line"><span class="lineno">  101</span>    self-&gt;targetUV.v = <a class="code hl_variable" href="#aa27143df48106ad0eb6a0c5f44c34447">final_targetUV</a>.v;</div>
+<div class="line"><span class="lineno">  102</span>  }</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  105</span>}</div>
+<div class="ttc" id="a_i_k_8ino_html_a6176466626e15053271fac0d36e7e36b"><div class="ttname"><a href="#a6176466626e15053271fac0d36e7e36b">STEP_DIST</a></div><div class="ttdeci">#define STEP_DIST</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00016">IK.ino:16</a></div></div>
+<div class="ttc" id="a_i_k_8ino_html_aa09c5511d44d7d29fcb5c8236ab9b77e"><div class="ttname"><a href="#aa09c5511d44d7d29fcb5c8236ab9b77e">GRAB_HEIGHT</a></div><div class="ttdeci">#define GRAB_HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00018">IK.ino:18</a></div></div>
+<div class="ttc" id="a_i_k_8ino_html_acd420a59a2a5aef479b4a913c1555dea"><div class="ttname"><a href="#acd420a59a2a5aef479b4a913c1555dea">vectorAdd</a></div><div class="ttdeci">Vector2 vectorAdd(Vector2 self, Vector2 other)</div><div class="ttdef"><b>Definition</b> <a href="_i_k_8ino_source.html#l00051">IK.ino:51</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_i_k_8ino_a2f915f5edd8058b087973fa18b1c2fce_cgraph.png" border="0" usemap="#a_i_k_8ino_a2f915f5edd8058b087973fa18b1c2fce_cgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="acd420a59a2a5aef479b4a913c1555dea" name="acd420a59a2a5aef479b4a913c1555dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd420a59a2a5aef479b4a913c1555dea">&#9670;&#160;</a></span>vectorAdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_vector2.html">Vector2</a> vectorAdd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_vector2.html">Vector2</a></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_vector2.html">Vector2</a></td>          <td class="paramname"><span class="paramname"><em>other</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00051">51</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                       {</div>
+<div class="line"><span class="lineno">   52</span>  <span class="keywordflow">return</span> { .u = self.<a class="code hl_variable" href="struct_vector2.html#a5fe6a3687078f9ea3d9c8d830880006e">u</a> + other.y, .<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a> = self.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a> + other.<a class="code hl_variable" href="struct_vector2.html#a1dd2c4439c9da375f8b6cfc3bbf048f4">v</a> };</div>
+<div class="line"><span class="lineno">   53</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_i_k_8ino_a300d9e3d17bbf51f5bd4077732e399a0_icgraph.png" border="0" usemap="#a_i_k_8ino_a300d9e3d17bbf51f5bd4077732e399a0_icgraph" loading="lazy" alt=""/></div>
+<div class="center"><img src="_i_k_8ino_acd420a59a2a5aef479b4a913c1555dea_icgraph.png" border="0" usemap="#a_i_k_8ino_acd420a59a2a5aef479b4a913c1555dea_icgraph" loading="lazy" alt=""/></div>
 </div>
 
 </div>
@@ -341,7 +424,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00033">33</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00046">46</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+
+</div>
+</div>
+<a id="aa27143df48106ad0eb6a0c5f44c34447" name="aa27143df48106ad0eb6a0c5f44c34447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27143df48106ad0eb6a0c5f44c34447">&#9670;&#160;</a></span>final_targetUV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">final_targetUV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -357,21 +454,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00034">34</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00047">47</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
 
 </div>
 </div>
-<a id="a2cf96fa7be4da51b322bb84a54d95f79" name="a2cf96fa7be4da51b322bb84a54d95f79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cf96fa7be4da51b322bb84a54d95f79">&#9670;&#160;</a></span>theta1</h2>
+<a id="a068139926647d9667ce322b19aa6ef3d" name="a068139926647d9667ce322b19aa6ef3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a068139926647d9667ce322b19aa6ef3d">&#9670;&#160;</a></span>theta1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">theta1</td>
+          <td class="memname">double theta1</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00043">43</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
 
 </div>
 </div>
@@ -387,7 +486,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00031">31</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00044">44</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
 
 </div>
 </div>
@@ -403,7 +502,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00032">32</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00045">45</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
 
 </div>
 </div>
@@ -419,7 +518,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00018">18</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00027">27</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
 
 </div>
 </div>
@@ -435,7 +534,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00019">19</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_k_8ino_source.html#l00028">28</a> of file <a class="el" href="_i_k_8ino_source.html">IK.ino</a>.</p>
 
 </div>
 </div>

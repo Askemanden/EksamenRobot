@@ -1,0 +1,113 @@
+\doxysection{Angle\+To\+Rotation.\+ino}
+\hypertarget{_angle_to_rotation_8ino_source}{}\label{_angle_to_rotation_8ino_source}\index{AngleToRotation.ino@{AngleToRotation.ino}}
+\doxymbox{\hyperlink{_angle_to_rotation_8ino}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00003}\doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{00003}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\_TO\_TURN}}\ =\ 90.0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00004}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}{00004}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\_RATIO}}\ =\ 102.083;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00006}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{00006}}\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}}\ =\ 9;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00007}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{00007}}\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}}\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00008}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{00008}}\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}}\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00009}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{00009}}\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}}\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00011}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}{00011}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}{COUNTS\_PER\_REV}}\ =\ 16\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\_RATIO}};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00012}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{00012}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}}\ \ \ \ \ \ =\ 5;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00014}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{00014}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{Kp}}\ =\ 0.5;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00015}\doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{00015}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{Ki}}\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00016}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{00016}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{Kd}}\ =\ 100.0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00018}\doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{00018}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{MIN\_SPEED}}\ =\ 40;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00019}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{00019}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\_SPEED}}\ =\ 180;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00021}\doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{00021}}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00023}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}{00023}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}{encoderISR}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00024}00024\ \ \ \textcolor{keywordflow}{if}\ (digitalRead(\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}})\ ==\ HIGH)\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00025}00025\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}++;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00026}00026\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00027}00027\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00028}00028\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00031}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{00031}}\ \textcolor{keywordtype}{long}\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00032}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{00032}}\ \textcolor{keywordtype}{bool}\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00033}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{00033}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00034}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{00034}}\ \textcolor{keywordtype}{long}\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00036}\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{00036}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{turn}}(\textcolor{keywordtype}{bool}\ cw,\ \textcolor{keywordtype}{int}\ speed)\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00037}00037\ \ \ speed\ =\ constrain(speed,\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{MIN\_SPEED}},\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\_SPEED}});}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00038}00038\ \ \ \textcolor{keywordflow}{if}\ (cw)\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00039}00039\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ speed);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00040}00040\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00041}00041\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00042}00042\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00043}00043\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ speed);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00044}00044\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00047}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{00047}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00048}00048\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 255);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00049}00049\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 255);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00050}00050\ \ \ delay(30);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00051}00051\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00052}00052\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00053}00053\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00054}00054\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00057}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f}{00057}}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f}{degrees\_to\_counts}}(\textcolor{keywordtype}{double}\ degrees)\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{long})(degrees\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}{COUNTS\_PER\_REV}}\ /\ 360.0);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00061}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{00061}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{rotateDegrees}}(\textcolor{keywordtype}{double}\ degrees)\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00062}00062\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a96b4e604292686084631843213912d0f}{degrees\_to\_counts}}(degrees);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00063}00063\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00064}00064\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00065}00065\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00068}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{00068}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00069}00069\ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00071}00071\ \ \ \textcolor{keywordtype}{long}\ error\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00073}00073\ \ \ \textcolor{keywordflow}{if}\ (abs(error)\ <=\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}})\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00074}00074\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00075}00075\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00077}00077\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00079}00079\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +=\ error;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00080}00080\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ \ =\ constrain(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}},\ -\/1000,\ 1000);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00081}00081\ \ \ \textcolor{keywordtype}{double}\ derivative\ =\ error\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}};}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00082}00082\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ error;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00084}00084\ \ \ \textcolor{keywordtype}{double}\ output\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{Kp}}\ *\ error\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{Ki}}\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{Kd}}\ *\ derivative;}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00086}00086\ \ \ \textcolor{keywordtype}{int}\ speed\ =\ (int)abs(output);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00087}00087\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{turn}}(output\ >\ 0,\ speed);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00090}\doxymbox{\hyperlink{_angle_to_rotation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{00090}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00091}00091\ \ \ Serial.begin(9600);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00093}00093\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00094}00094\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00095}00095\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}},\ INPUT\_PULLUP);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00096}00096\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}},\ INPUT\_PULLUP);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00098}00098\ \ \ attachInterrupt(digitalPinToInterrupt(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}}),\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}{encoderISR}},\ RISING);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00100}00100\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00101}00101\ \ \ delay(500);}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00102}00102\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{rotateDegrees}}(\doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\_TO\_TURN}});}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00105}\doxymbox{\hyperlink{_angle_to_rotation_8ino_afe461d27b9c48d5921c00d521181f12f}{00105}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00106}00106\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}();}
+\DoxyCodeLine{\Hypertarget{_angle_to_rotation_8ino_source_l00107}00107\ \}}
+
+\end{DoxyCode}
