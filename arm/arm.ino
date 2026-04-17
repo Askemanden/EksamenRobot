@@ -166,8 +166,8 @@ namespace IK {
     * @var Vector2::v v-coordinate (y-equivalent) of the vector.
     */
     struct Vector2 {
-    double u;
-    double v;
+        double u;
+        double v;
     };
 
 
@@ -182,16 +182,16 @@ namespace IK {
     * @var Arm::targetUV Last target of the Arm from which to calculate the next target in the path of the hand.
     */
     struct Arm {
-    Vector2 final_targetUV;
-    Vector2 targetUV;
-    double theta1;
-    double theta2;
-    double theta3;
-    double base_angle;
+        Vector2 final_targetUV;
+        Vector2 targetUV;
+        double theta1;
+        double theta2;
+        double theta3;
+        double base_angle;
     };
 
     Vector2 vectorAdd(Vector2 self, Vector2 other) {
-    return { .u = self.u + other.u, .v = self.v + other.v };
+        return { .u = self.u + other.u, .v = self.v + other.v };
     }
 
     /**
@@ -202,13 +202,13 @@ namespace IK {
     * @param sensor_angle_rad Angle in the sensors servo. $\theta_s$
     */
     int calculateBaseAngle(Arm *self, double sensor_position_distance, double sensor_reading_distance, double sensor_angle_rad) {
-    /*$d_s*/
-    double target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_reading_distance * cos(sensor_angle_rad));
-    double sin_theta_O = sin(sensor_angle_rad) * sensor_reading_distance / target_distance;
-    double cos_theta_O = (sq(target_distance) + sq(sensor_position_distance) - sq(sensor_reading_distance)) / (2 * target_distance * sensor_position_distance);
-    self->base_angle = atan2(sin_theta_O, cos_theta_O);
-    self->final_targetUV = {.u=target_distance - L3, .v=0};
-    return 0;
+        /*$d_s*/
+        double target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_reading_distance * cos(sensor_angle_rad));
+        double sin_theta_O = sin(sensor_angle_rad) * sensor_reading_distance / target_distance;
+        double cos_theta_O = (sq(target_distance) + sq(sensor_position_distance) - sq(sensor_reading_distance)) / (2 * target_distance * sensor_position_distance);
+        self->base_angle = atan2(sin_theta_O, cos_theta_O);
+        self->final_targetUV = {.u=target_distance - L3, .v=0};
+        return 0;
     }
 
     /**
@@ -216,34 +216,34 @@ namespace IK {
     * @param self The arm to which to write
     */
     int calculateNextTargetUV(Arm *self) {
-    Vector2 final_targetUV = self->final_targetUV;
+        Vector2 final_targetUV = self->final_targetUV;
 
-    Vector2 previous_target = self->targetUV;
+        Vector2 previous_target = self->targetUV;
 
-    double safe_v = final_targetUV.v + GRAB_HEIGHT;
+        double safe_v = final_targetUV.v + GRAB_HEIGHT;
 
-    if (abs(previous_target.u - final_targetUV.u) < 0.01) {
-        self->targetUV = vectorAdd(previous_target, { .u = 0, .v = -STEP_DIST });
-    }
+        if (abs(previous_target.u - final_targetUV.u) < 0.01) {
+            self->targetUV = vectorAdd(previous_target, { .u = 0, .v = -STEP_DIST });
+        }
 
-    else if (previous_target.v < safe_v) {
-        self->targetUV = vectorAdd(previous_target, { .u = 0, .v = STEP_DIST });
-    }
+        else if (previous_target.v < safe_v) {
+            self->targetUV = vectorAdd(previous_target, { .u = 0, .v = STEP_DIST });
+        }
 
-    else if (previous_target.u < final_targetUV.u) {
-        self->targetUV = vectorAdd(previous_target, { .u = STEP_DIST, .v = 0 });
-    } else {
-        self->targetUV = vectorAdd(previous_target, { .u = -STEP_DIST, .v = 0 });
-    }
+        else if (previous_target.u < final_targetUV.u) {
+            self->targetUV = vectorAdd(previous_target, { .u = STEP_DIST, .v = 0 });
+        } else {
+            self->targetUV = vectorAdd(previous_target, { .u = -STEP_DIST, .v = 0 });
+        }
 
-    if (abs(self->targetUV.u - final_targetUV.u) < STEP_DIST) {
-        self->targetUV.u = final_targetUV.u;
-    }
-    if (abs(self->targetUV.v - final_targetUV.v) < STEP_DIST) {
-        self->targetUV.v = final_targetUV.v;
-    }
+        if (abs(self->targetUV.u - final_targetUV.u) < STEP_DIST) {
+            self->targetUV.u = final_targetUV.u;
+        }
+        if (abs(self->targetUV.v - final_targetUV.v) < STEP_DIST) {
+            self->targetUV.v = final_targetUV.v;
+        }
 
-    return 0;
+        return 0;
     }
 
 
@@ -290,11 +290,11 @@ namespace Motor {
     volatile long current_position = 0;
 
     void encoderISR() {
-    if (digitalRead(encoder2) == HIGH) {
-        current_position++;
-    } else {
-        current_position--;
-    }
+        if (digitalRead(encoder2) == HIGH) {
+            current_position++;
+        } else {
+            current_position--;
+        }
     }
 
     long   target_position = 0;
@@ -314,46 +314,46 @@ namespace Motor {
     }
 
     void stop_motor() {
-    analogWrite(IN1, 255);
-    analogWrite(IN2, 255);
-    delay(30);
-    analogWrite(IN1, 0);
-    analogWrite(IN2, 0);
-    integral = 0;
-    last_error = 0;
+        analogWrite(IN1, 255);
+        analogWrite(IN2, 255);
+        delay(30);
+        analogWrite(IN1, 0);
+        analogWrite(IN2, 0);
+        integral = 0;
+        last_error = 0;
     }
 
     long degrees_to_counts(double degrees) {
-    return (long)(degrees * COUNTS_PER_REV / 360.0);
+        return (long)(degrees * COUNTS_PER_REV / 360.0);
     }
 
     void rotateDegrees(double degrees) {
-    target_position = current_position + degrees_to_counts(degrees);
-    finished = false;
-    integral = 0;
-    last_error = 0;
+        target_position = current_position + degrees_to_counts(degrees);
+        finished = false;
+        integral = 0;
+        last_error = 0;
     }
 
     void dc_motor_update() {
-    if (finished) return;
+        if (finished) return;
 
-    long error = target_position - current_position;
+        long error = target_position - current_position;
 
-    if (abs(error) <= threshold) {
-        stop_motor();
-        finished = true;
-        return;
-    }
+        if (abs(error) <= threshold) {
+            stop_motor();
+            finished = true;
+            return;
+        }
 
-    integral += error;
-    integral  = constrain(integral, -1000, 1000);
-    double derivative = error - last_error;
-    last_error = error;
+        integral += error;
+        integral  = constrain(integral, -1000, 1000);
+        double derivative = error - last_error;
+        last_error = error;
 
-    double output = Kp * error + Ki * integral + Kd * derivative;
+        double output = Kp * error + Ki * integral + Kd * derivative;
 
-    int speed = (int)abs(output);
-    turn(output > 0, speed);
+        int speed = (int)abs(output);
+        turn(output > 0, speed);
     }
 }
 /*! @} */
