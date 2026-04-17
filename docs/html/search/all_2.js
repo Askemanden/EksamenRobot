@@ -1,17 +1,18 @@
 var searchData=
 [
-  ['calculatearmangles_0',['calculateArmAngles',['../_i_k_8ino.html#a958ed0c716782aaad74d8a9e59ffd554',1,'IK.ino']]],
-  ['calculatebaseangle_1',['calculateBaseAngle',['../_i_k_8ino.html#a3e56209d824a0b6f9c6d41c6f747a436',1,'IK.ino']]],
-  ['calculatenexttargetuv_2',['calculateNextTargetUV',['../_i_k_8ino.html#a2f915f5edd8058b087973fa18b1c2fce',1,'IK.ino']]],
-  ['categorizecolor_3',['categorizeColor',['../_color_sensor_8ino.html#ac618e3f9b7d0c8ee2af5d5c7b890609e',1,'ColorSensor.ino']]],
-  ['color_5fblack_4',['COLOR_BLACK',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1',1,'ColorSensor.ino']]],
-  ['color_5fblue_5',['COLOR_BLUE',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696',1,'ColorSensor.ino']]],
-  ['color_5fgreen_6',['COLOR_GREEN',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02',1,'ColorSensor.ino']]],
-  ['color_5fred_7',['COLOR_RED',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950',1,'ColorSensor.ino']]],
-  ['color_5funcertain_8',['COLOR_UNCERTAIN',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00',1,'ColorSensor.ino']]],
-  ['color_5fwhite_9',['COLOR_WHITE',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec',1,'ColorSensor.ino']]],
-  ['colorsensor_2eino_10',['ColorSensor.ino',['../_color_sensor_8ino.html',1,'']]],
-  ['colortostring_11',['colorToString',['../_color_sensor_8ino.html#ab6c76577f952028284cc6ed3bfc5b839',1,'ColorSensor.ino']]],
-  ['counts_5fper_5frev_12',['COUNTS_PER_REV',['../_angle_to_rotation_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;AngleToRotation.ino'],['../motor__pid_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;motor_pid.ino']]],
-  ['current_5fposition_13',['current_position',['../_angle_to_rotation_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;AngleToRotation.ino'],['../motor__pid_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;motor_pid.ino']]]
+  ['calculatearmangles_0',['calculateArmAngles',['../namespace_i_k.html#a4670e2ef87c5a287147451e2ef595cd1',1,'IK::calculateArmAngles()'],['../_i_k_8ino.html#a958ed0c716782aaad74d8a9e59ffd554',1,'calculateArmAngles():&#160;IK.ino']]],
+  ['calculatebaseangle_1',['calculateBaseAngle',['../namespace_i_k.html#abaf3fc607a1361feeb60e8e5b1fa5dbb',1,'IK::calculateBaseAngle()'],['../_i_k_8ino.html#a3e56209d824a0b6f9c6d41c6f747a436',1,'calculateBaseAngle():&#160;IK.ino']]],
+  ['calculatenexttargetuv_2',['calculateNextTargetUV',['../namespace_i_k.html#a750719eb1dbb0525d4e768f41fd4b4f1',1,'IK::calculateNextTargetUV()'],['../_i_k_8ino.html#a2f915f5edd8058b087973fa18b1c2fce',1,'calculateNextTargetUV():&#160;IK.ino']]],
+  ['categorizecolor_3',['categorizeColor',['../namespace_color_sensor.html#aaec6c69ce30373a57077282caad11d12',1,'ColorSensor::categorizeColor()'],['../_color_sensor_8ino.html#ac618e3f9b7d0c8ee2af5d5c7b890609e',1,'categorizeColor():&#160;ColorSensor.ino']]],
+  ['color_5fblack_4',['COLOR_BLACK',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5',1,'ColorSensor::COLOR_BLACK'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1',1,'COLOR_BLACK:&#160;ColorSensor.ino']]],
+  ['color_5fblue_5',['COLOR_BLUE',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585',1,'ColorSensor::COLOR_BLUE'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696',1,'COLOR_BLUE:&#160;ColorSensor.ino']]],
+  ['color_5fgreen_6',['COLOR_GREEN',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf',1,'ColorSensor::COLOR_GREEN'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02',1,'COLOR_GREEN:&#160;ColorSensor.ino']]],
+  ['color_5fred_7',['COLOR_RED',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2',1,'ColorSensor::COLOR_RED'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950',1,'COLOR_RED:&#160;ColorSensor.ino']]],
+  ['color_5funcertain_8',['COLOR_UNCERTAIN',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e',1,'ColorSensor::COLOR_UNCERTAIN'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00',1,'COLOR_UNCERTAIN:&#160;ColorSensor.ino']]],
+  ['color_5fwhite_9',['COLOR_WHITE',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf',1,'ColorSensor::COLOR_WHITE'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec',1,'COLOR_WHITE:&#160;ColorSensor.ino']]],
+  ['colorsensor_10',['ColorSensor',['../namespace_color_sensor.html',1,'ColorSensor'],['../group___color_sensor.html',1,'ColorSensor']]],
+  ['colorsensor_2eino_11',['ColorSensor.ino',['../_color_sensor_8ino.html',1,'']]],
+  ['colortostring_12',['colorToString',['../namespace_color_sensor.html#a09cc54fff9253d72d93fcfe09ec2b2fe',1,'ColorSensor::colorToString()'],['../_color_sensor_8ino.html#ab6c76577f952028284cc6ed3bfc5b839',1,'colorToString(DetectedColor color):&#160;ColorSensor.ino']]],
+  ['counts_5fper_5frev_13',['COUNTS_PER_REV',['../_angle_to_rotation_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;AngleToRotation.ino'],['../namespace_motor.html#ac18f52fda08f42e64113da6f3aca20ba',1,'Motor::COUNTS_PER_REV'],['../motor__pid_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;ProlaMobilen.ino']]],
+  ['current_5fposition_14',['current_position',['../_angle_to_rotation_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;AngleToRotation.ino'],['../namespace_motor.html#a2595bff9a45068391bf5da67ff999669',1,'Motor::current_position'],['../motor__pid_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;ProlaMobilen.ino']]]
 ];

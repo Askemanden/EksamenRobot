@@ -1,0 +1,170 @@
+\doxysection{IK Namespace Reference}
+\hypertarget{namespace_i_k}{}\label{namespace_i_k}\index{IK@{IK}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_i_k_1_1_vector2}{Vector2}}
+\begin{DoxyCompactList}\small\item\em A 2d vector in the uv plane of the arm. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_i_k_1_1_arm}{Arm}}
+\begin{DoxyCompactList}\small\item\em Contains angles of the arm. All angles are in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_vector2}{Vector2}} \doxymbox{\hyperlink{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}{vector\+Add}} (\doxymbox{\hyperlink{struct_vector2}{Vector2}} self, \doxymbox{\hyperlink{struct_vector2}{Vector2}} other)
+\item 
+int \doxymbox{\hyperlink{namespace_i_k_abaf3fc607a1361feeb60e8e5b1fa5dbb}{calculate\+Base\+Angle}} (\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}self, double sensor\+\_\+position\+\_\+distance, double sensor\+\_\+reading\+\_\+distance, double sensor\+\_\+angle\+\_\+rad)
+\begin{DoxyCompactList}\small\item\em Calculates base\+\_\+angle and writes it to self. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{namespace_i_k_a750719eb1dbb0525d4e768f41fd4b4f1}{calculate\+Next\+Target\+UV}} (\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}self)
+\begin{DoxyCompactList}\small\item\em Finds the next UV coordinate in the path of self and writes to self on target\+UV. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{namespace_i_k_a4670e2ef87c5a287147451e2ef595cd1}{calculate\+Arm\+Angles}} (\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}self)
+\begin{DoxyCompactList}\small\item\em Calculates the angles (\$\textbackslash{}theta\+\_\+1 \textbackslash{}, \textbackslash{}theta\+\_\+2 \textbackslash{}, \textbackslash{}theta\+\_\+3\$) of self and write to self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_i_k_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_i_k_a4670e2ef87c5a287147451e2ef595cd1}\index{IK@{IK}!calculateArmAngles@{calculateArmAngles}}
+\index{calculateArmAngles@{calculateArmAngles}!IK@{IK}}
+\doxysubsubsection{\texorpdfstring{calculateArmAngles()}{calculateArmAngles()}}
+{\footnotesize\ttfamily \label{namespace_i_k_a4670e2ef87c5a287147451e2ef595cd1} 
+int IK::\+calculate\+Arm\+Angles (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the angles (\$\textbackslash{}theta\+\_\+1 \textbackslash{}, \textbackslash{}theta\+\_\+2 \textbackslash{}, \textbackslash{}theta\+\_\+3\$) of self and write to self. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The arm to which to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00254}{254}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \doxymbox{\hyperlink{struct_i_k_1_1_vector2}{Vector2}}\ final\_targetUV\ =\ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ad07b72e101ef099b84502caf359e69c8}{final\_targetUV}};}
+\DoxyCodeLine{00256\ \ \ \ \ \doxymbox{\hyperlink{struct_i_k_1_1_vector2}{Vector2}}\ target\ =\ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}};}
+\DoxyCodeLine{00257\ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ab51563d752ad0040e4f076adb123166e}{theta2}}\ =\ acos((sq(target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}})\ +\ sq(target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}})\ -\/\ sq(\doxymbox{\hyperlink{arm_8ino_a1ce864b284ac751ffd8a0d98d5ccab55}{L1}})\ -\/\ sq(\doxymbox{\hyperlink{arm_8ino_ab983f03862f557a786ccc43b26522e16}{L2}}))\ /\ (2\ *\ \doxymbox{\hyperlink{arm_8ino_a1ce864b284ac751ffd8a0d98d5ccab55}{L1}}\ *\ \doxymbox{\hyperlink{arm_8ino_ab983f03862f557a786ccc43b26522e16}{L2}}));}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{double}\ k1\ =\ \doxymbox{\hyperlink{arm_8ino_a1ce864b284ac751ffd8a0d98d5ccab55}{L1}}\ +\ \doxymbox{\hyperlink{arm_8ino_ab983f03862f557a786ccc43b26522e16}{L2}}\ *\ cos(self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ab51563d752ad0040e4f076adb123166e}{theta2}});}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{double}\ k2\ =\ \doxymbox{\hyperlink{arm_8ino_ab983f03862f557a786ccc43b26522e16}{L2}}\ *\ sin(self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ab51563d752ad0040e4f076adb123166e}{theta2}});}
+\DoxyCodeLine{00260\ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ac74e60136a698bbe4c6911c77816f67a}{theta1}}\ =\ atan2(target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}},\ target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}})\ -\/\ atan2(k2,\ k1);}
+\DoxyCodeLine{00261\ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a3174635a87b491288e1827439ffe8307}{theta3}}\ =\ 2\ *\ PI\ -\/\ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ac74e60136a698bbe4c6911c77816f67a}{theta1}}\ -\/\ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ab51563d752ad0040e4f076adb123166e}{theta2}}\ -\/\ PI\ /\ 2;}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_i_k_abaf3fc607a1361feeb60e8e5b1fa5dbb}\index{IK@{IK}!calculateBaseAngle@{calculateBaseAngle}}
+\index{calculateBaseAngle@{calculateBaseAngle}!IK@{IK}}
+\doxysubsubsection{\texorpdfstring{calculateBaseAngle()}{calculateBaseAngle()}}
+{\footnotesize\ttfamily \label{namespace_i_k_abaf3fc607a1361feeb60e8e5b1fa5dbb} 
+int IK::\+calculate\+Base\+Angle (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}}]{self}{, }\item[{double}]{sensor\+\_\+position\+\_\+distance}{, }\item[{double}]{sensor\+\_\+reading\+\_\+distance}{, }\item[{double}]{sensor\+\_\+angle\+\_\+rad}{}\end{DoxyParamCaption})}
+
+
+
+Calculates base\+\_\+angle and writes it to self. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The arm for which to calculate data. \\
+\hline
+{\em sensor\+\_\+position\+\_\+distance} & Distance of sensor from origin. \$d\+\_\+s\$ \\
+\hline
+{\em sensor\+\_\+reading\+\_\+distance} & The reading of the sensor in centimeters. \$\+L\+\_\+s\$ \\
+\hline
+{\em sensor\+\_\+angle\+\_\+rad} & Angle in the sensors servo. \$\textbackslash{}theta\+\_\+s\$ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00204}{204}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{/*\$d\_s*/}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{double}\ target\_distance\ =\ sqrt(sq(sensor\_position\_distance)\ +\ sq(sensor\_reading\_distance)\ -\/\ 2\ *\ sensor\_position\_distance\ *\ sensor\_reading\_distance\ *\ cos(sensor\_angle\_rad));}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{double}\ sin\_theta\_O\ =\ sin(sensor\_angle\_rad)\ *\ sensor\_reading\_distance\ /\ target\_distance;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{double}\ cos\_theta\_O\ =\ (sq(target\_distance)\ +\ sq(sensor\_position\_distance)\ -\/\ sq(sensor\_reading\_distance))\ /\ (2\ *\ target\_distance\ *\ sensor\_position\_distance);}
+\DoxyCodeLine{00209\ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a86ae1f455f2ce8c05a9234765c601aae}{base\_angle}}\ =\ atan2(sin\_theta\_O,\ cos\_theta\_O);}
+\DoxyCodeLine{00210\ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ad07b72e101ef099b84502caf359e69c8}{final\_targetUV}}\ =\ \{.u=target\_distance\ -\/\ \doxymbox{\hyperlink{arm_8ino_a7771a73a8014204aeeecaaf58527b670}{L3}},\ .v=0\};}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_i_k_a750719eb1dbb0525d4e768f41fd4b4f1}\index{IK@{IK}!calculateNextTargetUV@{calculateNextTargetUV}}
+\index{calculateNextTargetUV@{calculateNextTargetUV}!IK@{IK}}
+\doxysubsubsection{\texorpdfstring{calculateNextTargetUV()}{calculateNextTargetUV()}}
+{\footnotesize\ttfamily \label{namespace_i_k_a750719eb1dbb0525d4e768f41fd4b4f1} 
+int IK::\+calculate\+Next\+Target\+UV (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Finds the next UV coordinate in the path of self and writes to self on target\+UV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The arm to which to write \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00218}{218}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \doxymbox{\hyperlink{struct_i_k_1_1_vector2}{Vector2}}\ final\_targetUV\ =\ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_ad07b72e101ef099b84502caf359e69c8}{final\_targetUV}};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \doxymbox{\hyperlink{struct_i_k_1_1_vector2}{Vector2}}\ previous\_target\ =\ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{double}\ safe\_v\ =\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}}\ +\ \doxymbox{\hyperlink{arm_8ino_aa09c5511d44d7d29fcb5c8236ab9b77e}{GRAB\_HEIGHT}};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(previous\_target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}}\ -\/\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}})\ <\ 0.01)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}\ =\ \doxymbox{\hyperlink{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}{vectorAdd}}(previous\_target,\ \{\ .u\ =\ 0,\ .v\ =\ -\/\doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\_DIST}}\ \});}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (previous\_target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}}\ <\ safe\_v)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}\ =\ \doxymbox{\hyperlink{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}{vectorAdd}}(previous\_target,\ \{\ .u\ =\ 0,\ .v\ =\ \doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\_DIST}}\ \});}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (previous\_target.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}}\ <\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}})\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}\ =\ \doxymbox{\hyperlink{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}{vectorAdd}}(previous\_target,\ \{\ .u\ =\ \doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\_DIST}},\ .v\ =\ 0\ \});}
+\DoxyCodeLine{00235\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}\ =\ \doxymbox{\hyperlink{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}{vectorAdd}}(previous\_target,\ \{\ .u\ =\ -\/\doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\_DIST}},\ .v\ =\ 0\ \});}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}}\ -\/\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}})\ <\ \doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\_DIST}})\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}}\ =\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}};}
+\DoxyCodeLine{00241\ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}}\ -\/\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}})\ <\ \doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\_DIST}})\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ self-\/>\doxymbox{\hyperlink{struct_i_k_1_1_arm_a80d7fe7e9bc48f0620dcfcdec2a42e98}{targetUV}}.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}}\ =\ final\_targetUV.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}};}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 0
+\Hypertarget{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}\index{IK@{IK}!vectorAdd@{vectorAdd}}
+\index{vectorAdd@{vectorAdd}!IK@{IK}}
+\doxysubsubsection{\texorpdfstring{vectorAdd()}{vectorAdd()}}
+{\footnotesize\ttfamily \label{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b} 
+\doxymbox{\hyperlink{struct_vector2}{Vector2}} IK::\+vector\+Add (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_vector2}{Vector2}}}]{self}{, }\item[{\doxymbox{\hyperlink{struct_vector2}{Vector2}}}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00193}{193}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ .u\ =\ self.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}}\ +\ other.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a08236f6d03bd1b5f2125fc0c3c93f49c}{u}},\ .v\ =\ self.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}}\ +\ other.\doxymbox{\hyperlink{struct_i_k_1_1_vector2_a45a7273ff6cb0c26c615ad42017e76f9}{v}}\ \};}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 1

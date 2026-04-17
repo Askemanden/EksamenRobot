@@ -1,0 +1,335 @@
+\doxysection{Color\+Sensor Namespace Reference}
+\hypertarget{namespace_color_sensor}{}\label{namespace_color_sensor}\index{ColorSensor@{ColorSensor}}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}} \{ \newline
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\+\_\+\+RED}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\+\_\+\+GREEN}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\+\_\+\+BLUE}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\+\_\+\+BLACK}}
+, \newline
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\+\_\+\+WHITE}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\+\_\+\+UNCERTAIN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of detected color categories. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{namespace_color_sensor_a2809987e14c28996a18cc5f60248fbf0}{init\+Color\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Initializes serial communication and the TCS34725 sensor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}{read\+Color\+Raw}} (uint16\+\_\+t \&r, uint16\+\_\+t \&g, uint16\+\_\+t \&b, uint16\+\_\+t \&c)
+\begin{DoxyCompactList}\small\item\em Reads raw color values from the TCS34725 sensor. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}} \doxymbox{\hyperlink{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12}{categorize\+Color}} (uint16\+\_\+t r, uint16\+\_\+t g, uint16\+\_\+t b, uint16\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Classifies a color using thresholds and ratios to avoid false positives. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe}{color\+To\+String}} (\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}} color)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color} enum value to a human-\/readable string. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_color_sensor_ade5a2e5c076987eaf58e05ff316948cb}{detect\+And\+Print\+Color}} ()
+\begin{DoxyCompactList}\small\item\em Reads the sensor, categorizes the color, and prints the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Adafruit\+\_\+\+TCS34725 \doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}
+\begin{DoxyCompactList}\small\item\em TCS34725 sensor object with standard integration time and gain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{namespace_color_sensor_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}\index{ColorSensor@{ColorSensor}!DetectedColor@{DetectedColor}}
+\index{DetectedColor@{DetectedColor}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{DetectedColor}{DetectedColor}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0} 
+enum \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Color\+Sensor::\+\+Detected\+Color}}}
+
+
+
+Enumeration of detected color categories. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_RED@{COLOR\_RED}!ColorSensor@{ColorSensor}}
+\index{ColorSensor@{ColorSensor}!COLOR\_RED@{COLOR\_RED}}
+}\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}\label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2} 
+COLOR\+\_\+\+RED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_GREEN@{COLOR\_GREEN}!ColorSensor@{ColorSensor}}
+\index{ColorSensor@{ColorSensor}!COLOR\_GREEN@{COLOR\_GREEN}}
+}\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}\label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf} 
+COLOR\+\_\+\+GREEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_BLUE@{COLOR\_BLUE}!ColorSensor@{ColorSensor}}
+\index{ColorSensor@{ColorSensor}!COLOR\_BLUE@{COLOR\_BLUE}}
+}\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}\label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585} 
+COLOR\+\_\+\+BLUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_BLACK@{COLOR\_BLACK}!ColorSensor@{ColorSensor}}
+\index{ColorSensor@{ColorSensor}!COLOR\_BLACK@{COLOR\_BLACK}}
+}\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}\label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5} 
+COLOR\+\_\+\+BLACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_WHITE@{COLOR\_WHITE}!ColorSensor@{ColorSensor}}
+\index{ColorSensor@{ColorSensor}!COLOR\_WHITE@{COLOR\_WHITE}}
+}\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}\label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf} 
+COLOR\+\_\+\+WHITE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_UNCERTAIN@{COLOR\_UNCERTAIN}!ColorSensor@{ColorSensor}}
+\index{ColorSensor@{ColorSensor}!COLOR\_UNCERTAIN@{COLOR\_UNCERTAIN}}
+}\Hypertarget{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}\label{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e} 
+COLOR\+\_\+\+UNCERTAIN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00012}{12}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}},}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}},}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\_WHITE}},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\_UNCERTAIN}}}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_color_sensor_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12}\index{ColorSensor@{ColorSensor}!categorizeColor@{categorizeColor}}
+\index{categorizeColor@{categorizeColor}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{categorizeColor()}{categorizeColor()}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12} 
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}} Color\+Sensor::\+categorize\+Color (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{r}{, }\item[{uint16\+\_\+t}]{g}{, }\item[{uint16\+\_\+t}]{b}{, }\item[{uint16\+\_\+t}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Classifies a color using thresholds and ratios to avoid false positives. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Raw red value. \\
+\hline
+{\em g} & Raw green value. \\
+\hline
+{\em b} & Raw blue value. \\
+\hline
+{\em c} & Clear channel (brightness). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color} Enum representing the detected color. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00068}{68}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ <\ 200)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ >\ 4000)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{COLOR\_WHITE}};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ rn\ =\ (float)r;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ gn\ =\ (float)g;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ bn\ =\ (float)b;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minDiff\ =\ 0.03;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minRatio\ =\ 1.025;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rn\ >\ gn\ *\ minRatio\ \&\&\ rn\ >\ bn\ *\ minRatio\ \&\&}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ (rn\ -\/\ gn)\ >\ minDiff\ \&\&\ (rn\ -\/\ bn)\ >\ minDiff)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gn\ >\ rn\ *\ minRatio\ \&\&\ gn\ >\ bn\ *\ minRatio\ \&\&}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ (gn\ -\/\ rn)\ >\ minDiff\ \&\&\ (gn\ -\/\ bn)\ >\ minDiff)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bn\ >\ rn\ *\ minRatio\ \&\&\ bn\ >\ gn\ *\ minRatio\ \&\&}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ (bn\ -\/\ rn)\ >\ minDiff\ \&\&\ (bn\ -\/\ gn)\ >\ minDiff)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\_UNCERTAIN}};}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 0
+\Hypertarget{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe}\index{ColorSensor@{ColorSensor}!colorToString@{colorToString}}
+\index{colorToString@{colorToString}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{colorToString()}{colorToString()}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe} 
+const char \texorpdfstring{$\ast$}{*} Color\+Sensor::\+color\+To\+String (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}}}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Converts a \doxylink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color} enum value to a human-\/readable string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The enum value to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const char\texorpdfstring{$\ast$}{*} String representation of the color. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00108}{108}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (color)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}}:\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RED"{}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GREEN"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}}:\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLUE"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLACK"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\_WHITE}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}WHITE"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNCERTAIN"{}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 1
+\Hypertarget{namespace_color_sensor_ade5a2e5c076987eaf58e05ff316948cb}\index{ColorSensor@{ColorSensor}!detectAndPrintColor@{detectAndPrintColor}}
+\index{detectAndPrintColor@{detectAndPrintColor}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{detectAndPrintColor()}{detectAndPrintColor()}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_ade5a2e5c076987eaf58e05ff316948cb} 
+void Color\+Sensor::\+detect\+And\+Print\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the sensor, categorizes the color, and prints the result. 
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00122}{122}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ uint16\_t\ r,\ g,\ b,\ c;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}{readColorRaw}}(r,\ g,\ b,\ c);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{DetectedColor}}\ color\ =\ \doxymbox{\hyperlink{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12}{categorizeColor}}(r,\ g,\ b,\ c);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}R:\ "{}});\ Serial.print(r);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ G:\ "{}});\ Serial.print(g);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ B:\ "{}});\ Serial.print(b);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ C:\ "{}});\ Serial.print(c);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ -\/>\ Detected:\ "{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ Serial.println(\doxymbox{\hyperlink{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe}{colorToString}}(color));}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 2
+\Hypertarget{namespace_color_sensor_a2809987e14c28996a18cc5f60248fbf0}\index{ColorSensor@{ColorSensor}!initColorSensor@{initColorSensor}}
+\index{initColorSensor@{initColorSensor}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{initColorSensor()}{initColorSensor()}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_a2809987e14c28996a18cc5f60248fbf0} 
+void Color\+Sensor::\+init\+Color\+Sensor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes serial communication and the TCS34725 sensor. 
+
+This function must be called before any color reading is attempted. If the sensor is not detected, the program halts. 
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00035}{35}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Serial.begin(9600);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ delay(200);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}.begin())\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}ERROR:\ TCS34725\ not\ detected"{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}TCS34725\ initialized"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}\index{ColorSensor@{ColorSensor}!readColorRaw@{readColorRaw}}
+\index{readColorRaw@{readColorRaw}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{readColorRaw()}{readColorRaw()}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32} 
+void Color\+Sensor::\+read\+Color\+Raw (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \&}]{r}{, }\item[{uint16\+\_\+t \&}]{g}{, }\item[{uint16\+\_\+t \&}]{b}{, }\item[{uint16\+\_\+t \&}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Reads raw color values from the TCS34725 sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Reference to store the red channel value. \\
+\hline
+{\em g} & Reference to store the green channel value. \\
+\hline
+{\em b} & Reference to store the blue channel value. \\
+\hline
+{\em c} & Reference to store the clear (overall brightness) value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00055}{55}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}.getRawData(\&r,\ \&g,\ \&b,\ \&c);}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 3
+
+
+\label{doc-var-members}
+\Hypertarget{namespace_color_sensor_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}\index{ColorSensor@{ColorSensor}!tcs@{tcs}}
+\index{tcs@{tcs}!ColorSensor@{ColorSensor}}
+\doxysubsubsection{\texorpdfstring{tcs}{tcs}}
+{\footnotesize\ttfamily \label{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee} 
+Adafruit\+\_\+\+TCS34725 Color\+Sensor::\+tcs}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ Adafruit\_TCS34725(}
+\DoxyCodeLine{\ \ \ \ TCS34725\_INTEGRATIONTIME\_50MS,}
+\DoxyCodeLine{\ \ \ \ TCS34725\_GAIN\_4X}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+TCS34725 sensor object with standard integration time and gain. 
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00024}{24}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+

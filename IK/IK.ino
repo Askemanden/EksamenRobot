@@ -1,21 +1,21 @@
 /**
 * @brief $L_1$
 */
-#define L1 (10);
+#define L1 (10)
 
 /**
 * @brief $L_2$
 */
-#define L2 (10);
+#define L2 (10)
 
 /**
 * @brief $L_3$
 */
-#define L3 (10);
+#define L3 (10)
 
-#define STEP_DIST (1);
+#define STEP_DIST (1)
 
-#define GRAB_HEIGHT (3);
+#define GRAB_HEIGHT (3)
 
 /**
 * @struct Vector2
@@ -26,7 +26,7 @@
 struct Vector2 {
   double u;
   double v;
-}
+};
 
 
 /**
@@ -36,20 +36,20 @@ struct Vector2 {
 * @var Arm::theta2 Elbow angle of the arm. $\theta_2$.
 * @var Arm::theta3 Wrist angle of the arm. Should always result in 90 deg negative angle with x-axist at the point of rotation. $\theta_3$.
 * @var Arm::base_angle Arm angle with the x-axis. Rotates the UV plane around Z. $\theta_O$
-* @var Arm::last_targetUV Last target of the Arm from which to calculate the next target in the path of the hand.
+* @var Arm::final_targetUV Last target of the Arm from which to calculate the next target in the path of the hand.
+* @var Arm::targetUV Last target of the Arm from which to calculate the next target in the path of the hand.
 */
 struct Arm {
   Vector2 final_targetUV;
+  Vector2 targetUV;
   double theta1;
   double theta2;
   double theta3;
   double base_angle;
-  double targetUV;
-}
+};
 
-Vector2
-vectorAdd(Vector2 self, Vector2 other) {
-  return { .u = self.u + other.y, .v = self.v + other.v };
+Vector2 vectorAdd(Vector2 self, Vector2 other) {
+  return { .u = self.u + other.u, .v = self.v + other.v };
 }
 
 /**
@@ -61,11 +61,11 @@ vectorAdd(Vector2 self, Vector2 other) {
 */
 int calculateBaseAngle(Arm *self, double sensor_position_distance, double sensor_reading_distance, double sensor_angle_rad) {
   /*$d_s*/
-  double target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_distance_reading * cos(sensor_angle_rad));
-  double sin_theta_O = sin(sensor_angle_rad) * sensor_distance_reading / target_distance;
+  double target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_reading_distance * cos(sensor_angle_rad));
+  double sin_theta_O = sin(sensor_angle_rad) * sensor_reading_distance / target_distance;
   double cos_theta_O = (sq(target_distance) + sq(sensor_position_distance) - sq(sensor_reading_distance)) / (2 * target_distance * sensor_position_distance);
   self->base_angle = atan2(sin_theta_O, cos_theta_O);
-  self->final_targetUV = target_distance
+  self->final_targetUV = {.u=target_distance, .v=0};
   return 0;
 }
 
@@ -81,17 +81,17 @@ int calculateNextTargetUV(Arm *self) {
   double safe_v = final_targetUV.v + GRAB_HEIGHT;
 
   if (abs(previous_target.u - final_targetUV.u) < 0.01) {
-    self->targetUV = vectorAdd(previous_target, (Vector2){ .u = 0, .v = -STEP_DIST });
+    self->targetUV = vectorAdd(previous_target, { .u = 0, .v = -STEP_DIST });
   }
 
   else if (previous_target.v < safe_v) {
-    self->targetUV = vectorAdd(previous_target, (Vector2){ .u = 0, .v = STEP_DIST });
+    self->targetUV = vectorAdd(previous_target, { .u = 0, .v = STEP_DIST });
   }
 
   else if (previous_target.u < final_targetUV.u) {
-    self->targetUV = vectorAdd(previous_target, (Vector2){ .u = STEP_DIST, .v = 0 });
+    self->targetUV = vectorAdd(previous_target, { .u = STEP_DIST, .v = 0 });
   } else {
-    self->targetUV = vectorAdd(previous_target, (Vector2){ .u = -STEP_DIST, .v = 0 });
+    self->targetUV = vectorAdd(previous_target, { .u = -STEP_DIST, .v = 0 });
   }
 
   if (abs(self->targetUV.u - final_targetUV.u) < STEP_DIST) {
@@ -119,3 +119,56 @@ int calculateArmAngles(Arm *self) {
   self->theta3 = 2 * PI - self->theta1 - self->theta2 - PI / 2;
   return 0;
 }
+
+
+// =========================
+// ===  TEST ROUTINE    ===
+// =========================
+
+void printArmState(Arm *arm) {
+  Serial.print(arm->targetUV.u, 6); Serial.print(", ");
+  Serial.print(arm->targetUV.v, 6); Serial.print(", ");
+  Serial.print(arm->theta1, 6);     Serial.print(", ");
+  Serial.print(arm->theta2, 6);     Serial.print(", ");
+  Serial.println(arm->theta3, 6);
+}
+
+void runIKTest() {
+  Arm arm;
+
+  // --- INITIAL CONDITIONS ---
+  arm.final_targetUV = {5, 3};     // final target
+  arm.targetUV       = {5, 15};    // starting point
+  arm.base_angle     = 0;
+
+  Serial.println("u, v, theta1, theta2, theta3");
+
+  // --- MOVE TARGET AROUND AND PRINT RESULTS ---
+  for (int i = 0; i < 200; i++) {
+
+    // Compute angles for current target
+    calculateArmAngles(&arm);
+    printArmState(&arm);
+
+    // Stop when target reached
+    if (fabs(arm.targetUV.u - arm.final_targetUV.u) < 0.01 &&
+        fabs(arm.targetUV.v - arm.final_targetUV.v) < 0.01) {
+      break;
+    }
+
+    // Move target toward final_targetUV
+    calculateNextTargetUV(&arm);
+  }
+}
+
+// =========================
+// ===  ARDUINO SETUP    ===
+// =========================
+
+void setup() {
+  Serial.begin(115200);
+  delay(500);
+  runIKTest();
+}
+
+void loop() {}

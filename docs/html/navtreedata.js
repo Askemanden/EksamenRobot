@@ -25,6 +25,17 @@
 var NAVTREE =
 [
   [ "Arduino Project", "index.html", [
+    [ "Topics", "topics.html", "topics" ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -49,7 +60,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_angle_to_rotation_8ino.html"
+"_angle_to_rotation_8ino.html",
+"struct_servo_scanner.html#a29e0d044c949ca3f1f140cac4af9176e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

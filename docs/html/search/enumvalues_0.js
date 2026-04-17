@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['color_5fblack_0',['COLOR_BLACK',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1',1,'ColorSensor.ino']]],
-  ['color_5fblue_1',['COLOR_BLUE',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696',1,'ColorSensor.ino']]],
-  ['color_5fgreen_2',['COLOR_GREEN',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02',1,'ColorSensor.ino']]],
-  ['color_5fred_3',['COLOR_RED',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950',1,'ColorSensor.ino']]],
-  ['color_5funcertain_4',['COLOR_UNCERTAIN',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00',1,'ColorSensor.ino']]],
-  ['color_5fwhite_5',['COLOR_WHITE',['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec',1,'ColorSensor.ino']]]
+  ['color_5fblack_0',['COLOR_BLACK',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5',1,'ColorSensor::COLOR_BLACK'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1',1,'COLOR_BLACK:&#160;ColorSensor.ino']]],
+  ['color_5fblue_1',['COLOR_BLUE',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585',1,'ColorSensor::COLOR_BLUE'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea1340428efccb140dcbdb71aa6176f696',1,'COLOR_BLUE:&#160;ColorSensor.ino']]],
+  ['color_5fgreen_2',['COLOR_GREEN',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf',1,'ColorSensor::COLOR_GREEN'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02',1,'COLOR_GREEN:&#160;ColorSensor.ino']]],
+  ['color_5fred_3',['COLOR_RED',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2',1,'ColorSensor::COLOR_RED'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea592503b9434c1e751a92f3fc536d7950',1,'COLOR_RED:&#160;ColorSensor.ino']]],
+  ['color_5funcertain_4',['COLOR_UNCERTAIN',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e',1,'ColorSensor::COLOR_UNCERTAIN'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00',1,'COLOR_UNCERTAIN:&#160;ColorSensor.ino']]],
+  ['color_5fwhite_5',['COLOR_WHITE',['../namespace_color_sensor.html#a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf',1,'ColorSensor::COLOR_WHITE'],['../_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec',1,'COLOR_WHITE:&#160;ColorSensor.ino']]]
 ];

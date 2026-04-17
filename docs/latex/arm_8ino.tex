@@ -1,0 +1,234 @@
+\doxysection{arm.\+ino File Reference}
+\hypertarget{arm_8ino}{}\label{arm_8ino}\index{arm.ino@{arm.ino}}
+{\ttfamily \+\#include $<$Wire.\+h$>$}\newline
+{\ttfamily \+\#include $<$Adafruit\+\_\+\+TCS34725.\+h$>$}\newline
+Include dependency graph for arm.\+ino:\+
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_i_k_1_1_vector2}{IK::\+\+Vector2}}
+\begin{DoxyCompactList}\small\item\em A 2d vector in the uv plane of the arm. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_i_k_1_1_arm}{IK::\+\+Arm}}
+\begin{DoxyCompactList}\small\item\em Contains angles of the arm. All angles are in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_color_sensor}{Color\+Sensor}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_i_k}{IK}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_motor}{Motor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{arm_8ino_a1ce864b284ac751ffd8a0d98d5ccab55}{L1}}~(10)
+\begin{DoxyCompactList}\small\item\em \$\+L\+\_\+1\$ \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{arm_8ino_ab983f03862f557a786ccc43b26522e16}{L2}}~(10)
+\begin{DoxyCompactList}\small\item\em \$\+L\+\_\+2\$ \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{arm_8ino_a7771a73a8014204aeeecaaf58527b670}{L3}}~(10)
+\begin{DoxyCompactList}\small\item\em \$\+L\+\_\+3\$ \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{arm_8ino_a6176466626e15053271fac0d36e7e36b}{STEP\+\_\+\+DIST}}~(1)
+\item 
+\+\#define \doxymbox{\hyperlink{arm_8ino_aa09c5511d44d7d29fcb5c8236ab9b77e}{GRAB\+\_\+\+HEIGHT}}~(3)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Color\+Sensor::\+\+Detected\+Color}} \{ \newline
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{Color\+Sensor::\+\+COLOR\+\_\+\+RED}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{Color\+Sensor::\+\+COLOR\+\_\+\+GREEN}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{Color\+Sensor::\+\+COLOR\+\_\+\+BLUE}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{Color\+Sensor::\+\+COLOR\+\_\+\+BLACK}}
+, \newline
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{Color\+Sensor::\+\+COLOR\+\_\+\+WHITE}}
+, \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{Color\+Sensor::\+\+COLOR\+\_\+\+UNCERTAIN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of detected color categories. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{namespace_color_sensor_a2809987e14c28996a18cc5f60248fbf0}{Color\+Sensor::\+init\+Color\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Initializes serial communication and the TCS34725 sensor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}{Color\+Sensor::\+read\+Color\+Raw}} (uint16\+\_\+t \&r, uint16\+\_\+t \&g, uint16\+\_\+t \&b, uint16\+\_\+t \&c)
+\begin{DoxyCompactList}\small\item\em Reads raw color values from the TCS34725 sensor. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}} \doxymbox{\hyperlink{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12}{Color\+Sensor::\+categorize\+Color}} (uint16\+\_\+t r, uint16\+\_\+t g, uint16\+\_\+t b, uint16\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Classifies a color using thresholds and ratios to avoid false positives. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe}{Color\+Sensor::\+color\+To\+String}} (\doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color}} color)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{Detected\+Color} enum value to a human-\/readable string. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_color_sensor_ade5a2e5c076987eaf58e05ff316948cb}{Color\+Sensor::\+detect\+And\+Print\+Color}} ()
+\begin{DoxyCompactList}\small\item\em Reads the sensor, categorizes the color, and prints the result. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_vector2}{Vector2}} \doxymbox{\hyperlink{namespace_i_k_a78c72371a9dec434b6bb1a5664e1337b}{IK::\+vector\+Add}} (\doxymbox{\hyperlink{struct_vector2}{Vector2}} self, \doxymbox{\hyperlink{struct_vector2}{Vector2}} other)
+\item 
+int \doxymbox{\hyperlink{namespace_i_k_abaf3fc607a1361feeb60e8e5b1fa5dbb}{IK::\+calculate\+Base\+Angle}} (\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}self, double sensor\+\_\+position\+\_\+distance, double sensor\+\_\+reading\+\_\+distance, double sensor\+\_\+angle\+\_\+rad)
+\begin{DoxyCompactList}\small\item\em Calculates base\+\_\+angle and writes it to self. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{namespace_i_k_a750719eb1dbb0525d4e768f41fd4b4f1}{IK::\+calculate\+Next\+Target\+UV}} (\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}self)
+\begin{DoxyCompactList}\small\item\em Finds the next UV coordinate in the path of self and writes to self on target\+UV. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{namespace_i_k_a4670e2ef87c5a287147451e2ef595cd1}{IK::\+calculate\+Arm\+Angles}} (\doxymbox{\hyperlink{struct_arm}{Arm}} \texorpdfstring{$\ast$}{*}self)
+\begin{DoxyCompactList}\small\item\em Calculates the angles (\$\textbackslash{}theta\+\_\+1 \textbackslash{}, \textbackslash{}theta\+\_\+2 \textbackslash{}, \textbackslash{}theta\+\_\+3\$) of self and write to self. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_motor_a10576d436aeca5fbed231040c2fc8590}{Motor::\+encoder\+ISR}} ()
+\item 
+void \doxymbox{\hyperlink{namespace_motor_aa7ae821b57c37e50a97dfee154337cad}{Motor::\+turn}} (bool cw, int speed)
+\item 
+void \doxymbox{\hyperlink{namespace_motor_a570c5e5bbcad5f4910b51992234911ba}{Motor::\+stop\+\_\+motor}} ()
+\item 
+long \doxymbox{\hyperlink{namespace_motor_a07831f7575d72e6b210d359168433add}{Motor::\+degrees\+\_\+to\+\_\+counts}} (double degrees)
+\item 
+void \doxymbox{\hyperlink{namespace_motor_a1011e1ebbd8549e1c6941dc2178e9df5}{Motor::\+rotate\+Degrees}} (double degrees)
+\item 
+void \doxymbox{\hyperlink{namespace_motor_adb73dd9962ea30caa106f7c722218322}{Motor::\+dc\+\_\+motor\+\_\+update}} ()
+\item 
+void \doxymbox{\hyperlink{arm_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \doxymbox{\hyperlink{arm_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Adafruit\+\_\+\+TCS34725 \doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{Color\+Sensor::\+tcs}}
+\begin{DoxyCompactList}\small\item\em TCS34725 sensor object with standard integration time and gain. \end{DoxyCompactList}\item 
+const double \doxymbox{\hyperlink{namespace_motor_aec418e5f8f51ec3e64b0ef0409ff6e53}{Motor::\+\+DEGREES\+\_\+\+TO\+\_\+\+TURN}} = 90.\+0
+\item 
+const double \doxymbox{\hyperlink{namespace_motor_ad393c6572049b1bbfedb61633c62526b}{Motor::\+\+GEAR\+\_\+\+RATIO}} = 30.\+0
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5}{Motor::\+\+IN1}} = 9
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67}{Motor::\+\+IN2}} = 10
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_af3f931d21585bd255945eefe36190478}{Motor::\+encoder1}} = 3
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_a6f90a749a6ce5d182eac1cebd95d31e9}{Motor::\+encoder2}} = 2
+\item 
+const long \doxymbox{\hyperlink{namespace_motor_ac18f52fda08f42e64113da6f3aca20ba}{Motor::\+\+COUNTS\+\_\+\+PER\+\_\+\+REV}} = 16 \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{namespace_motor_ad393c6572049b1bbfedb61633c62526b}{GEAR\+\_\+\+RATIO}}
+\item 
+const int \doxymbox{\hyperlink{namespace_motor_aade43b94adabee86a132e753bfa1e481}{Motor::\+threshold}} = 5
+\item 
+const double \doxymbox{\hyperlink{namespace_motor_ab69fc3b060d31938e105dece146d2ed9}{Motor::\+\+Kp}} = 0.\+5
+\item 
+const double \doxymbox{\hyperlink{namespace_motor_ae6e27edbb9f0ff9d5a919022aab493eb}{Motor::\+\+Ki}} = 0.\+2
+\item 
+const double \doxymbox{\hyperlink{namespace_motor_a92e029714211bd3c4e11b834fe58f07b}{Motor::\+\+Kd}} = 5.\+0
+\item 
+const int \doxymbox{\hyperlink{namespace_motor_a9aa0f96b2979209c0c42300f1043412f}{Motor::\+\+MIN\+\_\+\+SPEED}} = 40
+\item 
+const int \doxymbox{\hyperlink{namespace_motor_adddf83d8b61a9290b358fe22ed98feeb}{Motor::\+\+MAX\+\_\+\+SPEED}} = 180
+\item 
+volatile long \doxymbox{\hyperlink{namespace_motor_a2595bff9a45068391bf5da67ff999669}{Motor::\+current\+\_\+position}} = 0
+\item 
+long \doxymbox{\hyperlink{namespace_motor_aee1958a9356b045193625f421d2639ad}{Motor::\+target\+\_\+position}} = 0
+\item 
+bool \doxymbox{\hyperlink{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a}{Motor::\+finished}} = false
+\item 
+double \doxymbox{\hyperlink{namespace_motor_a2cb00b271dec6a3efba7229351459b54}{Motor::\+integral}} = 0
+\item 
+long \doxymbox{\hyperlink{namespace_motor_a09053eb34ec3428728ae1a1b192be2b7}{Motor::\+last\+\_\+error}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm_8ino_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm_8ino_aa09c5511d44d7d29fcb5c8236ab9b77e}\index{arm.ino@{arm.ino}!GRAB\_HEIGHT@{GRAB\_HEIGHT}}
+\index{GRAB\_HEIGHT@{GRAB\_HEIGHT}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{GRAB\_HEIGHT}{GRAB\_HEIGHT}}
+{\footnotesize\ttfamily \label{arm_8ino_aa09c5511d44d7d29fcb5c8236ab9b77e} 
+\+\#define GRAB\+\_\+\+HEIGHT~(3)}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00160}{160}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{arm_8ino_a1ce864b284ac751ffd8a0d98d5ccab55}\index{arm.ino@{arm.ino}!L1@{L1}}
+\index{L1@{L1}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{L1}{L1}}
+{\footnotesize\ttfamily \label{arm_8ino_a1ce864b284ac751ffd8a0d98d5ccab55} 
+\+\#define L1~(10)}
+
+
+
+\$\+L\+\_\+1\$ 
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00146}{146}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{arm_8ino_ab983f03862f557a786ccc43b26522e16}\index{arm.ino@{arm.ino}!L2@{L2}}
+\index{L2@{L2}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{L2}{L2}}
+{\footnotesize\ttfamily \label{arm_8ino_ab983f03862f557a786ccc43b26522e16} 
+\+\#define L2~(10)}
+
+
+
+\$\+L\+\_\+2\$ 
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00151}{151}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{arm_8ino_a7771a73a8014204aeeecaaf58527b670}\index{arm.ino@{arm.ino}!L3@{L3}}
+\index{L3@{L3}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{L3}{L3}}
+{\footnotesize\ttfamily \label{arm_8ino_a7771a73a8014204aeeecaaf58527b670} 
+\+\#define L3~(10)}
+
+
+
+\$\+L\+\_\+3\$ 
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00156}{156}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{arm_8ino_a6176466626e15053271fac0d36e7e36b}\index{arm.ino@{arm.ino}!STEP\_DIST@{STEP\_DIST}}
+\index{STEP\_DIST@{STEP\_DIST}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{STEP\_DIST}{STEP\_DIST}}
+{\footnotesize\ttfamily \label{arm_8ino_a6176466626e15053271fac0d36e7e36b} 
+\+\#define STEP\+\_\+\+DIST~(1)}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00158}{158}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm_8ino_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm_8ino_afe461d27b9c48d5921c00d521181f12f}\index{arm.ino@{arm.ino}!loop@{loop}}
+\index{loop@{loop}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{arm_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00368}{368}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00369\ \ \ \textcolor{comment}{//\ put\ your\ main\ code\ here,\ to\ run\ repeatedly:}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \}}
+
+\end{DoxyCode}
+\Hypertarget{arm_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{arm.ino@{arm.ino}!setup@{setup}}
+\index{setup@{setup}!arm.ino@{arm.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{arm_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00363}{363}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \textcolor{comment}{//\ put\ your\ setup\ code\ here,\ to\ run\ once:}}
+\DoxyCodeLine{00365\ \ \ \ \ }
+\DoxyCodeLine{00366\ \}}
+
+\end{DoxyCode}
