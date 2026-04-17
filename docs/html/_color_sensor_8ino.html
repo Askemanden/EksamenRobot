@@ -127,6 +127,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab6c76577f952028284cc6ed3bfc5b839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="#a49c14a96fbd3053a98ce53d9ec946c8e" title="Enumeration of detected color categories.">DetectedColor</a> enum value to a human-readable string.  <br /></td></tr>
 <tr class="memitem:a08d2a41c46a5ad4c7cfc9207f55f555a" id="r_a08d2a41c46a5ad4c7cfc9207f55f555a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a08d2a41c46a5ad4c7cfc9207f55f555a">detectAndPrintColor</a> ()</td></tr>
 <tr class="memdesc:a08d2a41c46a5ad4c7cfc9207f55f555a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the sensor, categorizes the color, and prints the result.  <br /></td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -222,16 +224,16 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span> (c &lt; 200) {</div>
 <div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="#a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1">COLOR_BLACK</a>;</div>
 <div class="line"><span class="lineno">   67</span>    }</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span> (c &gt; 45000) {</div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span> (c &gt; 4000) {</div>
 <div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec">COLOR_WHITE</a>;</div>
 <div class="line"><span class="lineno">   70</span>    }</div>
 <div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">float</span> rn = (float)r / c;</div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordtype">float</span> gn = (float)g / c;</div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordtype">float</span> bn = (float)b / c;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">float</span> rn = (float)r;</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordtype">float</span> gn = (float)g;</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordtype">float</span> bn = (float)b;</div>
 <div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minDiff = 0.05;</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minRatio = 1.25;</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minDiff = 0.03;</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minRatio = 1.025;</div>
 <div class="line"><span class="lineno">   78</span> </div>
 <div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span> (rn &gt; gn * minRatio &amp;&amp; rn &gt; bn * minRatio &amp;&amp;</div>
 <div class="line"><span class="lineno">   80</span>        (rn - gn) &gt; minDiff &amp;&amp; (rn - bn) &gt; minDiff) {</div>
@@ -341,6 +343,11 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_color_sensor_8ino_a08d2a41c46a5ad4c7cfc9207f55f555a_cgraph.png" border="0" usemap="#a_color_sensor_8ino_a08d2a41c46a5ad4c7cfc9207f55f555a_cgraph" loading="lazy" alt=""/></div>
 </div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_color_sensor_8ino_a08d2a41c46a5ad4c7cfc9207f55f555a_icgraph.png" border="0" usemap="#a_color_sensor_8ino_a08d2a41c46a5ad4c7cfc9207f55f555a_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -375,7 +382,41 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   39</span>    Serial.println(<span class="stringliteral">&quot;TCS34725 initialized&quot;</span>);</div>
 <div class="line"><span class="lineno">   40</span>}</div>
 <div class="ttc" id="a_color_sensor_8ino_html_a45c0f204e407e3ec89083b79cb38c8f9"><div class="ttname"><a href="#a45c0f204e407e3ec89083b79cb38c8f9">tcs</a></div><div class="ttdeci">Adafruit_TCS34725 tcs</div><div class="ttdoc">TCS34725 sensor object with standard integration time and gain.</div><div class="ttdef"><b>Definition</b> <a href="_color_sensor_8ino_source.html#l00019">ColorSensor.ino:19</a></div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_color_sensor_8ino_a5900f965f098bd4256e491d9faf1922d_icgraph.png" border="0" usemap="#a_color_sensor_8ino_a5900f965f098bd4256e491d9faf1922d_icgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_color_sensor_8ino_source.html#l00135">135</a> of file <a class="el" href="_color_sensor_8ino_source.html">ColorSensor.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  135</span>            {</div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_function" href="#a08d2a41c46a5ad4c7cfc9207f55f555a">detectAndPrintColor</a>();</div>
+<div class="line"><span class="lineno">  137</span>    delay(500);</div>
+<div class="line"><span class="lineno">  138</span>}</div>
+<div class="ttc" id="a_color_sensor_8ino_html_a08d2a41c46a5ad4c7cfc9207f55f555a"><div class="ttname"><a href="#a08d2a41c46a5ad4c7cfc9207f55f555a">detectAndPrintColor</a></div><div class="ttdeci">void detectAndPrintColor()</div><div class="ttdoc">Reads the sensor, categorizes the color, and prints the result.</div><div class="ttdef"><b>Definition</b> <a href="_color_sensor_8ino_source.html#l00117">ColorSensor.ino:117</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_color_sensor_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#a_color_sensor_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" loading="lazy" alt=""/></div>
+</div>
+
 </div>
 </div>
 <a id="a26bff309cee7214d34c4c8b9167b7cc1" name="a26bff309cee7214d34c4c8b9167b7cc1"></a>
@@ -426,6 +467,34 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_color_sensor_8ino_a26bff309cee7214d34c4c8b9167b7cc1_icgraph.png" border="0" usemap="#a_color_sensor_8ino_a26bff309cee7214d34c4c8b9167b7cc1_icgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_color_sensor_8ino_source.html#l00131">131</a> of file <a class="el" href="_color_sensor_8ino_source.html">ColorSensor.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  131</span>             {</div>
+<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="#a5900f965f098bd4256e491d9faf1922d">initColorSensor</a>();</div>
+<div class="line"><span class="lineno">  133</span>}</div>
+<div class="ttc" id="a_color_sensor_8ino_html_a5900f965f098bd4256e491d9faf1922d"><div class="ttname"><a href="#a5900f965f098bd4256e491d9faf1922d">initColorSensor</a></div><div class="ttdeci">void initColorSensor()</div><div class="ttdoc">Initializes serial communication and the TCS34725 sensor.</div><div class="ttdef"><b>Definition</b> <a href="_color_sensor_8ino_source.html#l00030">ColorSensor.ino:30</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_color_sensor_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#a_color_sensor_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" loading="lazy" alt=""/></div>
 </div>
 
 </div>

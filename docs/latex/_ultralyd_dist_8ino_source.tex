@@ -4,34 +4,47 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00001}\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{00001}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}}\ =\ 5;\ \textcolor{comment}{//Trig}}
 \DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00002}\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{00002}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}}\ =\ 7;\ \textcolor{comment}{//Echo}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00004}\doxymbox{\hyperlink{_ultralyd_dist_8ino_a4fc01d736fe50cf5b977f755b675f11d}{00004}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00006}00006\ Serial.begin(9600);}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00007}00007\ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},OUTPUT);\ \textcolor{comment}{//transmit\ is\ ouput}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00008}00008\ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},INPUT);\ \textcolor{comment}{//receive\ is\ input}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00009}00009\ \}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00011}\doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{00011}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{getDistanceCM}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00012}00012\ \ \ \textcolor{keywordtype}{long}\ duration;}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00013}00013\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00014}00014\ \ \ \textcolor{comment}{//\ Ensure\ clean\ LOW\ pulse}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00015}00015\ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00016}00016\ \ \ delayMicroseconds(5);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00011}00011\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}}\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00016}00016\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}}\ =\ 7;}
 \DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00018}00018\ \ \ \textcolor{comment}{//\ Send\ 10µs\ HIGH\ pulse}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00019}00019\ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ HIGH);}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00020}00020\ \ \ delayMicroseconds(10);}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00021}00021\ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00023}00023\ \ \ \textcolor{comment}{//\ Measure\ echo\ time}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00024}00024\ \ \ duration\ =\ pulseIn(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},\ HIGH);}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00026}00026\ \ \ \textcolor{comment}{//\ Convert\ to\ centimeters}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00027}00027\ \ \ \textcolor{keywordtype}{double}\ distance\_cm\ =\ duration\ /\ 58.0;}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00029}00029\ \ \ \textcolor{keywordflow}{return}\ distance\_cm;}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00030}00030\ \}}
-\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00024}\doxymbox{\hyperlink{_ultralyd_dist_8ino_a4fc01d736fe50cf5b977f755b675f11d}{00024}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00025}00025\ \ \ \ \ Serial.begin(9600);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00026}00026\ \ \ \ \ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00027}00027\ \ \ \ \ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},\ INPUT);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00041}\doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{00041}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{getDistanceCM}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{long}\ duration;}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00044}00044\ \ \ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00045}00045\ \ \ \ \ delayMicroseconds(5);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00047}00047\ \ \ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00048}00048\ \ \ \ \ delayMicroseconds(10);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00049}00049\ \ \ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00051}00051\ \ \ \ \ duration\ =\ pulseIn(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{double}\ distance\_cm\ =\ duration\ *\ 0.0172;}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ distance\_cm;}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00059}\doxymbox{\hyperlink{_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f}{00059}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00060}00060\ \ \ \textcolor{keywordtype}{double}\ distance\ =\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{getDistanceCM}}();}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00061}00061\ \ \ \textcolor{keywordflow}{if}\ (distance\ >\ 0\ \&\&\ distance\ <\ 400)\ \{\ \ \textcolor{comment}{//\ Typical\ HC-\/SR04\ range}}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00062}00062\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Distance:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00063}00063\ \ \ \ \ Serial.print(distance);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00064}00064\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}\ cm"{}});}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00065}00065\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00066}00066\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Out\ of\ range"{}});}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00067}00067\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00068}00068\ \ \ }
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00069}00069\ \ \ delay(200);}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{_ultralyd_dist_8ino_source_l00071}00071\ }
 
 \end{DoxyCode}

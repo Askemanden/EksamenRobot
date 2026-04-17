@@ -12,6 +12,8 @@ var _color_sensor_8ino =
     [ "colorToString", "_color_sensor_8ino.html#ab6c76577f952028284cc6ed3bfc5b839", null ],
     [ "detectAndPrintColor", "_color_sensor_8ino.html#a08d2a41c46a5ad4c7cfc9207f55f555a", null ],
     [ "initColorSensor", "_color_sensor_8ino.html#a5900f965f098bd4256e491d9faf1922d", null ],
+    [ "loop", "_color_sensor_8ino.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "readColorRaw", "_color_sensor_8ino.html#a26bff309cee7214d34c4c8b9167b7cc1", null ],
+    [ "setup", "_color_sensor_8ino.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
     [ "tcs", "_color_sensor_8ino.html#a45c0f204e407e3ec89083b79cb38c8f9", null ]
 ];

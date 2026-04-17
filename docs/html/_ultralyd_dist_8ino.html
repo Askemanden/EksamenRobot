@@ -92,19 +92,31 @@ $(function(){initNavTree('_ultralyd_dist_8ino.html','',''); });
 </div><!--header-->
 <div class="contents">
 
+<p>Ultrasonic distance measurement using trigger/echo pins.  
+<a href="#details">More...</a></p>
+
 <p><a href="_ultralyd_dist_8ino_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arduino setup function.  <br /></td></tr>
 <tr class="memitem:a5722f0474cd56b3cfe567a8536a882c3" id="r_a5722f0474cd56b3cfe567a8536a882c3"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a5722f0474cd56b3cfe567a8536a882c3">getDistanceCM</a> ()</td></tr>
+<tr class="memdesc:a5722f0474cd56b3cfe567a8536a882c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures distance using an ultrasonic sensor.  <br /></td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a35996f002db2b6df6eb576c50f153656" id="r_a35996f002db2b6df6eb576c50f153656"><td class="memItemLeft">const int&#160;</td><td class="memItemRight"><a class="el" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a> = 5</td></tr>
+<tr class="memdesc:a35996f002db2b6df6eb576c50f153656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin used to trigger the ultrasonic transmitter.  <br /></td></tr>
 <tr class="memitem:a90b83b43730151362ca40d6f532ac486" id="r_a90b83b43730151362ca40d6f532ac486"><td class="memItemLeft">const int&#160;</td><td class="memItemRight"><a class="el" href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a> = 7</td></tr>
+<tr class="memdesc:a90b83b43730151362ca40d6f532ac486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin used to read the ultrasonic echo signal.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Ultrasonic distance measurement using trigger/echo pins. </p>
+
+<p class="definition">Definition in file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a5722f0474cd56b3cfe567a8536a882c3" name="a5722f0474cd56b3cfe567a8536a882c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5722f0474cd56b3cfe567a8536a882c3">&#9670;&#160;</a></span>getDistanceCM()</h2>
 
@@ -120,30 +132,73 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00011">11</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   11</span>                       {</div>
-<div class="line"><span class="lineno">   12</span>  <span class="keywordtype">long</span> duration;</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>  <span class="comment">// Ensure clean LOW pulse</span></div>
-<div class="line"><span class="lineno">   15</span>  digitalWrite(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, LOW);</div>
-<div class="line"><span class="lineno">   16</span>  delayMicroseconds(5);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>  <span class="comment">// Send 10µs HIGH pulse</span></div>
-<div class="line"><span class="lineno">   19</span>  digitalWrite(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, HIGH);</div>
-<div class="line"><span class="lineno">   20</span>  delayMicroseconds(10);</div>
-<div class="line"><span class="lineno">   21</span>  digitalWrite(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, LOW);</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>  <span class="comment">// Measure echo time</span></div>
-<div class="line"><span class="lineno">   24</span>  duration = pulseIn(<a class="code hl_variable" href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a>, HIGH);</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>  <span class="comment">// Convert to centimeters</span></div>
-<div class="line"><span class="lineno">   27</span>  <span class="keywordtype">double</span> distance_cm = duration / 58.0;</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>  <span class="keywordflow">return</span> distance_cm;</div>
-<div class="line"><span class="lineno">   30</span>}</div>
-<div class="ttc" id="a_ultralyd_dist_8ino_html_a35996f002db2b6df6eb576c50f153656"><div class="ttname"><a href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a></div><div class="ttdeci">const int trans_pin</div><div class="ttdef"><b>Definition</b> <a href="_ultralyd_dist_8ino_source.html#l00001">UltralydDist.ino:1</a></div></div>
-<div class="ttc" id="a_ultralyd_dist_8ino_html_a90b83b43730151362ca40d6f532ac486"><div class="ttname"><a href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a></div><div class="ttdeci">const int recv_pin</div><div class="ttdef"><b>Definition</b> <a href="_ultralyd_dist_8ino_source.html#l00002">UltralydDist.ino:2</a></div></div>
-</div><!-- fragment -->
+<p>Measures distance using an ultrasonic sensor. </p>
+<p>Sends a short trigger pulse and measures the duration of the returning echo pulse. The duration is converted to distance in centimeters using the formula:</p>
+<p>distance_cm = duration / 58</p>
+<dl class="section return"><dt>Returns</dt><dd>Distance to the nearest object in centimeters. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00041">41</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                       {</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordtype">long</span> duration;</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    digitalWrite(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, LOW);</div>
+<div class="line"><span class="lineno">   45</span>    delayMicroseconds(5);</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    digitalWrite(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, HIGH);</div>
+<div class="line"><span class="lineno">   48</span>    delayMicroseconds(10);</div>
+<div class="line"><span class="lineno">   49</span>    digitalWrite(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, LOW);</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    duration = pulseIn(<a class="code hl_variable" href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a>, HIGH);</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordtype">double</span> distance_cm = duration * 0.0172;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> distance_cm;</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="a_ultralyd_dist_8ino_html_a35996f002db2b6df6eb576c50f153656"><div class="ttname"><a href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a></div><div class="ttdeci">const int trans_pin</div><div class="ttdoc">Pin used to trigger the ultrasonic transmitter.</div><div class="ttdef"><b>Definition</b> <a href="_ultralyd_dist_8ino_source.html#l00001">UltralydDist.ino:1</a></div></div>
+<div class="ttc" id="a_ultralyd_dist_8ino_html_a90b83b43730151362ca40d6f532ac486"><div class="ttname"><a href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a></div><div class="ttdeci">const int recv_pin</div><div class="ttdoc">Pin used to read the ultrasonic echo signal.</div><div class="ttdef"><b>Definition</b> <a href="_ultralyd_dist_8ino_source.html#l00002">UltralydDist.ino:2</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3_icgraph.png" border="0" usemap="#a_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3_icgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00059">59</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>            {</div>
+<div class="line"><span class="lineno">   60</span>  <span class="keywordtype">double</span> distance = <a class="code hl_function" href="#a5722f0474cd56b3cfe567a8536a882c3">getDistanceCM</a>();</div>
+<div class="line"><span class="lineno">   61</span>  <span class="keywordflow">if</span> (distance &gt; 0 &amp;&amp; distance &lt; 400) {  <span class="comment">// Typical HC-SR04 range</span></div>
+<div class="line"><span class="lineno">   62</span>    Serial.print(<span class="stringliteral">&quot;Distance: &quot;</span>);</div>
+<div class="line"><span class="lineno">   63</span>    Serial.print(distance);</div>
+<div class="line"><span class="lineno">   64</span>    Serial.println(<span class="stringliteral">&quot; cm&quot;</span>);</div>
+<div class="line"><span class="lineno">   65</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   66</span>    Serial.println(<span class="stringliteral">&quot;Out of range&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>  }</div>
+<div class="line"><span class="lineno">   68</span>  </div>
+<div class="line"><span class="lineno">   69</span>  delay(200);</div>
+<div class="line"><span class="lineno">   70</span>}</div>
+<div class="ttc" id="a_ultralyd_dist_8ino_html_a5722f0474cd56b3cfe567a8536a882c3"><div class="ttname"><a href="#a5722f0474cd56b3cfe567a8536a882c3">getDistanceCM</a></div><div class="ttdeci">double getDistanceCM()</div><div class="ttdoc">Measures distance using an ultrasonic sensor.</div><div class="ttdef"><b>Definition</b> <a href="_ultralyd_dist_8ino_source.html#l00041">UltralydDist.ino:41</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#a_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" loading="lazy" alt=""/></div>
+</div>
+
 </div>
 </div>
 <a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
@@ -161,13 +216,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00004">4</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    4</span>             {</div>
-<div class="line"><span class="lineno">    5</span> </div>
-<div class="line"><span class="lineno">    6</span>Serial.begin(9600);</div>
-<div class="line"><span class="lineno">    7</span>pinMode(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>,OUTPUT); <span class="comment">//transmit is ouput</span></div>
-<div class="line"><span class="lineno">    8</span>pinMode(<a class="code hl_variable" href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a>,INPUT); <span class="comment">//receive is input</span></div>
-<div class="line"><span class="lineno">    9</span>}</div>
+<p>Arduino setup function. </p>
+<p>Initializes serial communication and configures the ultrasonic transmitter and receiver pins. </p>
+
+<p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00024">24</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>             {</div>
+<div class="line"><span class="lineno">   25</span>    Serial.begin(9600);</div>
+<div class="line"><span class="lineno">   26</span>    pinMode(<a class="code hl_variable" href="#a35996f002db2b6df6eb576c50f153656">trans_pin</a>, OUTPUT);</div>
+<div class="line"><span class="lineno">   27</span>    pinMode(<a class="code hl_variable" href="#a90b83b43730151362ca40d6f532ac486">recv_pin</a>, INPUT);</div>
+<div class="line"><span class="lineno">   28</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -184,6 +241,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pin used to read the ultrasonic echo signal. </p>
+
 <p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00002">2</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
 
 </div>
@@ -199,6 +258,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pin used to trigger the ultrasonic transmitter. </p>
 
 <p class="definition">Definition at line <a class="el" href="_ultralyd_dist_8ino_source.html#l00001">1</a> of file <a class="el" href="_ultralyd_dist_8ino_source.html">UltralydDist.ino</a>.</p>
 

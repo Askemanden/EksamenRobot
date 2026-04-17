@@ -136,16 +136,16 @@ $(function(){initNavTree('_color_sensor_8ino_source.html','',''); });
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span> (c &lt; 200) {</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ea2a9daf215a30f1c539ead18c66380fc1">COLOR_BLACK</a>;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span> (c &gt; 45000) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span> (c &gt; 4000) {</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec">COLOR_WHITE</a>;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">float</span> rn = (float)r / c;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">float</span> gn = (float)g / c;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">float</span> bn = (float)b / c;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">float</span> rn = (float)r;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">float</span> gn = (float)g;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">float</span> bn = (float)b;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minDiff = 0.05;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minRatio = 1.25;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minDiff = 0.03;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> minRatio = 1.025;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> (rn &gt; gn * minRatio &amp;&amp; rn &gt; bn * minRatio &amp;&amp;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        (rn - gn) &gt; minDiff &amp;&amp; (rn - bn) &gt; minDiff) {</div>
@@ -194,6 +194,19 @@ $(function(){initNavTree('_color_sensor_8ino_source.html','',''); });
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    Serial.println(<a class="code hl_function" href="_color_sensor_8ino.html#ab6c76577f952028284cc6ed3bfc5b839">colorToString</a>(color));</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}</div>
 </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="_color_sensor_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">  131</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_color_sensor_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <a class="code hl_function" href="_color_sensor_8ino.html#a5900f965f098bd4256e491d9faf1922d">initColorSensor</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="_color_sensor_8ino.html#afe461d27b9c48d5921c00d521181f12f">  135</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_color_sensor_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a>() {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_function" href="_color_sensor_8ino.html#a08d2a41c46a5ad4c7cfc9207f55f555a">detectAndPrintColor</a>();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    delay(500);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}</div>
+</div>
 <div class="ttc" id="a_color_sensor_8ino_html_a08d2a41c46a5ad4c7cfc9207f55f555a"><div class="ttname"><a href="_color_sensor_8ino.html#a08d2a41c46a5ad4c7cfc9207f55f555a">detectAndPrintColor</a></div><div class="ttdeci">void detectAndPrintColor()</div><div class="ttdoc">Reads the sensor, categorizes the color, and prints the result.</div><div class="ttdef"><b>Definition</b> <a href="#l00117">ColorSensor.ino:117</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_a26bff309cee7214d34c4c8b9167b7cc1"><div class="ttname"><a href="_color_sensor_8ino.html#a26bff309cee7214d34c4c8b9167b7cc1">readColorRaw</a></div><div class="ttdeci">void readColorRaw(uint16_t &amp;r, uint16_t &amp;g, uint16_t &amp;b, uint16_t &amp;c)</div><div class="ttdoc">Reads raw color values from the TCS34725 sensor.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">ColorSensor.ino:50</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_a45c0f204e407e3ec89083b79cb38c8f9"><div class="ttname"><a href="_color_sensor_8ino.html#a45c0f204e407e3ec89083b79cb38c8f9">tcs</a></div><div class="ttdeci">Adafruit_TCS34725 tcs</div><div class="ttdoc">TCS34725 sensor object with standard integration time and gain.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">ColorSensor.ino:19</a></div></div>
@@ -204,9 +217,11 @@ $(function(){initNavTree('_color_sensor_8ino_source.html','',''); });
 <div class="ttc" id="a_color_sensor_8ino_html_a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00"><div class="ttname"><a href="_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eaa14d1399eb9556a6c7d33c16d5cf3b00">COLOR_UNCERTAIN</a></div><div class="ttdeci">@ COLOR_UNCERTAIN</div><div class="ttdef"><b>Definition</b> <a href="#l00013">ColorSensor.ino:13</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02"><div class="ttname"><a href="_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8eacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a></div><div class="ttdeci">@ COLOR_GREEN</div><div class="ttdef"><b>Definition</b> <a href="#l00009">ColorSensor.ino:9</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec"><div class="ttname"><a href="_color_sensor_8ino.html#a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec">COLOR_WHITE</a></div><div class="ttdeci">@ COLOR_WHITE</div><div class="ttdef"><b>Definition</b> <a href="#l00012">ColorSensor.ino:12</a></div></div>
+<div class="ttc" id="a_color_sensor_8ino_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="_color_sensor_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="#l00131">ColorSensor.ino:131</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_a5900f965f098bd4256e491d9faf1922d"><div class="ttname"><a href="_color_sensor_8ino.html#a5900f965f098bd4256e491d9faf1922d">initColorSensor</a></div><div class="ttdeci">void initColorSensor()</div><div class="ttdoc">Initializes serial communication and the TCS34725 sensor.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">ColorSensor.ino:30</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_ab6c76577f952028284cc6ed3bfc5b839"><div class="ttname"><a href="_color_sensor_8ino.html#ab6c76577f952028284cc6ed3bfc5b839">colorToString</a></div><div class="ttdeci">const char * colorToString(DetectedColor color)</div><div class="ttdoc">Converts a DetectedColor enum value to a human-readable string.</div><div class="ttdef"><b>Definition</b> <a href="#l00103">ColorSensor.ino:103</a></div></div>
 <div class="ttc" id="a_color_sensor_8ino_html_ac618e3f9b7d0c8ee2af5d5c7b890609e"><div class="ttname"><a href="_color_sensor_8ino.html#ac618e3f9b7d0c8ee2af5d5c7b890609e">categorizeColor</a></div><div class="ttdeci">DetectedColor categorizeColor(uint16_t r, uint16_t g, uint16_t b, uint16_t c)</div><div class="ttdoc">Classifies a color using thresholds and ratios to avoid false positives.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">ColorSensor.ino:63</a></div></div>
+<div class="ttc" id="a_color_sensor_8ino_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="_color_sensor_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdef"><b>Definition</b> <a href="#l00135">ColorSensor.ino:135</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

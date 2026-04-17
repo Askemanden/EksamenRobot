@@ -1,19 +1,35 @@
 \doxysection{Ultralyd\+Dist.\+ino File Reference}
 \hypertarget{_ultralyd_dist_8ino}{}\label{_ultralyd_dist_8ino}\index{UltralydDist.ino@{UltralydDist.ino}}
+
+
+Ultrasonic distance measurement using trigger/\+echo pins.  
+
+
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{_ultralyd_dist_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Arduino setup function. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{get\+Distance\+CM}} ()
+\begin{DoxyCompactList}\small\item\em Measures distance using an ultrasonic sensor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 const int \doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\+\_\+pin}} = 5
-\item 
+\begin{DoxyCompactList}\small\item\em Pin used to trigger the ultrasonic transmitter. \end{DoxyCompactList}\item 
 const int \doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\+\_\+pin}} = 7
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pin used to read the ultrasonic echo signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ultrasonic distance measurement using trigger/\+echo pins. 
+
+
+
+Definition in file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
+
 
 
 \label{doc-func-members}
@@ -27,32 +43,69 @@ double get\+Distance\+CM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00011}{11}} of file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
+Measures distance using an ultrasonic sensor. 
+
+Sends a short trigger pulse and measures the duration of the returning echo pulse. The duration is converted to distance in centimeters using the formula:\+
+
+distance\+\_\+cm = duration /\+ 58
+
+\begin{DoxyReturn}{Returns}
+Distance to the nearest object in centimeters. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00041}{41}} of file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{long}\ duration;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ Ensure\ clean\ LOW\ pulse}}
-\DoxyCodeLine{00015\ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
-\DoxyCodeLine{00016\ \ \ delayMicroseconds(5);}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//\ Send\ 10µs\ HIGH\ pulse}}
-\DoxyCodeLine{00019\ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ HIGH);}
-\DoxyCodeLine{00020\ \ \ delayMicroseconds(10);}
-\DoxyCodeLine{00021\ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ Measure\ echo\ time}}
-\DoxyCodeLine{00024\ \ \ duration\ =\ pulseIn(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},\ HIGH);}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ Convert\ to\ centimeters}}
-\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{double}\ distance\_cm\ =\ duration\ /\ 58.0;}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordflow}{return}\ distance\_cm;}
-\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{long}\ duration;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
+\DoxyCodeLine{00045\ \ \ \ \ delayMicroseconds(5);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ HIGH);}
+\DoxyCodeLine{00048\ \ \ \ \ delayMicroseconds(10);}
+\DoxyCodeLine{00049\ \ \ \ \ digitalWrite(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ LOW);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ duration\ =\ pulseIn(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},\ HIGH);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ distance\_cm\ =\ duration\ *\ 0.0172;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ distance\_cm;}
+\DoxyCodeLine{00056\ \}}
 
 \end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 0
+\Hypertarget{_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f}\index{UltralydDist.ino@{UltralydDist.ino}!loop@{loop}}
+\index{loop@{loop}!UltralydDist.ino@{UltralydDist.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{_ultralyd_dist_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00059}{59}} of file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{double}\ distance\ =\ \doxymbox{\hyperlink{_ultralyd_dist_8ino_a5722f0474cd56b3cfe567a8536a882c3}{getDistanceCM}}();}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{if}\ (distance\ >\ 0\ \&\&\ distance\ <\ 400)\ \{\ \ \textcolor{comment}{//\ Typical\ HC-\/SR04\ range}}
+\DoxyCodeLine{00062\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Distance:\ "{}});}
+\DoxyCodeLine{00063\ \ \ \ \ Serial.print(distance);}
+\DoxyCodeLine{00064\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}\ cm"{}});}
+\DoxyCodeLine{00065\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Out\ of\ range"{}});}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ \ \ }
+\DoxyCodeLine{00069\ \ \ delay(200);}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 1
 \Hypertarget{_ultralyd_dist_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{UltralydDist.ino@{UltralydDist.ino}!setup@{setup}}
 \index{setup@{setup}!UltralydDist.ino@{UltralydDist.ino}}
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
@@ -61,16 +114,19 @@ void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00004}{4}} of file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
+Arduino setup function. 
+
+Initializes serial communication and configures the ultrasonic transmitter and receiver pins. 
+
+Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00024}{24}} of file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ Serial.begin(9600);}
-\DoxyCodeLine{00007\ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},OUTPUT);\ \textcolor{comment}{//transmit\ is\ ouput}}
-\DoxyCodeLine{00008\ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},INPUT);\ \textcolor{comment}{//receive\ is\ input}}
-\DoxyCodeLine{00009\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ Serial.begin(9600);}
+\DoxyCodeLine{00026\ \ \ \ \ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}{trans\_pin}},\ OUTPUT);}
+\DoxyCodeLine{00027\ \ \ \ \ pinMode(\doxymbox{\hyperlink{_ultralyd_dist_8ino_a90b83b43730151362ca40d6f532ac486}{recv\_pin}},\ INPUT);}
+\DoxyCodeLine{00028\ \}}
 
 \end{DoxyCode}
 
@@ -86,6 +142,10 @@ const int recv\+\_\+pin = 7}
 
 
 
+Pin used to read the ultrasonic echo signal. 
+
+
+
 Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00002}{2}} of file \doxymbox{\hyperlink{_ultralyd_dist_8ino_source}{Ultralyd\+Dist.\+ino}}.
 
 \Hypertarget{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656}\index{UltralydDist.ino@{UltralydDist.ino}!trans\_pin@{trans\_pin}}
@@ -93,6 +153,10 @@ Definition at line \doxymbox{\hyperlink{_ultralyd_dist_8ino_source_l00002}{2}} o
 \doxysubsubsection{\texorpdfstring{trans\_pin}{trans\_pin}}
 {\footnotesize\ttfamily \label{_ultralyd_dist_8ino_a35996f002db2b6df6eb576c50f153656} 
 const int trans\+\_\+pin = 5}
+
+
+
+Pin used to trigger the ultrasonic transmitter. 
 
 
 
