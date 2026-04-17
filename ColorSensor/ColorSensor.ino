@@ -65,16 +65,16 @@ DetectedColor categorizeColor(uint16_t r, uint16_t g, uint16_t b, uint16_t c) {
     if (c < 200) {
         return COLOR_BLACK;
     }
-    if (c > 45000) {
+    if (c > 4000) {
         return COLOR_WHITE;
     }
 
-    float rn = (float)r / c;
-    float gn = (float)g / c;
-    float bn = (float)b / c;
+    float rn = (float)r;
+    float gn = (float)g;
+    float bn = (float)b;
 
-    const float minDiff = 0.05;
-    const float minRatio = 1.25;
+    const float minDiff = 0.03;
+    const float minRatio = 1.025;
 
     if (rn > gn * minRatio && rn > bn * minRatio &&
         (rn - gn) > minDiff && (rn - bn) > minDiff) {
@@ -126,4 +126,13 @@ void detectAndPrintColor() {
     Serial.print("  C: "); Serial.print(c);
     Serial.print("  -> Detected: ");
     Serial.println(colorToString(color));
+}
+
+void setup() {
+    initColorSensor();
+}
+
+void loop() {
+    detectAndPrintColor();
+    delay(500);
 }
