@@ -1,3 +1,5 @@
+const int trans_pin = 5; //Trig
+const int recv_pin = 7; //Echo
 /**
  * @file UltralydDist.ino
  * @brief Ultrasonic distance measurement using trigger/echo pins.
@@ -48,7 +50,22 @@ double getDistanceCM() {
 
     duration = pulseIn(recv_pin, HIGH);
 
-    double distance_cm = duration / 58.0;
+    double distance_cm = duration * 0.0172;
 
     return distance_cm;
 }
+
+
+void loop() {
+  double distance = getDistanceCM();
+  if (distance > 0 && distance < 400) {  // Typical HC-SR04 range
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+  } else {
+    Serial.println("Out of range");
+  }
+  
+  delay(200);
+}
+
