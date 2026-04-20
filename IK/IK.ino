@@ -6,12 +6,12 @@
 /**
 * @brief $L_2$
 */
-#define L2 (10)
+#define L2 (7)
 
 /**
 * @brief $L_3$
 */
-#define L3 (10)
+#define L3 (4)
 
 #define STEP_DIST (1)
 
@@ -112,7 +112,7 @@ int calculateNextTargetUV(Arm *self) {
 int calculateArmAngles(Arm *self) {
   Vector2 final_targetUV = self->final_targetUV;
   Vector2 target = self->targetUV;
-  self->theta2 = acos((sq(target.u) + sq(target.v) - sq(L1) - sq(L2)) / (2 * L1 * L2));
+  self->theta2 = -acos((sq(target.u) + sq(target.v) - sq(L1) - sq(L2)) / (2 * L1 * L2));
   double k1 = L1 + L2 * cos(self->theta2);
   double k2 = L2 * sin(self->theta2);
   self->theta1 = atan2(target.v, target.u) - atan2(k2, k1);
