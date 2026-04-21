@@ -1,0 +1,19 @@
+{  
+  "configurations": [  
+    {  
+      "name": "Win32",  
+      "includePath": [  
+        "${workspaceFolder}/**",  
+        "C:/Users/askev/AppData/Local/Arduino15/packages/arduino/hardware/avr/1.8.7/variants/standard",  // For board-specific pins (e.g., Uno)  
+        "C:/Users/askev/AppData/Local/Arduino15/packages/arduino/hardware/avr/1.8.7/cores/arduino",  
+        "C:/Users/askev/OneDrive/Dokumenter/Arduino/libraries/**"  // User libraries (**= recursive)  
+      ],  
+      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],  
+      "windowsSdkVersion": "10.0.19041.0",  
+      "cStandard": "c17",  
+      "cppStandard": "c++17",  
+      "intelliSenseMode": "windows-gcc-x64"  
+    }  
+  ],  
+  "version": 4  
+}  
