@@ -1,7 +1,74 @@
-double #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_TCS34725.h>
 #include <Servo.h>
+#include <LiquidCrystal.h>
+#include <Encoder.h>
+
+
+// LLL        CCCCCCC    DDDDDDD
+// LLL      CCC     CCC  DDD    DD
+// LLL     CCC           DDD     DD
+// LLL     CCC           DDD     DD
+// LLL     CCC           DDD     DD
+// LLL      CCC     CCC  DDD    DD
+// LLLLLLL    CCCCCCC    DDDDDDD
+
+/*
+* \addtogroup LCD
+* ! @{
+*/
+namespace LCD{
+
+const int LCD_COLS = 16;
+const int SCROLL_DELAY = 300;
+const int numRows = 2;
+
+// LCD PINS
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+
+struct LCDRow {
+  String text;
+  int    scrollPos  = 0;
+  bool   scrolling  = false;
+  unsigned long lastTick = 0;
+};
+
+LCDRow lcdRows[numRows]; 
+
+void Print(String text, int row) {
+  LCDRow &r = lcdRows[row];
+  r.text      = text;
+  r.scrollPos = 0;
+  r.lastTick  = 0;
+  r.scrolling = (text.length() > LCD_COLS);
+
+  lcd.setCursor(0, row);
+  lcd.print(text.substring(0, LCD_COLS));
+  for (int i = text.length(); i < LCD_COLS; i++) lcd.print(' ');
+}
+
+void Update() {
+  unsigned long now = millis();
+
+  for (int row = 0; row < numRows; row++) {
+    LCDRow &r = lcdRows[row];
+    if (!r.scrolling) continue;
+    if (now - r.lastTick < SCROLL_DELAY) continue;
+    r.lastTick += SCROLL_DELAY;
+
+    String padded = r.text + "                  ";
+    lcd.setCursor(0, row);
+    lcd.print(padded.substring(r.scrollPos, r.scrollPos + LCD_COLS));
+
+    r.scrollPos++;
+    if (r.scrollPos > (int)r.text.length()) r.scrollPos = 0;
+  }
+}
+}
+/*! @}*/
+
 
 //  ██████╗ ██████╗ ██╗      ██████╗ ██████╗      ███████╗███████╗███╗   ██╗███████╗ ██████╗ ██████╗  ██████╗
 // ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗     ██╔════╝██╔════╝████╗  ██║██╔════╝██╔═══██╗██╔══██╗██╔═══██╗
@@ -180,17 +247,17 @@ namespace IK
   /**
    * @brief $L_1$
    */
-  const double L1 = 10;
+  const double L1 = 20;
 
   /**
    * @brief $L_2$
    */
-  const double L2 = 7;
+  const double L2 = 15;
 
   /**
    * @brief $L_3$
    */
-  const double L3 = 4;
+  const double L3 = 8;
 
   const double STEP_DIST = 1;
 
@@ -326,8 +393,136 @@ namespace IK
  */
 namespace Motor
 {
+  const int MAX_SPEED = 130;
+  const int INTERVAL_TIME = 30;
+  const int threshold = 3;
 
-  void turnAll(Arm arm);
+  struct PID
+  {
+    double kp = 0, ki = 0, kd = 0;
+    int integral = 0, last_error = 0;
+  };
+
+  struct MotorUnit
+  {
+    unsigned int FULL_ROTATION = 0, MIN_POWER = 0;
+
+    uint8_t direction1 = 0, direction2 = 0;
+    long current_position = 0, target_position = 0;
+
+    PID pid_data = {};
+  };
+
+  MotorUnit baseMotor = {};
+  MotorUnit shoulderMotor = {};
+  MotorUnit elbowMotor = {};
+
+  // Encoder encBase(18, 19); Not mounted yet
+  Encoder encShoulder(2, 3);
+  Encoder encElbow(18, 19);
+
+
+  void turn(MotorUnit &m, bool cw, int speed)
+  {
+    if (cw)
+    {
+      analogWrite(m.direction1, speed);
+      analogWrite(m.direction2, 0);
+    }
+    else
+    {
+      analogWrite(m.direction1, 0);
+      analogWrite(m.direction2, speed);
+    }
+  }
+
+  long radians_to_counts(MotorUnit &m, double rad)
+  {
+    double degrees = rad * 180.0 / PI;
+    return (long)(degrees * m.FULL_ROTATION / 360.0);
+  }
+
+  void dc_motor_update(MotorUnit &m)
+  {
+    long error = m.target_position - m.current_position;
+
+    if (abs(error) <= threshold)
+    {
+      turn(m, false, 0);
+      return;
+    }
+
+    m.pid_data.integral += error;
+    m.pid_data.integral = constrain(m.pid_data.integral, -1000, 1000);
+
+    double derivative = (error - m.pid_data.last_error);
+    m.pid_data.last_error = error;
+
+    double output =
+        m.pid_data.kp * error +
+        m.pid_data.ki * m.pid_data.integral +
+        m.pid_data.kd * derivative;
+
+    int speed = abs(output);
+
+    turn(m, (output > 0),
+         constrain(speed, (int)m.MIN_POWER, MAX_SPEED));
+  }
+
+  void init_motor(
+      uint8_t dir1,
+      uint8_t dir2,
+      int FULL_ROTATION,
+      int MIN_POWER,
+      double kp, double ki, double kd,
+      MotorUnit &m)
+  {
+    m.direction1 = dir1;
+    m.direction2 = dir2;
+    m.FULL_ROTATION = FULL_ROTATION;
+    m.MIN_POWER = MIN_POWER;
+
+    m.pid_data.kp = kp;
+    m.pid_data.ki = ki;
+    m.pid_data.kd = kd;
+
+    pinMode(dir1, OUTPUT);
+    pinMode(dir2, OUTPUT);
+  }
+
+  // API
+  void turnAll(IK::Arm arm)
+  {
+
+    // baseMotor.target_position     = radians_to_counts(baseMotor, arm.base_angle); Not mounted yet
+    shoulderMotor.target_position = radians_to_counts(shoulderMotor, -arm.theta1);
+    elbowMotor.target_position = radians_to_counts(elbowMotor, -(arm.theta1 + arm.theta2));
+    // Wrist (theta3) omitted as it is without motor
+  }
+
+  void updateAll()
+  {
+    // Read encoders
+    // baseMotor.current_position     = encBase.read(); Not mounted yet
+    shoulderMotor.current_position = encShoulder.read();
+    elbowMotor.current_position = -encElbow.read();
+
+    // Run PID
+    // dc_motor_update(baseMotor); Not mounted yet
+    dc_motor_update(shoulderMotor);
+    dc_motor_update(elbowMotor);
+  }
+
+  void init()
+  {
+    // init_motor(5, 6,  (int)(30 * 64), 35, 0.6, 0.01, 0.5, baseMotor); Not mounted
+    init_motor(11, 10,(int)(102.083 * 64),     40, 0.6, 0.01, 0.55,  shoulderMotor);
+    init_motor(5, 6,  (int)(30 * 64),     35, 0.6, 0.01, 0.5,  elbowMotor);
+    // baseMotor.current_position = radians_to_counts(baseMotor,0);
+    shoulderMotor.current_position = radians_to_counts(shoulderMotor, PI/4);
+    elbowMotor.current_position = radians_to_counts(elbowMotor, PI/4);
+
+  }
 }
 /*! @} */
 
@@ -495,14 +690,14 @@ ScanResult performScan(const UltrasonicSensor &s, ServoScanner &sc, int startAng
 }
 
 // MAIN CALLABLE FUNCTION
-int scanForTargetAngle(UltrasonicSensor &s, ServoScanner &sc) {
+ScanResult scan(UltrasonicSensor &s, ServoScanner &sc) {
   ScanResult r1 = performScan(s, sc, sc.minAngle, sc.maxAngle);
-  if (r1.detected) return r1.trueAngle;
+  if (r1.detected) return r1;
 
   ScanResult r2 = performScan(s, sc, sc.maxAngle, sc.minAngle);
-  if (r2.detected) return r2.trueAngle;
+  if (r2.detected) return r2;
 
-  return -1;
+  return {-1,-1,-1,-1,-1,-1,-1};
 }
 
 void initScanner(){
@@ -511,9 +706,10 @@ void initScanner(){
   scanner.servo.attach(scanner.pin);
 }
 
-int searchForTarget(UltrasonicSensor &s, ServoScanner &sc) {
+ScanResult searchForTarget(UltrasonicSensor &s, ServoScanner &sc) {
   while (true) {
-    int angle = scanForTargetAngle(s, sc);
+    ScanResult result = scan(s, sc);
+    int angle = result.trueAngle;
 
     if (angle != -1) {
       Serial.print("Detected angle: ");
@@ -522,28 +718,26 @@ int searchForTarget(UltrasonicSensor &s, ServoScanner &sc) {
 
       // point at target
       sc.servo.write(angle);
-      delay(800);
+      delay(200);
 
       // return to center
       int center = (sc.minAngle + sc.maxAngle) / 2;
       sc.servo.write(center);
-      delay(500);
 
-      return angle;
+      return result;
     } else {
       Serial.println("No object detected");
-      delay(300);
+      delay(100);
     }
   }
 }
 }
 /*! @} */
 
-
 enum STATE
 {
   SEARCHING,
-  FOUND,
+  MOVING_TO_OBJECT,
   PICKING_UP,
   IDENTIFYING_COLOR,
   MOVING_OBJECT,
@@ -551,41 +745,213 @@ enum STATE
   RESETTING
 };
 
-STATE state = RESETTING;
+// IK::Arm arm = {};
+
+// void setup()
+// {
+//   // put your setup code here, to run once:
+//   ColorSensor::initColorSensor();
+//   Scanner::initScanner();
+//   Motor::init()
+//   arm.final_targetUV = {IK::L2, IK::L1-IK::L3};
+//   arm.targetUV = {IK::L2, IK::L1-IK::L3};
+//   arm.theta1 = 90;
+//   arm.theta2 = 90;
+//   arm.theta3 = 90;
+//   arm.base_angle = 0;
+// }
+
+// STATE state = RESETTING;
+// int sensor_angle = 0;
+// float sensor_detection_distance = 0;
+// const int sensor_position = 5;
+
+// ColorSensor::DetectedColor object_color = ColorSensor::COLOR_UNCERTAIN;
+// uint16_t r, g, b, c;
+
+
+
+// void loop()
+// {
+//   LCD::Update();
+//   Motor::updateAll();
+
+//   switch (state)
+//   {
+//     case SEARCHING:
+//     {
+//       Scanner::ScanResult scan_result = Scanner::searchForTarget(Scanner::sonar, Scanner::scanner);
+
+//       sensor_angle = scan_result.trueAngle;
+//       sensor_detection_distance = scan_result.objectDistance;
+
+//       state = MOVING_TO_OBJECT;
+//       break;
+//     }
+
+//     case MOVING_TO_OBJECT:
+//     {
+//       LCD::Print(
+//         "Target at " + String(sensor_angle) + "deg " +
+//         String(sensor_detection_distance, 1) + "cm", 0
+//       );
+//       LCD::Update();
+
+
+//       // Compute global target
+//       IK::calculateFinalTarget(&arm, sensor_position, sensor_detection_distance, radians(sensor_angle));
+
+//       // Step toward target
+//       IK::calculateNextTargetUV(&arm);
+//       IK::calculateArmAngles(&arm);
+
+//       Motor::turnAll(arm);
+
+//       // Check if reached final target (within tolerance)
+//       if (abs(arm.targetUV.u - arm.final_targetUV.u) < 0.5 &&
+//           abs(arm.targetUV.v - arm.final_targetUV.v) < 0.5)
+//       {
+//         state = PICKING_UP;
+//       }
+
+//       break;
+//     }
+
+//     case PICKING_UP:
+//     {
+//       LCD::Print("Picking up...", 0);
+//       LCD::Update();
+
+//       // --- GRIPPER CLOSE (SKIPPED HARDWARE CODE) ---
+//       // closeGripper();
+
+//       delay(500);
+
+//       state = IDENTIFYING_COLOR;
+//       break;
+//     }
+
+//     case IDENTIFYING_COLOR:
+//     {
+//       ColorSensor::readColorRaw(r, g, b, c);
+//       object_color = ColorSensor::categorizeColor(r, g, b, c);
+
+//       LCD::Print(
+//         "Color: " + String(ColorSensor::colorToString(object_color)), 0
+//       );
+//       LCD::Update();
+
+//       state = MOVING_OBJECT;
+//       break;
+//     }
+
+//     case MOVING_OBJECT:
+//     {
+//       LCD::Print("Moving object", 0);
+//       LCD::Update();
+
+//       // --- SET NEW TARGET BASED ON COLOR (SKIPPED LOGIC) ---
+//       // e.g. arm.final_targetUV = dropZoneForColor(object_color);
+
+//       IK::calculateNextTargetUV(&arm);
+//       IK::calculateArmAngles(&arm);
+
+//       Motor::turnAll(arm);
+
+//       // Check arrival
+//       if (abs(arm.targetUV.u - arm.final_targetUV.u) < 0.5 &&
+//           abs(arm.targetUV.v - arm.final_targetUV.v) < 0.5)
+//       {
+//         state = PUTTING_DOWN;
+//       }
+
+//       break;
+//     }
+
+//     case PUTTING_DOWN:
+//     {
+//       LCD::Print("Releasing...", 0);
+//       LCD::Update();
+
+//       // --- GRIPPER OPEN (SKIPPED HARDWARE CODE) ---
+//       // openGripper();
+
+//       delay(500);
+
+//       state = RESETTING;
+//       break;
+//     }
+
+//     case RESETTING:
+//     {
+//       LCD::Print("Resetting", 0);
+
+//       // Move back to home position
+//       arm.final_targetUV = {IK::L2, IK::L1-IK::L3};
+
+//       IK::calculateNextTargetUV(&arm);
+//       IK::calculateArmAngles(&arm);
+
+//       Motor::turnAll(arm);
+
+//       if (abs(arm.targetUV.u) < 0.5 &&
+//           abs(arm.targetUV.v) < 0.5)
+//       {
+//         state = SEARCHING;
+//       }
+
+//       break;
+//     }
+//   }
+// }
+
+
 IK::Arm arm = {};
 
-void setup()
-{
-  // put your setup code here, to run once:
-  ColorSensor::initColorSensor();
-  Scanner::initScanner();
-  arm.final_targetUV = {0,0};
-  arm.targetUV = {0,0};
-  arm.theta1 = 90;
-  arm.theta2 = 90;
-  arm.theta3 = 90;
-  arm.base_angle = 0;
+void setup() {
+  Serial.begin(9600);
 
+  arm.final_targetUV = {IK::L1, 0};
+  arm.targetUV       = {IK::L2, IK::L1};
+
+  IK::calculateArmAngles(&arm);
+
+  Motor::init();
+  Motor::turnAll(arm);
 }
 
-void loop()
-{
-  // put your main code here, to run repeatedly:
-  switch (state) {
-    case SEARCHING:
-      Motor::turnAll(arm)
-    case FOUND:
-      Motor::turnAll(arm)
-    case PICKING_UP:
-      Motor::turnAll(arm)
-    case IDENTIFYING_COLOR:
-      Motor::turnAll(arm)
-    case MOVING_OBJECT:
-      Motor::turnAll(arm)
-    case PUTTING_DOWN:
-      Motor::turnAll(arm)
-    case RESETTING:
-      Motor::turnAll(arm)
+void loop() {
+
+
+  bool atTarget =
+    abs(arm.targetUV.u - arm.final_targetUV.u) < 0.5 &&
+    abs(arm.targetUV.v - arm.final_targetUV.v) < 0.5;
+  
+  while(!atTarget){
+    Motor::updateAll();
+    atTarget = abs(Motor::elbowMotor.current_position - Motor::elbowMotor.target_position) < 0.5 && abs(Motor::shoulderMotor.current_position - Motor::shoulderMotor.target_position) < 0.5;
   }
+
+
+  IK::calculateNextTargetUV(&arm);
+
+  // Clamp to final target to prevent overshoot
+  if (abs(arm.targetUV.u - arm.final_targetUV.u) < IK::STEP_DIST)
+    arm.targetUV.u = arm.final_targetUV.u;
+  if (abs(arm.targetUV.v - arm.final_targetUV.v) < IK::STEP_DIST)
+    arm.targetUV.v = arm.final_targetUV.v;
+
+
+  IK::calculateArmAngles(&arm);
+  Motor::turnAll(arm);
+
+  Serial.print("UV: (");
+  Serial.print(arm.targetUV.u);
+  Serial.print(", ");
+  Serial.print(arm.targetUV.v);
+  Serial.print(")  t1: ");
+  Serial.print(String(Motor::shoulderMotor.current_position) + " " + String(Motor::shoulderMotor.target_position));
+  Serial.print("  t2: ");
+  Serial.println(String(Motor::elbowMotor.current_position) + " " + String(Motor::elbowMotor.target_position));
 
 }
