@@ -257,11 +257,11 @@ namespace IK
   /**
    * @brief $L_3$
    */
-  const double L3 = 8;
+  const double L3 = 0;  // HUSK ASKES NIGGERISME!!! DETTE ER HØJDEN AF HÅNDEN!!! ASKE ER EN NEEEEEEEEEEEEEEEGGGGGGGGGGGGGGGGGGGGGGEEEEEEEEEEEEEEEERRRRRRRRRRRR!!!!!!!!!!!!!!!!!!!!!
 
   const double STEP_DIST = 1;
 
-  const double GRAB_HEIGHT = 3;
+  const double GRAB_HEIGHT = L3;
 
   /**
    * @struct Vector2
@@ -302,7 +302,7 @@ namespace IK
 
   /**
    * @brief Calculates base_angle and writes it to self and calculates final_targetUV
-   * @param self The arm for which to calculate data.
+   * @param self The arm for which to calculate Nigger.
    * @param sensor_position_distance Distance of sensor from origin. $d_s$
    * @param sensor_reading_distance The reading of the sensor in centimeters. $L_s$
    * @param sensor_angle_rad Angle in the sensors servo. $\theta_s$
@@ -329,6 +329,10 @@ namespace IK
     Vector2 previous_target = self->targetUV;
 
     double safe_v = final_targetUV.v + GRAB_HEIGHT;
+
+    if (abs(previous_target.u - final_targetUV.u) < 0.05 && abs(previous_target.v - final_targetUV.v) < 0.05){
+      return 1;
+    }
 
     if (abs(previous_target.u - final_targetUV.u) < 0.01)
     {
@@ -393,8 +397,7 @@ namespace IK
  */
 namespace Motor
 {
-  const int MAX_SPEED = 130;
-  const int INTERVAL_TIME = 30;
+  const int MAX_SPEED = 100;
   const int threshold = 3;
 
   struct PID
@@ -408,7 +411,9 @@ namespace Motor
     unsigned int FULL_ROTATION = 0, MIN_POWER = 0;
 
     uint8_t direction1 = 0, direction2 = 0;
-    long current_position = 0, target_position = 0;
+    long current_position = 0, target_position = 0, start_position = 0;
+    bool finished = false;
+    uint8_t finished_ticks = 0;
 
     PID pid_data = {};
   };
@@ -417,12 +422,11 @@ namespace Motor
   MotorUnit shoulderMotor = {};
   MotorUnit elbowMotor = {};
 
-  // Encoder encBase(18, 19); Not mounted yet
-  Encoder encShoulder(2, 3);
-  Encoder encElbow(18, 19);
+  // Encoder encBase(20, 21); Not mounted yet
+  Encoder encShoulder(18, 19);
+  Encoder encElbow(2, 3);
 
-
-  void turn(MotorUnit &m, bool cw, int speed)
+  void turn(MotorUnit &m, bool cw, unsigned int speed)
   {
     if (cw)
     {
@@ -445,11 +449,25 @@ namespace Motor
   void dc_motor_update(MotorUnit &m)
   {
     long error = m.target_position - m.current_position;
+    if (m.finished)
+    {
+      turn(m, false, 0);
+      return;
+    }
 
     if (abs(error) <= threshold)
     {
       turn(m, false, 0);
-      return;
+      if (m.finished_ticks >= 250)
+      {
+        m.finished = true;
+        m.finished_ticks = 0;
+        return;
+      }
+      else
+      {
+        m.finished_ticks++;
+      }
     }
 
     m.pid_data.integral += error;
@@ -465,11 +483,10 @@ namespace Motor
 
     int speed = abs(output);
 
-    turn(m, (output > 0),
-         constrain(speed, (int)m.MIN_POWER, MAX_SPEED));
+    turn(m, (output > 0), constrain(speed, (int)m.MIN_POWER, MAX_SPEED));
   }
 
-  void init_motor(
+  void initialize_motor(
       uint8_t dir1,
       uint8_t dir2,
       int FULL_ROTATION,
@@ -493,36 +510,63 @@ namespace Motor
   // API
   void turnAll(IK::Arm arm)
   {
-
     // baseMotor.target_position     = radians_to_counts(baseMotor, arm.base_angle); Not mounted yet
-    shoulderMotor.target_position = radians_to_counts(shoulderMotor, -arm.theta1);
-    elbowMotor.target_position = radians_to_counts(elbowMotor, -(arm.theta1 + arm.theta2));
+    shoulderMotor.target_position = radians_to_counts(shoulderMotor, arm.theta1); //times for to compensate for gear ratio swas
+    elbowMotor.target_position = radians_to_counts(elbowMotor, (-(arm.theta1 + arm.theta2)));
     // Wrist (theta3) omitted as it is without motor
+    baseMotor.finished = false;
+    shoulderMotor.finished = false;
+    elbowMotor.finished = false;
   }
 
   void updateAll()
   {
     // Read encoders
     // baseMotor.current_position     = encBase.read(); Not mounted yet
-    shoulderMotor.current_position = encShoulder.read();
-    elbowMotor.current_position = -encElbow.read();
+    shoulderMotor.current_position = shoulderMotor.start_position + encShoulder.read();
+    elbowMotor.current_position = -elbowMotor.start_position -encElbow.read();
 
     // Run PID
     // dc_motor_update(baseMotor); Not mounted yet
-    dc_motor_update(shoulderMotor);
-    dc_motor_update(elbowMotor);
+
+    if (!baseMotor.finished)
+    {
+      dc_motor_update(baseMotor);
+    }
+    else if (!shoulderMotor.finished)
+    {
+      dc_motor_update(shoulderMotor);
+    }
+    else
+    {
+      dc_motor_update(elbowMotor);
+    }
   }
 
-  void init()
+  void initialize(double theta1,double theta2,double base_angle)
   {
     // init_motor(5, 6,  (int)(30 * 64), 35, 0.6, 0.01, 0.5, baseMotor); Not mounted
-    init_motor(11, 10,(int)(102.083 * 64),     40, 0.6, 0.01, 0.55,  shoulderMotor);
-    init_motor(5, 6,  (int)(30 * 64),     35, 0.6, 0.01, 0.5,  elbowMotor);
-    // baseMotor.current_position = radians_to_counts(baseMotor,0);
-    shoulderMotor.current_position = radians_to_counts(shoulderMotor, PI/4);
-    elbowMotor.current_position = radians_to_counts(elbowMotor, PI/4);
-
+    initialize_motor(5, 6, (int)(2*102.083 * 64), 50, 0.6, 0.01, 0.55,  shoulderMotor);
+    initialize_motor(11, 10, (int)(2*30 * 64), 50, 0.6, 0.01, 0.5,  elbowMotor);
+    // baseMotor.current_position = radians_to_counts(baseMotor,base_angle);    // baseMotor.target_position= radians_to_counts(baseMotor, base_angle);baseMotor.start_position= radians_to_counts(baseMotor, base_angle);
+    shoulderMotor.current_position = radians_to_counts(shoulderMotor, theta1);    
+    shoulderMotor.target_position= radians_to_counts(shoulderMotor, theta1); 
+    shoulderMotor.start_position= radians_to_counts(shoulderMotor, theta1);
+    elbowMotor.current_position = radians_to_counts(elbowMotor, (theta1 + theta2));    
+    elbowMotor.target_position= radians_to_counts(elbowMotor, (theta1 + theta2)); 
+    elbowMotor.start_position= radians_to_counts(elbowMotor, (theta1 + theta2));
   }
+
+
+void move()
+{
+  while (!shoulderMotor.finished || !elbowMotor.finished || !baseMotor.finished)
+  {
+    updateAll();
+  }
+  return;
+}
+
 }
 /*! @} */
 
@@ -909,15 +953,14 @@ enum STATE
 IK::Arm arm = {};
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(921600);
 
-  arm.final_targetUV = {IK::L1, 0};
+  arm.final_targetUV = {IK::L2 + IK::L1,0};
   arm.targetUV       = {IK::L2, IK::L1};
 
   IK::calculateArmAngles(&arm);
 
-  Motor::init();
-  Motor::turnAll(arm);
+  Motor::initialize(arm.theta1, arm.theta2, arm.base_angle);
 }
 
 void loop() {
@@ -927,13 +970,9 @@ void loop() {
     abs(arm.targetUV.u - arm.final_targetUV.u) < 0.5 &&
     abs(arm.targetUV.v - arm.final_targetUV.v) < 0.5;
   
-  while(!atTarget){
-    Motor::updateAll();
-    atTarget = abs(Motor::elbowMotor.current_position - Motor::elbowMotor.target_position) < 0.5 && abs(Motor::shoulderMotor.current_position - Motor::shoulderMotor.target_position) < 0.5;
-  }
+  Motor::move();
 
-
-  IK::calculateNextTargetUV(&arm);
+  arm.targetUV = arm.final_targetUV;
 
   // Clamp to final target to prevent overshoot
   if (abs(arm.targetUV.u - arm.final_targetUV.u) < IK::STEP_DIST)
