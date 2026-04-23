@@ -1,0 +1,294 @@
+\doxysection{Motor Struct Reference}
+\hypertarget{struct_motor}{}\label{struct_motor}\index{Motor@{Motor}}
+
+
+Collaboration diagram for Motor:\+
+% FIG 0
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \doxymbox{\hyperlink{struct_motor_adddf83d8b61a9290b358fe22ed98feeb}{MAX\+\_\+\+SPEED}} = 100
+\item 
+const int \doxymbox{\hyperlink{struct_motor_aade43b94adabee86a132e753bfa1e481}{threshold}} = 3
+\item 
+Motor\+Unit \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{base\+Motor}} = \{\}
+\item 
+Motor\+Unit \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulder\+Motor}} = \{\}
+\item 
+Motor\+Unit \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbow\+Motor}} = \{\}
+\item 
+volatile long \doxymbox{\hyperlink{struct_motor_a2595bff9a45068391bf5da67ff999669}{current\+\_\+position}}
+\item 
+long \doxymbox{\hyperlink{struct_motor_aee1958a9356b045193625f421d2639ad}{target\+\_\+position}}
+\item 
+long \doxymbox{\hyperlink{struct_motor_af6a639b410d691b72f787c08d0e06272}{counts\+\_\+per\+\_\+rev}}
+\item 
+long \doxymbox{\hyperlink{struct_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\+\_\+error}}
+\item 
+double \doxymbox{\hyperlink{struct_motor_a35b3c37537d82dea2afe5a53c3a30c34}{gear\+\_\+ratio}}
+\item 
+double \doxymbox{\hyperlink{struct_motor_a0cd3fc243e829e6f46398f6524a73a6b}{Kp}}
+\item 
+double \doxymbox{\hyperlink{struct_motor_a4fbf64b30f9aaad083fa879f5fda777c}{Ki}}
+\item 
+double \doxymbox{\hyperlink{struct_motor_aab425a84331125979c347524cd102374}{Kd}}
+\item 
+double \doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}
+\item 
+double \doxymbox{\hyperlink{struct_motor_ae85a5dc4cdd4e15a2c573a91b323c8f2}{angle}}
+\item 
+int \doxymbox{\hyperlink{struct_motor_a65e8d76ec97ba4c9b666540510bf45a4}{min\+\_\+speed}}
+\item 
+int \doxymbox{\hyperlink{struct_motor_a5c49bf3f1e114f1f574812b4d347e53b}{max\+\_\+speed}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_motor_aa82e7cdd5f8cf6f2b3f5b29659ab203f}{in1}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_motor_a92ad877e00db26f0ac21a9e1cc73e3e7}{in2}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_motor_ab5c193d49e4d89de76a972610792b801}{encoder}}
+\item 
+bool \doxymbox{\hyperlink{struct_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00003}{3}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_motor_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_motor_ae85a5dc4cdd4e15a2c573a91b323c8f2}\index{Motor@{Motor}!angle@{angle}}
+\index{angle@{angle}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{angle}{angle}}
+{\footnotesize\ttfamily \label{struct_motor_ae85a5dc4cdd4e15a2c573a91b323c8f2} 
+double Motor::\+angle}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00013}{13}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}\index{Motor@{Motor}!baseMotor@{baseMotor}}
+\index{baseMotor@{baseMotor}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{baseMotor}{baseMotor}}
+{\footnotesize\ttfamily \label{struct_motor_ae910b354c3ff3b23b16ef86944efdad5} 
+Motor\+Unit Motor::\+base\+Motor = \{\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00422}{422}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00422\ \{\};}
+
+\end{DoxyCode}
+\Hypertarget{struct_motor_af6a639b410d691b72f787c08d0e06272}\index{Motor@{Motor}!counts\_per\_rev@{counts\_per\_rev}}
+\index{counts\_per\_rev@{counts\_per\_rev}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{counts\_per\_rev}{counts\_per\_rev}}
+{\footnotesize\ttfamily \label{struct_motor_af6a639b410d691b72f787c08d0e06272} 
+long Motor::\+counts\+\_\+per\+\_\+rev}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00006}{6}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a2595bff9a45068391bf5da67ff999669}\index{Motor@{Motor}!current\_position@{current\_position}}
+\index{current\_position@{current\_position}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{current\_position}{current\_position}}
+{\footnotesize\ttfamily \label{struct_motor_a2595bff9a45068391bf5da67ff999669} 
+volatile long Motor::\+current\+\_\+position}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00004}{4}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}\index{Motor@{Motor}!elbowMotor@{elbowMotor}}
+\index{elbowMotor@{elbowMotor}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{elbowMotor}{elbowMotor}}
+{\footnotesize\ttfamily \label{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20} 
+Motor\+Unit Motor::\+elbow\+Motor = \{\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00424}{424}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00424\ \{\};}
+
+\end{DoxyCode}
+\Hypertarget{struct_motor_ab5c193d49e4d89de76a972610792b801}\index{Motor@{Motor}!encoder@{encoder}}
+\index{encoder@{encoder}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{encoder}{encoder}}
+{\footnotesize\ttfamily \label{struct_motor_ab5c193d49e4d89de76a972610792b801} 
+uint8\+\_\+t Motor::\+encoder}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00018}{18}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a3cebf765d59f5b030a5342a441dbac5a}\index{Motor@{Motor}!finished@{finished}}
+\index{finished@{finished}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily \label{struct_motor_a3cebf765d59f5b030a5342a441dbac5a} 
+bool Motor::\+finished}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00019}{19}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a35b3c37537d82dea2afe5a53c3a30c34}\index{Motor@{Motor}!gear\_ratio@{gear\_ratio}}
+\index{gear\_ratio@{gear\_ratio}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{gear\_ratio}{gear\_ratio}}
+{\footnotesize\ttfamily \label{struct_motor_a35b3c37537d82dea2afe5a53c3a30c34} 
+double Motor::\+gear\+\_\+ratio}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00008}{8}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_aa82e7cdd5f8cf6f2b3f5b29659ab203f}\index{Motor@{Motor}!in1@{in1}}
+\index{in1@{in1}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{in1}{in1}}
+{\footnotesize\ttfamily \label{struct_motor_aa82e7cdd5f8cf6f2b3f5b29659ab203f} 
+uint8\+\_\+t Motor::\+in1}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00016}{16}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a92ad877e00db26f0ac21a9e1cc73e3e7}\index{Motor@{Motor}!in2@{in2}}
+\index{in2@{in2}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{in2}{in2}}
+{\footnotesize\ttfamily \label{struct_motor_a92ad877e00db26f0ac21a9e1cc73e3e7} 
+uint8\+\_\+t Motor::\+in2}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00017}{17}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a2cb00b271dec6a3efba7229351459b54}\index{Motor@{Motor}!integral@{integral}}
+\index{integral@{integral}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{integral}{integral}}
+{\footnotesize\ttfamily \label{struct_motor_a2cb00b271dec6a3efba7229351459b54} 
+double Motor::\+integral}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00012}{12}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_aab425a84331125979c347524cd102374}\index{Motor@{Motor}!Kd@{Kd}}
+\index{Kd@{Kd}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{Kd}{Kd}}
+{\footnotesize\ttfamily \label{struct_motor_aab425a84331125979c347524cd102374} 
+double Motor::\+\+Kd}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00011}{11}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a4fbf64b30f9aaad083fa879f5fda777c}\index{Motor@{Motor}!Ki@{Ki}}
+\index{Ki@{Ki}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{Ki}{Ki}}
+{\footnotesize\ttfamily \label{struct_motor_a4fbf64b30f9aaad083fa879f5fda777c} 
+double Motor::\+\+Ki}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00010}{10}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a0cd3fc243e829e6f46398f6524a73a6b}\index{Motor@{Motor}!Kp@{Kp}}
+\index{Kp@{Kp}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{Kp}{Kp}}
+{\footnotesize\ttfamily \label{struct_motor_a0cd3fc243e829e6f46398f6524a73a6b} 
+double Motor::\+\+Kp}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00009}{9}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a09053eb34ec3428728ae1a1b192be2b7}\index{Motor@{Motor}!last\_error@{last\_error}}
+\index{last\_error@{last\_error}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{last\_error}{last\_error}}
+{\footnotesize\ttfamily \label{struct_motor_a09053eb34ec3428728ae1a1b192be2b7} 
+long Motor::\+last\+\_\+error}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00007}{7}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_adddf83d8b61a9290b358fe22ed98feeb}\index{Motor@{Motor}!MAX\_SPEED@{MAX\_SPEED}}
+\index{MAX\_SPEED@{MAX\_SPEED}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{MAX\_SPEED}{MAX\_SPEED}}
+{\footnotesize\ttfamily \label{struct_motor_adddf83d8b61a9290b358fe22ed98feeb} 
+const int Motor::\+\+MAX\+\_\+\+SPEED = 100}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00400}{400}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{struct_motor_a5c49bf3f1e114f1f574812b4d347e53b}\index{Motor@{Motor}!max\_speed@{max\_speed}}
+\index{max\_speed@{max\_speed}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{max\_speed}{max\_speed}}
+{\footnotesize\ttfamily \label{struct_motor_a5c49bf3f1e114f1f574812b4d347e53b} 
+int Motor::\+max\+\_\+speed}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00015}{15}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a65e8d76ec97ba4c9b666540510bf45a4}\index{Motor@{Motor}!min\_speed@{min\_speed}}
+\index{min\_speed@{min\_speed}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{min\_speed}{min\_speed}}
+{\footnotesize\ttfamily \label{struct_motor_a65e8d76ec97ba4c9b666540510bf45a4} 
+int Motor::\+min\+\_\+speed}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00014}{14}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_a7c52f38106b43c74e83e59104bd5256c}\index{Motor@{Motor}!shoulderMotor@{shoulderMotor}}
+\index{shoulderMotor@{shoulderMotor}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{shoulderMotor}{shoulderMotor}}
+{\footnotesize\ttfamily \label{struct_motor_a7c52f38106b43c74e83e59104bd5256c} 
+Motor\+Unit Motor::\+shoulder\+Motor = \{\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00423}{423}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00423\ \{\};}
+
+\end{DoxyCode}
+\Hypertarget{struct_motor_aee1958a9356b045193625f421d2639ad}\index{Motor@{Motor}!target\_position@{target\_position}}
+\index{target\_position@{target\_position}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{target\_position}{target\_position}}
+{\footnotesize\ttfamily \label{struct_motor_aee1958a9356b045193625f421d2639ad} 
+long Motor::\+target\+\_\+position}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00005}{5}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+\Hypertarget{struct_motor_aade43b94adabee86a132e753bfa1e481}\index{Motor@{Motor}!threshold@{threshold}}
+\index{threshold@{threshold}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{threshold}{threshold}}
+{\footnotesize\ttfamily \label{struct_motor_aade43b94adabee86a132e753bfa1e481} 
+const int Motor::\+threshold = 3}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00401}{401}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+
+The documentation for this struct was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_prola_mobilen_8ino}{Prola\+Mobilen.\+ino}}\item 
+\doxymbox{\hyperlink{arm_8ino}{arm.\+ino}}\end{DoxyCompactItemize}

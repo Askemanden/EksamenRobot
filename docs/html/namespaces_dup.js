@@ -17,30 +17,7 @@ var namespaces_dup =
       [ "tcs", "namespace_color_sensor.html#adbb0c6966ccf25baa54eaab98da897ee", null ]
     ] ],
     [ "IK", "namespace_i_k.html", "namespace_i_k" ],
-    [ "Motor", "namespace_motor.html", [
-      [ "dc_motor_update", "namespace_motor.html#adb73dd9962ea30caa106f7c722218322", null ],
-      [ "degrees_to_counts", "namespace_motor.html#a07831f7575d72e6b210d359168433add", null ],
-      [ "encoderISR", "namespace_motor.html#a10576d436aeca5fbed231040c2fc8590", null ],
-      [ "rotateDegrees", "namespace_motor.html#a1011e1ebbd8549e1c6941dc2178e9df5", null ],
-      [ "stop_motor", "namespace_motor.html#a570c5e5bbcad5f4910b51992234911ba", null ],
-      [ "turn", "namespace_motor.html#aa7ae821b57c37e50a97dfee154337cad", null ],
-      [ "COUNTS_PER_REV", "namespace_motor.html#ac18f52fda08f42e64113da6f3aca20ba", null ],
-      [ "current_position", "namespace_motor.html#a2595bff9a45068391bf5da67ff999669", null ],
-      [ "DEGREES_TO_TURN", "namespace_motor.html#aec418e5f8f51ec3e64b0ef0409ff6e53", null ],
-      [ "encoder1", "namespace_motor.html#af3f931d21585bd255945eefe36190478", null ],
-      [ "encoder2", "namespace_motor.html#a6f90a749a6ce5d182eac1cebd95d31e9", null ],
-      [ "finished", "namespace_motor.html#a3cebf765d59f5b030a5342a441dbac5a", null ],
-      [ "GEAR_RATIO", "namespace_motor.html#ad393c6572049b1bbfedb61633c62526b", null ],
-      [ "IN1", "namespace_motor.html#a47c63ff0e095fa69233feb3fde0351a5", null ],
-      [ "IN2", "namespace_motor.html#ab09f2aa1925c4de80a695d95c2d24e67", null ],
-      [ "integral", "namespace_motor.html#a2cb00b271dec6a3efba7229351459b54", null ],
-      [ "Kd", "namespace_motor.html#a92e029714211bd3c4e11b834fe58f07b", null ],
-      [ "Ki", "namespace_motor.html#ae6e27edbb9f0ff9d5a919022aab493eb", null ],
-      [ "Kp", "namespace_motor.html#ab69fc3b060d31938e105dece146d2ed9", null ],
-      [ "last_error", "namespace_motor.html#a09053eb34ec3428728ae1a1b192be2b7", null ],
-      [ "MAX_SPEED", "namespace_motor.html#adddf83d8b61a9290b358fe22ed98feeb", null ],
-      [ "MIN_SPEED", "namespace_motor.html#a9aa0f96b2979209c0c42300f1043412f", null ],
-      [ "target_position", "namespace_motor.html#aee1958a9356b045193625f421d2639ad", null ],
-      [ "threshold", "namespace_motor.html#aade43b94adabee86a132e753bfa1e481", null ]
-    ] ]
+    [ "LCD", "namespace_l_c_d.html", "namespace_l_c_d" ],
+    [ "Motor", "namespace_motor.html", "namespace_motor" ],
+    [ "Scanner", "namespace_scanner.html", "namespace_scanner" ]
 ];

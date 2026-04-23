@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['scanner_0',['scanner',['../_sensor_pis_virker_nok_ikke_8ino.html#a17a668c6deed7b7965b4d33246a971ea',1,'SensorPisVirkerNokIkke.ino']]],
-  ['scanresult_1',['ScanResult',['../struct_scan_result.html',1,'']]],
-  ['sensorpisvirkernokikke_2eino_2',['SensorPisVirkerNokIkke.ino',['../_sensor_pis_virker_nok_ikke_8ino.html',1,'']]],
-  ['servo_3',['servo',['../struct_servo_scanner.html#ae90799d72d0e232e588f69b51ac03066',1,'ServoScanner']]],
-  ['servoscanner_4',['ServoScanner',['../struct_servo_scanner.html',1,'']]],
-  ['setup_5',['setup',['../_angle_to_rotation_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;AngleToRotation.ino'],['../arm_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;arm.ino'],['../_color_sensor_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ColorSensor.ino'],['../_i_k_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;IK.ino'],['../motor__pid_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ProlaMobilen.ino'],['../_sensor_pis_virker_nok_ikke_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;SensorPisVirkerNokIkke.ino'],['../_ultralyd_dist_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;UltralydDist.ino']]],
-  ['sonar_6',['sonar',['../_sensor_pis_virker_nok_ikke_8ino.html#a7960e6857c8af9c86126161bd0c19c07',1,'SensorPisVirkerNokIkke.ino']]],
-  ['step_5fdist_7',['STEP_DIST',['../arm_8ino.html#a6176466626e15053271fac0d36e7e36b',1,'STEP_DIST:&#160;arm.ino'],['../_i_k_8ino.html#a6176466626e15053271fac0d36e7e36b',1,'STEP_DIST:&#160;IK.ino']]],
-  ['stepsize_8',['stepSize',['../struct_servo_scanner.html#a29e0d044c949ca3f1f140cac4af9176e',1,'ServoScanner']]],
-  ['stop_5fmotor_9',['stop_motor',['../_angle_to_rotation_8ino.html#a763695f567d8c1d2494de1c8d28b9989',1,'stop_motor():&#160;AngleToRotation.ino'],['../namespace_motor.html#a570c5e5bbcad5f4910b51992234911ba',1,'Motor::stop_motor()'],['../motor__pid_8ino.html#a763695f567d8c1d2494de1c8d28b9989',1,'stop_motor():&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#a763695f567d8c1d2494de1c8d28b9989',1,'stop_motor():&#160;ProlaMobilen.ino']]]
+  ['performscan_0',['performScan',['../namespace_scanner.html#a2ab0fee502ad9811386c59555518c261',1,'Scanner::performScan()'],['../_sensor_pis_virker_nok_ikke_8ino.html#a5832b16836ef177975ed5f5417bff22e',1,'performScan(const UltrasonicSensor &amp;s, ServoScanner &amp;sc, int startAngle, int endAngle):&#160;SensorPisVirkerNokIkke.ino'],['../_servobutitworks_8ino.html#a5832b16836ef177975ed5f5417bff22e',1,'performScan(const UltrasonicSensor &amp;s, ServoScanner &amp;sc, int startAngle, int endAngle):&#160;Servobutitworks.ino']]],
+  ['picking_5fup_1',['PICKING_UP',['../arm_8ino.html#a275a67132f10277ada3a0ee3d616b647af255863ccf24950cc80bf203f2c76140',1,'arm.ino']]],
+  ['pid_2',['PID',['../struct_motor_1_1_p_i_d.html',1,'Motor']]],
+  ['pid_5fdata_3',['pid_data',['../struct_motor_1_1_motor_unit.html#ac0657376bf8574fb88322fbea3c80911',1,'Motor::MotorUnit']]],
+  ['pin_4',['pin',['../struct_scanner_1_1_servo_scanner.html#a4ee4b77bc77d9a11c4e7f47ba1e51ff6',1,'Scanner::ServoScanner::pin'],['../struct_servo_scanner.html#a086bd07d392ff0279c1117c5eac918cc',1,'ServoScanner::pin']]],
+  ['post_5finit_5fmotor_5',['post_init_motor',['../_prola_mobilen_8ino.html#a264b9d01dc286635dd1a18e9527bd6a0',1,'ProlaMobilen.ino']]],
+  ['print_6',['Print',['../namespace_l_c_d.html#ade21c3a913d40b3099eb87fea2512f88',1,'LCD']]],
+  ['printarmstate_7',['printArmState',['../_i_k_8ino.html#ae8b42eae11c961bb06c6bdafb185c204',1,'IK.ino']]],
+  ['prolamobilen_2eino_8',['ProlaMobilen.ino',['../_prola_mobilen_8ino.html',1,'']]],
+  ['putting_5fdown_9',['PUTTING_DOWN',['../arm_8ino.html#a275a67132f10277ada3a0ee3d616b647aa554d5d290998e4c0d6b346fe6ac6dff',1,'arm.ino']]]
 ];

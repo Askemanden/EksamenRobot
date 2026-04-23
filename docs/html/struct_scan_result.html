@@ -94,14 +94,17 @@ $(function(){initNavTree('struct_scan_result.html','','struct_scan_result-member
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0f954c0f05f2c5b82e938438bebf3ea9" id="r_a0f954c0f05f2c5b82e938438bebf3ea9"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0f954c0f05f2c5b82e938438bebf3ea9">firstAngle</a></td></tr>
-<tr class="memitem:ad1861838f517db33f01c79d4ffc02ef0" id="r_ad1861838f517db33f01c79d4ffc02ef0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ad1861838f517db33f01c79d4ffc02ef0">lastAngle</a></td></tr>
+<tr class="memitem:ab621a953510da3924f6996adcb02346f" id="r_ab621a953510da3924f6996adcb02346f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab621a953510da3924f6996adcb02346f">edgeBefore</a></td></tr>
+<tr class="memitem:a778f4268dd64d1102ef491ba2a91484f" id="r_a778f4268dd64d1102ef491ba2a91484f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a778f4268dd64d1102ef491ba2a91484f">edgeAfter</a></td></tr>
 <tr class="memitem:a51afd234d7ef546d51f4f2aa26a731fa" id="r_a51afd234d7ef546d51f4f2aa26a731fa"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a51afd234d7ef546d51f4f2aa26a731fa">trueAngle</a></td></tr>
+<tr class="memitem:acde76f19ca99c2f02bf2744c47d9fd4a" id="r_acde76f19ca99c2f02bf2744c47d9fd4a"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#acde76f19ca99c2f02bf2744c47d9fd4a">objectWidth</a></td></tr>
+<tr class="memitem:aeb232a2d610253227d77952091f484ab" id="r_aeb232a2d610253227d77952091f484ab"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aeb232a2d610253227d77952091f484ab">objectDistance</a></td></tr>
 <tr class="memitem:aa489d230847081627bf5714c6ee27c5d" id="r_aa489d230847081627bf5714c6ee27c5d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa489d230847081627bf5714c6ee27c5d">detected</a></td></tr>
+<tr class="memitem:a4a44df6b260ba3000b62c529ddbc1ba8" id="r_a4a44df6b260ba3000b62c529ddbc1ba8"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a4a44df6b260ba3000b62c529ddbc1ba8">resetAngle</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00016">16</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00043">43</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="aa489d230847081627bf5714c6ee27c5d" name="aa489d230847081627bf5714c6ee27c5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa489d230847081627bf5714c6ee27c5d">&#9670;&#160;</a></span>detected</h2>
@@ -115,39 +118,87 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00020">20</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00049">49</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
 
 </div>
 </div>
-<a id="a0f954c0f05f2c5b82e938438bebf3ea9" name="a0f954c0f05f2c5b82e938438bebf3ea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f954c0f05f2c5b82e938438bebf3ea9">&#9670;&#160;</a></span>firstAngle</h2>
+<a id="a778f4268dd64d1102ef491ba2a91484f" name="a778f4268dd64d1102ef491ba2a91484f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778f4268dd64d1102ef491ba2a91484f">&#9670;&#160;</a></span>edgeAfter</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ScanResult::firstAngle</td>
+          <td class="memname">int ScanResult::edgeAfter</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00017">17</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00045">45</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
 
 </div>
 </div>
-<a id="ad1861838f517db33f01c79d4ffc02ef0" name="ad1861838f517db33f01c79d4ffc02ef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1861838f517db33f01c79d4ffc02ef0">&#9670;&#160;</a></span>lastAngle</h2>
+<a id="ab621a953510da3924f6996adcb02346f" name="ab621a953510da3924f6996adcb02346f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab621a953510da3924f6996adcb02346f">&#9670;&#160;</a></span>edgeBefore</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ScanResult::lastAngle</td>
+          <td class="memname">int ScanResult::edgeBefore</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00018">18</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00044">44</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+
+</div>
+</div>
+<a id="aeb232a2d610253227d77952091f484ab" name="aeb232a2d610253227d77952091f484ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb232a2d610253227d77952091f484ab">&#9670;&#160;</a></span>objectDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ScanResult::objectDistance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00048">48</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+
+</div>
+</div>
+<a id="acde76f19ca99c2f02bf2744c47d9fd4a" name="acde76f19ca99c2f02bf2744c47d9fd4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acde76f19ca99c2f02bf2744c47d9fd4a">&#9670;&#160;</a></span>objectWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ScanResult::objectWidth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00047">47</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+
+</div>
+</div>
+<a id="a4a44df6b260ba3000b62c529ddbc1ba8" name="a4a44df6b260ba3000b62c529ddbc1ba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a44df6b260ba3000b62c529ddbc1ba8">&#9670;&#160;</a></span>resetAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ScanResult::resetAngle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00050">50</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
 
 </div>
 </div>
@@ -163,12 +214,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00019">19</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html#l00046">46</a> of file <a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li><a class="el" href="_sensor_pis_virker_nok_ikke_8ino_source.html">SensorPisVirkerNokIkke.ino</a></li>
+<li><a class="el" href="_servobutitworks_8ino_source.html">Servobutitworks.ino</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

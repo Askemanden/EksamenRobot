@@ -1,0 +1,185 @@
+\doxysection{Servobutitworks.\+ino}
+\hypertarget{_servobutitworks_8ino_source}{}\label{_servobutitworks_8ino_source}\index{Servobutitworks.ino@{Servobutitworks.ino}}
+\doxymbox{\hyperlink{_servobutitworks_8ino}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <Servo.h>}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00003}\doxymbox{\hyperlink{struct_ultrasonic_sensor}{00003}}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_ultrasonic_sensor}{UltrasonicSensor}}\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00004}\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{00004}}\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00005}\doxymbox{\hyperlink{struct_ultrasonic_sensor_ac592c16c93535f425c6b98a3a706d600}{00005}}\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_ultrasonic_sensor_ac592c16c93535f425c6b98a3a706d600}{echoPin}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00006}00006\ \};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00008}00008\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_servo_scanner}{ServoScanner}}\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00009}00009\ \ \ Servo\ \doxymbox{\hyperlink{struct_servo_scanner_ae90799d72d0e232e588f69b51ac03066}{servo}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00010}00010\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_servo_scanner_a086bd07d392ff0279c1117c5eac918cc}{pin}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00011}00011\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00012}00012\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00013}00013\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_servo_scanner_a29e0d044c949ca3f1f140cac4af9176e}{stepSize}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00014}00014\ \};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00016}00016\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00017}00017\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_scan_result_ab621a953510da3924f6996adcb02346f}{edgeBefore}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00018}00018\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_scan_result_a778f4268dd64d1102ef491ba2a91484f}{edgeAfter}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00019}00019\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_scan_result_a51afd234d7ef546d51f4f2aa26a731fa}{trueAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00020}00020\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_scan_result_acde76f19ca99c2f02bf2744c47d9fd4a}{objectWidth}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00021}00021\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_scan_result_aeb232a2d610253227d77952091f484ab}{objectDistance}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00022}00022\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00023}00023\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_scan_result_a4a44df6b260ba3000b62c529ddbc1ba8}{resetAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00024}00024\ \};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00026}\doxymbox{\hyperlink{_servobutitworks_8ino_a7960e6857c8af9c86126161bd0c19c07}{00026}}\ \doxymbox{\hyperlink{struct_ultrasonic_sensor}{UltrasonicSensor}}\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}}\ =\ \{9,\ 10\};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00028}\doxymbox{\hyperlink{_servobutitworks_8ino_a17a668c6deed7b7965b4d33246a971ea}{00028}}\ \doxymbox{\hyperlink{struct_servo_scanner}{ServoScanner}}\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00029}00029\ \ \ Servo(),}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00030}00030\ \ \ 11,}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00031}00031\ \ \ 0,}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00032}00032\ \ \ 90,}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00033}00033\ \ \ 1}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00034}00034\ \};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00036}\doxymbox{\hyperlink{_servobutitworks_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{00036}}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{detectionThresholdcm}}\ =\ 25;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00037}\doxymbox{\hyperlink{_servobutitworks_8ino_a3dd586afdc369ada668dbb32195fa005}{00037}}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a3dd586afdc369ada668dbb32195fa005}{distanceOffsetcm}}\ =\ 0.6;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00038}\doxymbox{\hyperlink{_servobutitworks_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{00038}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\_EXTENSION}}\ =\ 90;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00040}\doxymbox{\hyperlink{_servobutitworks_8ino_aa4840f5363bd8dd98325837547e9ee5c}{00040}}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_servobutitworks_8ino_aa4840f5363bd8dd98325837547e9ee5c}{measureDistance}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_ultrasonic_sensor}{UltrasonicSensor}}\ \&s)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00041}00041\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00042}00042\ \ \ delayMicroseconds(2);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00043}00043\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00044}00044\ \ \ delayMicroseconds(10);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00045}00045\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00047}00047\ \ \ \textcolor{keywordtype}{long}\ duration\ =\ pulseIn(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ac592c16c93535f425c6b98a3a706d600}{echoPin}},\ HIGH,\ 30000);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00048}00048\ \ \ \textcolor{keywordflow}{if}\ (duration\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00049}00049\ \ \ \textcolor{keywordflow}{return}\ (duration\ /\ 58.0)\ +\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a3dd586afdc369ada668dbb32195fa005}{distanceOffsetcm}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00052}\doxymbox{\hyperlink{_servobutitworks_8ino_a35f7c934ac4bb5147d24e426d6b024f3}{00052}}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_servobutitworks_8ino_a35f7c934ac4bb5147d24e426d6b024f3}{averageDistance}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_ultrasonic_sensor}{UltrasonicSensor}}\ \&s,\ \textcolor{keywordtype}{int}\ samples)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00053}00053\ \ \ \textcolor{keywordtype}{float}\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00054}00054\ \ \ \textcolor{keywordtype}{int}\ valid\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00055}00055\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ samples;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ \doxymbox{\hyperlink{_servobutitworks_8ino_aa4840f5363bd8dd98325837547e9ee5c}{measureDistance}}(s);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ >\ 0)\ \{\ sum\ +=\ d;\ valid++;\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00058}00058\ \ \ \ \ delayMicroseconds(500);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00059}00059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00060}00060\ \ \ \textcolor{keywordflow}{if}\ (valid\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00061}00061\ \ \ \textcolor{keywordflow}{return}\ sum\ /\ valid;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00064}\doxymbox{\hyperlink{_servobutitworks_8ino_a5832b16836ef177975ed5f5417bff22e}{00064}}\ \doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ \doxymbox{\hyperlink{_servobutitworks_8ino_a5832b16836ef177975ed5f5417bff22e}{performScan}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_ultrasonic_sensor}{UltrasonicSensor}}\ \&s,\ \doxymbox{\hyperlink{struct_servo_scanner}{ServoScanner}}\ \&sc,\ \textcolor{keywordtype}{int}\ startAngle,\ \textcolor{keywordtype}{int}\ endAngle)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00065}00065\ \ \ \doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ result\ =\ \{-\/1,\ -\/1,\ -\/1,\ -\/1,\ -\/1,\ \textcolor{keyword}{false},\ -\/1\};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00067}00067\ \ \ \textcolor{keywordtype}{int}\ step\ =\ (endAngle\ >=\ startAngle)\ ?\ sc.\doxymbox{\hyperlink{struct_servo_scanner_a29e0d044c949ca3f1f140cac4af9176e}{stepSize}}\ :\ -\/sc.\doxymbox{\hyperlink{struct_servo_scanner_a29e0d044c949ca3f1f140cac4af9176e}{stepSize}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00068}00068\ \ \ \textcolor{keywordtype}{int}\ prevAngle\ =\ startAngle;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00069}00069\ \ \ \textcolor{keywordtype}{bool}\ wasDetected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00070}00070\ \ \ \textcolor{keywordtype}{float}\ distanceSum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00071}00071\ \ \ \textcolor{keywordtype}{int}\ distanceCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00073}00073\ \ \ \textcolor{keywordtype}{int}\ absoluteMin\ =\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}}\ -\/\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\_EXTENSION}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00074}00074\ \ \ \textcolor{keywordtype}{int}\ absoluteMax\ =\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}}\ +\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\_EXTENSION}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00075}00075\ \ \ \textcolor{keywordtype}{bool}\ inExtension\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00077}00077\ \ \ \textcolor{keywordtype}{int}\ dynamicEnd\ =\ endAngle;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00079}00079\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ angle\ =\ startAngle;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00080}00080\ \ \ \ \ \ \ \ (step\ >\ 0)\ ?\ (angle\ <=\ dynamicEnd)\ :\ (angle\ >=\ dynamicEnd);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00081}00081\ \ \ \ \ \ \ \ angle\ +=\ step)}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00082}00082\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{int}\ servoAngle\ =\ constrain(angle,\ absoluteMin,\ absoluteMax);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00084}00084\ \ \ \ \ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae90799d72d0e232e588f69b51ac03066}{servo}}.write(servoAngle);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00085}00085\ \ \ \ \ delay(30);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{float}\ dist\ =\ \doxymbox{\hyperlink{_servobutitworks_8ino_a35f7c934ac4bb5147d24e426d6b024f3}{averageDistance}}(s,\ 3);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDetected\ =\ (dist\ >\ 0\ \&\&\ dist\ <=\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{detectionThresholdcm}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (!wasDetected\ \&\&\ isDetected)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00091}00091\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_ab621a953510da3924f6996adcb02346f}{edgeBefore}}\ =\ prevAngle;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00092}00092\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDetected)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00096}00096\ \ \ \ \ \ \ distanceSum\ +=\ dist;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00097}00097\ \ \ \ \ \ \ distanceCount++;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (wasDetected\ \&\&\ !isDetected)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00101}00101\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_a778f4268dd64d1102ef491ba2a91484f}{edgeAfter}}\ =\ angle;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00102}00102\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00105}00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDetected)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00106}00106\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNormalEnd\ =\ (step\ >\ 0)\ ?\ (angle\ >=\ endAngle)\ :\ (angle\ <=\ endAngle);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00107}00107\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (atNormalEnd\ \&\&\ !inExtension)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00108}00108\ \ \ \ \ \ \ \ \ inExtension\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00109}00109\ \ \ \ \ \ \ \ \ dynamicEnd\ =\ endAngle\ +\ (step\ *\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\_EXTENSION}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00110}00110\ \ \ \ \ \ \ \ \ dynamicEnd\ =\ constrain(dynamicEnd,\ absoluteMin,\ absoluteMax);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00111}00111\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00114}00114\ \ \ \ \ wasDetected\ =\ isDetected;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00115}00115\ \ \ \ \ prevAngle\ =\ angle;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00116}00116\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00118}00118\ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}}\ \&\&\ result.\doxymbox{\hyperlink{struct_scan_result_a778f4268dd64d1102ef491ba2a91484f}{edgeAfter}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00119}00119\ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_a778f4268dd64d1102ef491ba2a91484f}{edgeAfter}}\ =\ dynamicEnd;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00120}00120\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00122}00122\ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}})\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00123}00123\ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_a51afd234d7ef546d51f4f2aa26a731fa}{trueAngle}}\ =\ (result.\doxymbox{\hyperlink{struct_scan_result_ab621a953510da3924f6996adcb02346f}{edgeBefore}}\ +\ result.\doxymbox{\hyperlink{struct_scan_result_a778f4268dd64d1102ef491ba2a91484f}{edgeAfter}})\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (distanceCount\ >\ 0)\ result.\doxymbox{\hyperlink{struct_scan_result_aeb232a2d610253227d77952091f484ab}{objectDistance}}\ =\ distanceSum\ /\ distanceCount;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{int}\ midInterval\ =\ (sc.\doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}}\ +\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}})\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scan_result_ab621a953510da3924f6996adcb02346f}{edgeBefore}}\ <\ midInterval)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00128}00128\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_a4a44df6b260ba3000b62c529ddbc1ba8}{resetAngle}}\ =\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00129}00129\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00130}00130\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_a4a44df6b260ba3000b62c529ddbc1ba8}{resetAngle}}\ =\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00132}00132\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00134}00134\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00137}00137\ \textcolor{comment}{//\ MAIN\ CALLABLE\ FUNCTION}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00138}\doxymbox{\hyperlink{_servobutitworks_8ino_a35fca741bc150f1c87398a9e569d557f}{00138}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_servobutitworks_8ino_a35fca741bc150f1c87398a9e569d557f}{scanForTargetAngle}}(\doxymbox{\hyperlink{struct_ultrasonic_sensor}{UltrasonicSensor}}\ \&s,\ \doxymbox{\hyperlink{struct_servo_scanner}{ServoScanner}}\ \&sc)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00139}00139\ \ \ \doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ r1\ =\ \doxymbox{\hyperlink{_servobutitworks_8ino_a5832b16836ef177975ed5f5417bff22e}{performScan}}(s,\ sc,\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}},\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00140}00140\ \ \ \textcolor{keywordflow}{if}\ (r1.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}})\ \textcolor{keywordflow}{return}\ r1.\doxymbox{\hyperlink{struct_scan_result_a51afd234d7ef546d51f4f2aa26a731fa}{trueAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00142}00142\ \ \ \doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ r2\ =\ \doxymbox{\hyperlink{_servobutitworks_8ino_a5832b16836ef177975ed5f5417bff22e}{performScan}}(s,\ sc,\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}},\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00143}00143\ \ \ \textcolor{keywordflow}{if}\ (r2.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}})\ \textcolor{keywordflow}{return}\ r2.\doxymbox{\hyperlink{struct_scan_result_a51afd234d7ef546d51f4f2aa26a731fa}{trueAngle}};}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00145}00145\ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00146}00146\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00148}\doxymbox{\hyperlink{_servobutitworks_8ino_ad3c89b6fd0c21b5793c67a12553905bf}{00148}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_servobutitworks_8ino_ad3c89b6fd0c21b5793c67a12553905bf}{initScanner}}()\{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00149}00149\ \ \ pinMode(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}}.trigPin,\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00150}00150\ \ \ pinMode(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}}.echoPin,\ INPUT);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00151}00151\ \ \ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.servo.attach(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.pin);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00152}00152\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00154}\doxymbox{\hyperlink{_servobutitworks_8ino_a4fc01d736fe50cf5b977f755b675f11d}{00154}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_servobutitworks_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()\{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00155}00155\ \ \ \doxymbox{\hyperlink{_servobutitworks_8ino_ad3c89b6fd0c21b5793c67a12553905bf}{initScanner}}();}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00156}00156\ \ \ Serial.begin(9600);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00157}00157\ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00159}\doxymbox{\hyperlink{_servobutitworks_8ino_afe461d27b9c48d5921c00d521181f12f}{00159}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_servobutitworks_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00160}00160\ \ \ \textcolor{keywordtype}{int}\ angle\ =\ \doxymbox{\hyperlink{_servobutitworks_8ino_a35fca741bc150f1c87398a9e569d557f}{scanForTargetAngle}}(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}},\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00162}00162\ \ \ \textcolor{keywordflow}{if}\ (angle\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00163}00163\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Detected\ angle:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00164}00164\ \ \ \ \ Serial.print(angle);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00165}00165\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}°"{}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//\ point\ at\ target}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00168}00168\ \ \ \ \ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.servo.write(angle);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00169}00169\ \ \ \ \ delay(800);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ return\ to\ center}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00172}00172\ \ \ \ \ \textcolor{keywordtype}{int}\ center\ =\ (\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.minAngle\ +\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.maxAngle)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00173}00173\ \ \ \ \ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.servo.write(center);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00174}00174\ \ \ \ \ delay(500);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00175}00175\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00176}00176\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}No\ object\ detected"{}});}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00177}00177\ \ \ \ \ delay(300);}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00178}00178\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_servobutitworks_8ino_source_l00179}00179\ \}}
+
+\end{DoxyCode}

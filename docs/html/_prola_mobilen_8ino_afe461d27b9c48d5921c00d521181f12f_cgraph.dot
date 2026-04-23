@@ -7,9 +7,9 @@ digraph "loop"
   rankdir="LR";
   Node1 [id="Node000001",label="loop",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="dc_motor_update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_prola_mobilen_8ino.html#a12ae01fc8d59155d68aabc4bb8a0e6b8",tooltip=" "];
+  Node2 [id="Node000002",label="dc_motor_update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_angle_to_rotation_8ino.html#a12ae01fc8d59155d68aabc4bb8a0e6b8",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="stop_motor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_prola_mobilen_8ino.html#a763695f567d8c1d2494de1c8d28b9989",tooltip=" "];
+  Node3 [id="Node000003",label="stop_motor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_angle_to_rotation_8ino.html#a763695f567d8c1d2494de1c8d28b9989",tooltip=" "];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="turn",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_prola_mobilen_8ino.html#ae4ffa4e701eaf2118317a3a2d6499700",tooltip=" "];
+  Node4 [id="Node000004",label="turn",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_angle_to_rotation_8ino.html#ae4ffa4e701eaf2118317a3a2d6499700",tooltip=" "];
 }

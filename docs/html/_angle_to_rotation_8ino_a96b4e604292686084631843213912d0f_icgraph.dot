@@ -10,4 +10,7 @@ digraph "degrees_to_counts"
   Node2 [id="Node000002",label="rotateDegrees",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_angle_to_rotation_8ino.html#a73fa9ffd0f339a99bd7ed5662f023674",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="setup",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_angle_to_rotation_8ino.html#a4fc01d736fe50cf5b977f755b675f11d",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="performScan",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sensor_pis_virker_nok_ikke_8ino.html#a5832b16836ef177975ed5f5417bff22e",tooltip=" "];
+  Node4 -> Node4 [id="edge4_Node000004_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

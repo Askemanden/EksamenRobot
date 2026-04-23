@@ -1,12 +1,11 @@
 \doxysection{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino File Reference}
 \hypertarget{_sensor_pis_virker_nok_ikke_8ino}{}\label{_sensor_pis_virker_nok_ikke_8ino}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+{\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
 {\ttfamily \+\#include $<$Servo.\+h$>$}\newline
 Include dependency graph for Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino:\+
 % FIG 0
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
-\item 
-struct \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}}
 \item 
 struct \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}}
 \item 
@@ -17,49 +16,67 @@ struct \doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}}
 \item 
 float \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_aa4840f5363bd8dd98325837547e9ee5c}{measure\+Distance}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s)
 \item 
-\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a99755815406a3b1519d3c7b2b4353479}{perform\+Scan}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&sc)
+float \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a35f7c934ac4bb5147d24e426d6b024f3}{average\+Distance}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, int samples)
 \item 
-void \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a0f1a9e21d6ca1ea5ebcb26e8157cd701}{print\+Scan\+Result}} (const \doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \&r)
-\item 
-void \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
-\item 
-void \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a5832b16836ef177975ed5f5417bff22e}{perform\+Scan}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&sc, int start\+Angle, int end\+Angle)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+Askemanden Invisible \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ac44cf65481bc56e2a37b529e817a0ea5}{nigganigga}} \+[LOTM]\+
+\item 
+Askemanden Invisible \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a86df41bcf3b1447e52ccaafdc6745a59}{—}}
+\item 
+const double \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\+\_\+\+RATIO}} = 30.\+0
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}} = 9
+\item 
+int \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a0ae9ea9ab6dbfe4a2364397257e1005d}{echo\+Pin}}
 \item 
 \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}}
 \item 
 \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}
 \item 
-float \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{detection\+Thresholdcm}} = 200
+float \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{detection\+Thresholdcm}} = 25
+\item 
+float \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a3dd586afdc369ada668dbb32195fa005}{distance\+Offsetcm}} = 0.\+6
+\item 
+const int \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\+\_\+\+EXTENSION}} = 30
 \end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
 \Hypertarget{_sensor_pis_virker_nok_ikke_8ino_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_afe461d27b9c48d5921c00d521181f12f}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!loop@{loop}}
-\index{loop@{loop}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
-\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
-{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_afe461d27b9c48d5921c00d521181f12f} 
-void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a35f7c934ac4bb5147d24e426d6b024f3}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!averageDistance@{averageDistance}}
+\index{averageDistance@{averageDistance}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{averageDistance()}{averageDistance()}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a35f7c934ac4bb5147d24e426d6b024f3} 
+float average\+Distance (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{int}]{samples}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00118}{118}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00082}{82}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00119\ \ \ \doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ r\ =\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a99755815406a3b1519d3c7b2b4353479}{performScan}}(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}},\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}});}
-\DoxyCodeLine{00120\ \ \ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a0f1a9e21d6ca1ea5ebcb26e8157cd701}{printScanResult}}(r);}
-\DoxyCodeLine{00121\ \ \ delay(300);}
-\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{float}\ sum\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{int}\ valid\ =\ 0;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ samples;\ i++)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_aa4840f5363bd8dd98325837547e9ee5c}{measureDistance}}(s);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ >\ 0)\ \{\ sum\ +=\ d;\ valid++;\ \}}
+\DoxyCodeLine{00088\ \ \ \ \ delayMicroseconds(500);}
+\DoxyCodeLine{00089\ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordflow}{if}\ (valid\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordflow}{return}\ sum\ /\ valid;}
+\DoxyCodeLine{00092\ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
 % FIG 1
+Here is the caller graph for this function:\+
+% FIG 2
 \Hypertarget{_sensor_pis_virker_nok_ikke_8ino_aa4840f5363bd8dd98325837547e9ee5c}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!measureDistance@{measureDistance}}
 \index{measureDistance@{measureDistance}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
 \doxysubsubsection{\texorpdfstring{measureDistance()}{measureDistance()}}
@@ -68,142 +85,123 @@ float measure\+Distance (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperli
 
 
 
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00042}{42}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00070}{70}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00043\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ LOW);}
-\DoxyCodeLine{00044\ \ \ delayMicroseconds(2);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ HIGH);}
-\DoxyCodeLine{00047\ \ \ delayMicroseconds(10);}
-\DoxyCodeLine{00048\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ LOW);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{long}\ duration\ =\ pulseIn(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ac592c16c93535f425c6b98a3a706d600}{echoPin}},\ HIGH,\ 30000);}
-\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{if}\ (duration\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{return}\ duration\ /\ 58.0;}
-\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ LOW);}
+\DoxyCodeLine{00072\ \ \ delayMicroseconds(2);}
+\DoxyCodeLine{00073\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ HIGH);}
+\DoxyCodeLine{00074\ \ \ delayMicroseconds(10);}
+\DoxyCodeLine{00075\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ad1b31a8469f596259a2c52ac25ecf543}{trigPin}},\ LOW);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{long}\ duration\ =\ pulseIn(s.\doxymbox{\hyperlink{struct_ultrasonic_sensor_ac592c16c93535f425c6b98a3a706d600}{echoPin}},\ HIGH,\ 30000);}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{if}\ (duration\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{return}\ (duration\ /\ 58.0)\ +\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a3dd586afdc369ada668dbb32195fa005}{distanceOffsetcm}};}
+\DoxyCodeLine{00080\ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
-% FIG 2
-\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a99755815406a3b1519d3c7b2b4353479}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!performScan@{performScan}}
+% FIG 3
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a5832b16836ef177975ed5f5417bff22e}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!performScan@{performScan}}
 \index{performScan@{performScan}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
 \doxysubsubsection{\texorpdfstring{performScan()}{performScan()}}
-{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a99755815406a3b1519d3c7b2b4353479} 
-\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} perform\+Scan (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&}]{sc}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a5832b16836ef177975ed5f5417bff22e} 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} perform\+Scan (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&}]{sc}{, }\item[{int}]{start\+Angle}{, }\item[{int}]{end\+Angle}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00058}{58}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00094}{94}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
 
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \doxymbox{\hyperlink{struct_scan_result}{ScanResult}}\ result\ =\ \{}
-\DoxyCodeLine{00060\ \ \ \ \ .firstAngle\ =\ -\/1,}
-\DoxyCodeLine{00061\ \ \ \ \ .lastAngle\ =\ -\/1,}
-\DoxyCodeLine{00062\ \ \ \ \ .trueAngle\ =\ -\/1,}
-\DoxyCodeLine{00063\ \ \ \ \ .detected\ =\ \textcolor{keyword}{false}}
-\DoxyCodeLine{00064\ \ \ \};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ angle\ =\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae9ada4bcf380cede47a8fd8ca3976a7e}{minAngle}};\ angle\ <=\ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae78e25b76fa1fe301353514fada6e50f}{maxAngle}};\ angle\ +=\ sc.\doxymbox{\hyperlink{struct_servo_scanner_a29e0d044c949ca3f1f140cac4af9176e}{stepSize}})\ \{}
-\DoxyCodeLine{00067\ \ \ \ \ sc.\doxymbox{\hyperlink{struct_servo_scanner_ae90799d72d0e232e588f69b51ac03066}{servo}}.write(angle);}
-\DoxyCodeLine{00068\ \ \ \ \ delay(40);}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ dist\ =\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_aa4840f5363bd8dd98325837547e9ee5c}{measureDistance}}(s);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ >\ 0\ \&\&\ dist\ <\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{detectionThresholdcm}})\ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scan_result_a0f954c0f05f2c5b82e938438bebf3ea9}{firstAngle}}\ ==\ -\/1)\ result.\doxymbox{\hyperlink{struct_scan_result_a0f954c0f05f2c5b82e938438bebf3ea9}{firstAngle}}\ =\ angle;}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_ad1861838f517db33f01c79d4ffc02ef0}{lastAngle}}\ =\ angle;}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00076\ \ \ \ \ \}}
-\DoxyCodeLine{00077\ \ \ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}})\ \{}
-\DoxyCodeLine{00080\ \ \ \ \ result.\doxymbox{\hyperlink{struct_scan_result_a51afd234d7ef546d51f4f2aa26a731fa}{trueAngle}}\ =\ (result.\doxymbox{\hyperlink{struct_scan_result_a0f954c0f05f2c5b82e938438bebf3ea9}{firstAngle}}\ +\ result.\doxymbox{\hyperlink{struct_scan_result_ad1861838f517db33f01c79d4ffc02ef0}{lastAngle}})\ /\ 2;}
-\DoxyCodeLine{00081\ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00084\ \}}
-
-\end{DoxyCode}
 Here is the call graph for this function:\+
-% FIG 3
-Here is the caller graph for this function:\+
 % FIG 4
-\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a0f1a9e21d6ca1ea5ebcb26e8157cd701}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!printScanResult@{printScanResult}}
-\index{printScanResult@{printScanResult}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
-\doxysubsubsection{\texorpdfstring{printScanResult()}{printScanResult()}}
-{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a0f1a9e21d6ca1ea5ebcb26e8157cd701} 
-void print\+Scan\+Result (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \&}]{r}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00087}{87}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00088\ \ \ \textcolor{keywordflow}{if}\ (!r.\doxymbox{\hyperlink{struct_scan_result_aa489d230847081627bf5714c6ee27c5d}{detected}})\ \{}
-\DoxyCodeLine{00089\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}No\ object\ detected."{}});}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00091\ \ \ \}}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ Serial.print(\textcolor{stringliteral}{"{}Object\ detected\ between\ "{}});}
-\DoxyCodeLine{00094\ \ \ Serial.print(r.\doxymbox{\hyperlink{struct_scan_result_a0f954c0f05f2c5b82e938438bebf3ea9}{firstAngle}});}
-\DoxyCodeLine{00095\ \ \ Serial.print(\textcolor{stringliteral}{"{}°\ and\ "{}});}
-\DoxyCodeLine{00096\ \ \ Serial.print(r.\doxymbox{\hyperlink{struct_scan_result_ad1861838f517db33f01c79d4ffc02ef0}{lastAngle}});}
-\DoxyCodeLine{00097\ \ \ Serial.print(\textcolor{stringliteral}{"{}°\ \ \ "{}});}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ Serial.print(\textcolor{stringliteral}{"{}Estimated\ true\ angle:\ "{}});}
-\DoxyCodeLine{00100\ \ \ Serial.print(r.\doxymbox{\hyperlink{struct_scan_result_a51afd234d7ef546d51f4f2aa26a731fa}{trueAngle}});}
-\DoxyCodeLine{00101\ \ \ Serial.println(\textcolor{stringliteral}{"{}°"{}});}
-\DoxyCodeLine{00102\ \}}
-
-\end{DoxyCode}
 Here is the caller graph for this function:\+
 % FIG 5
-\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!setup@{setup}}
-\index{setup@{setup}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
-\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
-{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
-void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00106}{106}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00107\ \ \ Serial.begin(9600);}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ pinMode(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}}.trigPin,\ OUTPUT);}
-\DoxyCodeLine{00110\ \ \ pinMode(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}{sonar}}.echoPin,\ INPUT);}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.servo.attach(\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}{scanner}}.pin);}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ Serial.println(\textcolor{stringliteral}{"{}ready"{}});}
-\DoxyCodeLine{00115\ \}}
-
-\end{DoxyCode}
 
 
 \label{doc-var-members}
 \Hypertarget{_sensor_pis_virker_nok_ikke_8ino_doc-var-members}
 \doxysubsection{Variable Documentation}
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a86df41bcf3b1447e52ccaafdc6745a59}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!—@{—}}
+\index{—@{—}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{—}{—}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a86df41bcf3b1447e52ccaafdc6745a59} 
+Prola\+Mobilen ino KB her din neger —}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00005}{5}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
 \Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!detectionThresholdcm@{detectionThresholdcm}}
 \index{detectionThresholdcm@{detectionThresholdcm}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
 \doxysubsubsection{\texorpdfstring{detectionThresholdcm}{detectionThresholdcm}}
 {\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb} 
-float detection\+Thresholdcm = 200}
+float detection\+Thresholdcm = 25}
 
 
 
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00038}{38}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00066}{66}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a3dd586afdc369ada668dbb32195fa005}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!distanceOffsetcm@{distanceOffsetcm}}
+\index{distanceOffsetcm@{distanceOffsetcm}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{distanceOffsetcm}{distanceOffsetcm}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a3dd586afdc369ada668dbb32195fa005} 
+float distance\+Offsetcm = 0.\+6}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00067}{67}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a0ae9ea9ab6dbfe4a2364397257e1005d}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!echoPin@{echoPin}}
+\index{echoPin@{echoPin}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{echoPin}{echoPin}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a0ae9ea9ab6dbfe4a2364397257e1005d} 
+int echo\+Pin}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00032}{32}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!EDGE\_EXTENSION@{EDGE\_EXTENSION}}
+\index{EDGE\_EXTENSION@{EDGE\_EXTENSION}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{EDGE\_EXTENSION}{EDGE\_EXTENSION}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47} 
+const int EDGE\+\_\+\+EXTENSION = 30}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00068}{68}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_ac981f98e8b41b0e5f0d753279da10c82}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!GEAR\_RATIO@{GEAR\_RATIO}}
+\index{GEAR\_RATIO@{GEAR\_RATIO}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{GEAR\_RATIO}{GEAR\_RATIO}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_ac981f98e8b41b0e5f0d753279da10c82} 
+const double GEAR\+\_\+\+RATIO = 30.\+0}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00009}{9}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a1eb873c54df7336fbe5619cc541ac390}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!IN1@{IN1}}
+\index{IN1@{IN1}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{IN1}{IN1}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_a1eb873c54df7336fbe5619cc541ac390} 
+const uint8\+\_\+t IN1 = 9}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00011}{11}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+
+\Hypertarget{_sensor_pis_virker_nok_ikke_8ino_ac44cf65481bc56e2a37b529e817a0ea5}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!nigganigga@{nigganigga}}
+\index{nigganigga@{nigganigga}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
+\doxysubsubsection{\texorpdfstring{nigganigga}{nigganigga}}
+{\footnotesize\ttfamily \label{_sensor_pis_virker_nok_ikke_8ino_ac44cf65481bc56e2a37b529e817a0ea5} 
+Prola\+Mobilen ino KB her din neger nigganigga}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00005}{5}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
 
 \Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a17a668c6deed7b7965b4d33246a971ea}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!scanner@{scanner}}
 \index{scanner@{scanner}!SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}}
@@ -215,26 +213,26 @@ Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
 \DoxyCodeLine{\ \ .servo\ =\ Servo(),}
-\DoxyCodeLine{\ \ .pin\ =\ 6,}
+\DoxyCodeLine{\ \ .pin\ =\ 11,}
 \DoxyCodeLine{\ \ .minAngle\ =\ 0,}
-\DoxyCodeLine{\ \ .maxAngle\ =\ 180,}
-\DoxyCodeLine{\ \ .stepSize\ =\ 2}
+\DoxyCodeLine{\ \ .maxAngle\ =\ 90,}
+\DoxyCodeLine{\ \ .stepSize\ =\ 1}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
 
 
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00030}{30}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00058}{58}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00031\ \ \ .servo\ =\ Servo(),}
-\DoxyCodeLine{00032\ \ \ .pin\ =\ 6,}
-\DoxyCodeLine{00033\ \ \ .minAngle\ =\ 0,}
-\DoxyCodeLine{00034\ \ \ .maxAngle\ =\ 180,}
-\DoxyCodeLine{00035\ \ \ .stepSize\ =\ 2}
-\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ .servo\ =\ Servo(),}
+\DoxyCodeLine{00060\ \ \ .pin\ =\ 11,}
+\DoxyCodeLine{00061\ \ \ .minAngle\ =\ 0,}
+\DoxyCodeLine{00062\ \ \ .maxAngle\ =\ 90,}
+\DoxyCodeLine{00063\ \ \ .stepSize\ =\ 1}
+\DoxyCodeLine{00064\ \};}
 
 \end{DoxyCode}
 \Hypertarget{_sensor_pis_virker_nok_ikke_8ino_a7960e6857c8af9c86126161bd0c19c07}\index{SensorPisVirkerNokIkke.ino@{SensorPisVirkerNokIkke.ino}!sonar@{sonar}}
@@ -247,19 +245,19 @@ Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
 \DoxyCodeLine{\ \ .trigPin\ =\ 9,}
-\DoxyCodeLine{\ \ .echoPin\ =\ 8}
+\DoxyCodeLine{\ \ .echoPin\ =\ 10}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
 
 
-Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00025}{25}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source_l00053}{53}} of file \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_source}{Sensor\+Pis\+Virker\+Nok\+Ikke.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00026\ \ \ .trigPin\ =\ 9,}
-\DoxyCodeLine{00027\ \ \ .echoPin\ =\ 8}
-\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ .trigPin\ =\ 9,}
+\DoxyCodeLine{00055\ \ \ .echoPin\ =\ 10}
+\DoxyCodeLine{00056\ \};}
 
 \end{DoxyCode}

@@ -1,0 +1,359 @@
+\doxysection{Scanner Namespace Reference}
+\hypertarget{namespace_scanner}{}\label{namespace_scanner}\index{Scanner@{Scanner}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_scanner_1_1_ultrasonic_sensor}{Ultrasonic\+Sensor}}
+\item 
+struct \doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner}{Servo\+Scanner}}
+\item 
+struct \doxymbox{\hyperlink{struct_scanner_1_1_scan_result}{Scan\+Result}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{namespace_scanner_aa23c6d875ba94d19fa8a42dcd06c0725}{measure\+Distance}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s)
+\item 
+float \doxymbox{\hyperlink{namespace_scanner_a7b320a8d43245f33dfc4a48195feb922}{average\+Distance}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, int samples)
+\item 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \doxymbox{\hyperlink{namespace_scanner_a2ab0fee502ad9811386c59555518c261}{perform\+Scan}} (const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&sc, int start\+Angle, int end\+Angle)
+\item 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \doxymbox{\hyperlink{namespace_scanner_ab87790bcae3f74789fffc8cfe1db0df2}{scan}} (\doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&sc)
+\item 
+void \doxymbox{\hyperlink{namespace_scanner_a27813703331757823aa1ce3c411109ed}{init\+Scanner}} ()
+\item 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} \doxymbox{\hyperlink{namespace_scanner_a591ef331e8fde2a2ba408c83a87c217f}{search\+For\+Target}} (\doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&s, \doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&sc)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \doxymbox{\hyperlink{namespace_scanner_ae9c2a1fd8ef94106939aabb12cbe1b5a}{sonar}} = \{.trig\+Pin=9, .\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a0ae9ea9ab6dbfe4a2364397257e1005d}{echo\+Pin}}=10\}
+\item 
+\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \doxymbox{\hyperlink{namespace_scanner_a394a843093c54fa767f3628cca17e499}{scanner}}
+\item 
+float \doxymbox{\hyperlink{namespace_scanner_aa947a209b2d3eac6767862fed142686f}{detection\+Thresholdcm}} = 25
+\item 
+float \doxymbox{\hyperlink{namespace_scanner_a964c192b0d8adf3b5994381deac420d0}{distance\+Offsetcm}} = 0.\+6
+\item 
+const int \doxymbox{\hyperlink{namespace_scanner_aaa7e6cce3bf89e61fa8eda8bdd5f368e}{EDGE\+\_\+\+EXTENSION}} = 90
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_scanner_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_scanner_a7b320a8d43245f33dfc4a48195feb922}\index{Scanner@{Scanner}!averageDistance@{averageDistance}}
+\index{averageDistance@{averageDistance}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{averageDistance()}{averageDistance()}}
+{\footnotesize\ttfamily \label{namespace_scanner_a7b320a8d43245f33dfc4a48195feb922} 
+float Scanner::\+average\+Distance (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{int}]{samples}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00664}{664}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00665\ \ \ \textcolor{keywordtype}{float}\ sum\ =\ 0;}
+\DoxyCodeLine{00666\ \ \ \textcolor{keywordtype}{int}\ valid\ =\ 0;}
+\DoxyCodeLine{00667\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ samples;\ i++)\ \{}
+\DoxyCodeLine{00668\ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ \doxymbox{\hyperlink{namespace_scanner_aa23c6d875ba94d19fa8a42dcd06c0725}{measureDistance}}(s);}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ >\ 0)\ \{\ sum\ +=\ d;\ valid++;\ \}}
+\DoxyCodeLine{00670\ \ \ \ \ delayMicroseconds(500);}
+\DoxyCodeLine{00671\ \ \ \}}
+\DoxyCodeLine{00672\ \ \ \textcolor{keywordflow}{if}\ (valid\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00673\ \ \ \textcolor{keywordflow}{return}\ sum\ /\ valid;}
+\DoxyCodeLine{00674\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 0
+Here is the caller graph for this function:\+
+% FIG 1
+\Hypertarget{namespace_scanner_a27813703331757823aa1ce3c411109ed}\index{Scanner@{Scanner}!initScanner@{initScanner}}
+\index{initScanner@{initScanner}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{initScanner()}{initScanner()}}
+{\footnotesize\ttfamily \label{namespace_scanner_a27813703331757823aa1ce3c411109ed} 
+void Scanner::\+init\+Scanner (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00760}{760}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00761\ \ \ pinMode(\doxymbox{\hyperlink{namespace_scanner_ae9c2a1fd8ef94106939aabb12cbe1b5a}{sonar}}.trigPin,\ OUTPUT);}
+\DoxyCodeLine{00762\ \ \ pinMode(\doxymbox{\hyperlink{namespace_scanner_ae9c2a1fd8ef94106939aabb12cbe1b5a}{sonar}}.echoPin,\ INPUT);}
+\DoxyCodeLine{00763\ \ \ \doxymbox{\hyperlink{namespace_scanner_a394a843093c54fa767f3628cca17e499}{scanner}}.servo.attach(\doxymbox{\hyperlink{namespace_scanner_a394a843093c54fa767f3628cca17e499}{scanner}}.pin);}
+\DoxyCodeLine{00764\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_scanner_aa23c6d875ba94d19fa8a42dcd06c0725}\index{Scanner@{Scanner}!measureDistance@{measureDistance}}
+\index{measureDistance@{measureDistance}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{measureDistance()}{measureDistance()}}
+{\footnotesize\ttfamily \label{namespace_scanner_aa23c6d875ba94d19fa8a42dcd06c0725} 
+float Scanner::\+measure\+Distance (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00652}{652}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00653\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_scanner_1_1_ultrasonic_sensor_aaafe2e29d06e2012ef6d0b9e19863917}{trigPin}},\ LOW);}
+\DoxyCodeLine{00654\ \ \ delayMicroseconds(2);}
+\DoxyCodeLine{00655\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_scanner_1_1_ultrasonic_sensor_aaafe2e29d06e2012ef6d0b9e19863917}{trigPin}},\ HIGH);}
+\DoxyCodeLine{00656\ \ \ delayMicroseconds(10);}
+\DoxyCodeLine{00657\ \ \ digitalWrite(s.\doxymbox{\hyperlink{struct_scanner_1_1_ultrasonic_sensor_aaafe2e29d06e2012ef6d0b9e19863917}{trigPin}},\ LOW);}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00659\ \ \ \textcolor{keywordtype}{long}\ duration\ =\ pulseIn(s.\doxymbox{\hyperlink{struct_scanner_1_1_ultrasonic_sensor_a48622895998c2b843849e4c73b132b14}{echoPin}},\ HIGH,\ 30000);}
+\DoxyCodeLine{00660\ \ \ \textcolor{keywordflow}{if}\ (duration\ ==\ 0)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00661\ \ \ \textcolor{keywordflow}{return}\ (duration\ /\ 58.0)\ +\ \doxymbox{\hyperlink{namespace_scanner_a964c192b0d8adf3b5994381deac420d0}{distanceOffsetcm}};}
+\DoxyCodeLine{00662\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 2
+\Hypertarget{namespace_scanner_a2ab0fee502ad9811386c59555518c261}\index{Scanner@{Scanner}!performScan@{performScan}}
+\index{performScan@{performScan}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{performScan()}{performScan()}}
+{\footnotesize\ttfamily \label{namespace_scanner_a2ab0fee502ad9811386c59555518c261} 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} Scanner::\+perform\+Scan (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&}]{sc}{, }\item[{int}]{start\+Angle}{, }\item[{int}]{end\+Angle}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00676}{676}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00677\ \ \ \doxymbox{\hyperlink{struct_scanner_1_1_scan_result}{ScanResult}}\ result\ =\ \{-\/1,\ -\/1,\ -\/1,\ -\/1,\ -\/1,\ \textcolor{keyword}{false},\ -\/1\};}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00679\ \ \ \textcolor{keywordtype}{int}\ step\ =\ (endAngle\ >=\ startAngle)\ ?\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a94bcec40c8a1a00b4f11b71fc87c3ff9}{stepSize}}\ :\ -\/sc.stepSize;}
+\DoxyCodeLine{00680\ \ \ \textcolor{keywordtype}{int}\ prevAngle\ =\ startAngle;}
+\DoxyCodeLine{00681\ \ \ \textcolor{keywordtype}{bool}\ wasDetected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00682\ \ \ \textcolor{keywordtype}{float}\ distanceSum\ =\ 0;}
+\DoxyCodeLine{00683\ \ \ \textcolor{keywordtype}{int}\ distanceCount\ =\ 0;}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00685\ \ \ \textcolor{keywordtype}{int}\ absoluteMin\ =\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a38956f9a319845e2f5ee5d95d5b07f99}{minAngle}}\ -\/\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\_EXTENSION}};}
+\DoxyCodeLine{00686\ \ \ \textcolor{keywordtype}{int}\ absoluteMax\ =\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a6af2cc39834fc3617551667e7773b4df}{maxAngle}}\ +\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_ae6b8456ba4aebbd634e8e34de69feb47}{EDGE\_EXTENSION}};}
+\DoxyCodeLine{00687\ \ \ \textcolor{keywordtype}{bool}\ inExtension\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ \ \ \textcolor{keywordtype}{int}\ dynamicEnd\ =\ endAngle;}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00691\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ angle\ =\ startAngle;}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ (step\ >\ 0)\ ?\ (angle\ <=\ dynamicEnd)\ :\ (angle\ >=\ dynamicEnd);}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ angle\ +=\ step)}
+\DoxyCodeLine{00694\ \ \ \{}
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{keywordtype}{int}\ servoAngle\ =\ constrain(angle,\ absoluteMin,\ absoluteMax);}
+\DoxyCodeLine{00696\ \ \ \ \ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a91242cede955a69bead3f9738824f22f}{servo}}.write(servoAngle);}
+\DoxyCodeLine{00697\ \ \ \ \ delay(30);}
+\DoxyCodeLine{00698\ }
+\DoxyCodeLine{00699\ \ \ \ \ \textcolor{keywordtype}{float}\ dist\ =\ \doxymbox{\hyperlink{namespace_scanner_a7b320a8d43245f33dfc4a48195feb922}{averageDistance}}(s,\ 3);}
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDetected\ =\ (dist\ >\ 0\ \&\&\ dist\ <=\ \doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a6190d8780a8c886e6e5f2a5df89a6fdb}{detectionThresholdcm}});}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00702\ \ \ \ \ \textcolor{keywordflow}{if}\ (!wasDetected\ \&\&\ isDetected)\ \{}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_a9f8f8b3090fce3b246a54315c963c9d1}{edgeBefore}}\ =\ prevAngle;}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af7b5c6cbc39d148561cae214a92c2ed6}{detected}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00705\ \ \ \ \ \}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDetected)\ \{}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ distanceSum\ +=\ dist;}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ distanceCount++;}
+\DoxyCodeLine{00710\ \ \ \ \ \}}
+\DoxyCodeLine{00711\ }
+\DoxyCodeLine{00712\ \ \ \ \ \textcolor{keywordflow}{if}\ (wasDetected\ \&\&\ !isDetected)\ \{}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_aa83fab38361ca165ea8edc095fb5be89}{edgeAfter}}\ =\ angle;}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00715\ \ \ \ \ \}}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDetected)\ \{}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNormalEnd\ =\ (step\ >\ 0)\ ?\ (angle\ >=\ endAngle)\ :\ (angle\ <=\ endAngle);}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (atNormalEnd\ \&\&\ !inExtension)\ \{}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ inExtension\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ dynamicEnd\ =\ endAngle\ +\ (step\ *\ \doxymbox{\hyperlink{namespace_scanner_aaa7e6cce3bf89e61fa8eda8bdd5f368e}{EDGE\_EXTENSION}});}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ dynamicEnd\ =\ constrain(dynamicEnd,\ absoluteMin,\ absoluteMax);}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00724\ \ \ \ \ \}}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00726\ \ \ \ \ wasDetected\ =\ isDetected;}
+\DoxyCodeLine{00727\ \ \ \ \ prevAngle\ =\ angle;}
+\DoxyCodeLine{00728\ \ \ \}}
+\DoxyCodeLine{00729\ }
+\DoxyCodeLine{00730\ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af7b5c6cbc39d148561cae214a92c2ed6}{detected}}\ \&\&\ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_aa83fab38361ca165ea8edc095fb5be89}{edgeAfter}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00731\ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_aa83fab38361ca165ea8edc095fb5be89}{edgeAfter}}\ =\ dynamicEnd;}
+\DoxyCodeLine{00732\ \ \ \}}
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00734\ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af7b5c6cbc39d148561cae214a92c2ed6}{detected}})\ \{}
+\DoxyCodeLine{00735\ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_a0daed467a0b3ee6212732acfab4b68bb}{trueAngle}}\ =\ (result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_a9f8f8b3090fce3b246a54315c963c9d1}{edgeBefore}}\ +\ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_aa83fab38361ca165ea8edc095fb5be89}{edgeAfter}})\ /\ 2;}
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{keywordflow}{if}\ (distanceCount\ >\ 0)\ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_a7e7931d0b51047d34cb8166a26c909c8}{objectDistance}}\ =\ distanceSum\ /\ distanceCount;}
+\DoxyCodeLine{00737\ }
+\DoxyCodeLine{00738\ \ \ \ \ \textcolor{keywordtype}{int}\ midInterval\ =\ (sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a38956f9a319845e2f5ee5d95d5b07f99}{minAngle}}\ +\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a6af2cc39834fc3617551667e7773b4df}{maxAngle}})\ /\ 2;}
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keywordflow}{if}\ (result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_a9f8f8b3090fce3b246a54315c963c9d1}{edgeBefore}}\ <\ midInterval)\ \{}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af6428a37131a06aa98ec258630a4922a}{resetAngle}}\ =\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a6af2cc39834fc3617551667e7773b4df}{maxAngle}};}
+\DoxyCodeLine{00741\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af6428a37131a06aa98ec258630a4922a}{resetAngle}}\ =\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a38956f9a319845e2f5ee5d95d5b07f99}{minAngle}};}
+\DoxyCodeLine{00743\ \ \ \ \ \}}
+\DoxyCodeLine{00744\ \ \ \}}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00746\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00747\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 3
+Here is the caller graph for this function:\+
+% FIG 4
+\Hypertarget{namespace_scanner_ab87790bcae3f74789fffc8cfe1db0df2}\index{Scanner@{Scanner}!scan@{scan}}
+\index{scan@{scan}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily \label{namespace_scanner_ab87790bcae3f74789fffc8cfe1db0df2} 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} Scanner::\+scan (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&}]{sc}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00750}{750}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00751\ \ \ \doxymbox{\hyperlink{struct_scanner_1_1_scan_result}{ScanResult}}\ r1\ =\ \doxymbox{\hyperlink{namespace_scanner_a2ab0fee502ad9811386c59555518c261}{performScan}}(s,\ sc,\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a38956f9a319845e2f5ee5d95d5b07f99}{minAngle}},\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a6af2cc39834fc3617551667e7773b4df}{maxAngle}});}
+\DoxyCodeLine{00752\ \ \ \textcolor{keywordflow}{if}\ (r1.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af7b5c6cbc39d148561cae214a92c2ed6}{detected}})\ \textcolor{keywordflow}{return}\ r1;}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \ \ \doxymbox{\hyperlink{struct_scanner_1_1_scan_result}{ScanResult}}\ r2\ =\ \doxymbox{\hyperlink{namespace_scanner_a2ab0fee502ad9811386c59555518c261}{performScan}}(s,\ sc,\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a6af2cc39834fc3617551667e7773b4df}{maxAngle}},\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a38956f9a319845e2f5ee5d95d5b07f99}{minAngle}});}
+\DoxyCodeLine{00755\ \ \ \textcolor{keywordflow}{if}\ (r2.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_af7b5c6cbc39d148561cae214a92c2ed6}{detected}})\ \textcolor{keywordflow}{return}\ r2;}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \ \ \textcolor{keywordflow}{return}\ \{-\/1,-\/1,-\/1,-\/1,-\/1,-\/1,-\/1\};}
+\DoxyCodeLine{00758\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 5
+Here is the caller graph for this function:\+
+% FIG 6
+\Hypertarget{namespace_scanner_a591ef331e8fde2a2ba408c83a87c217f}\index{Scanner@{Scanner}!searchForTarget@{searchForTarget}}
+\index{searchForTarget@{searchForTarget}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{searchForTarget()}{searchForTarget()}}
+{\footnotesize\ttfamily \label{namespace_scanner_a591ef331e8fde2a2ba408c83a87c217f} 
+\doxymbox{\hyperlink{struct_scan_result}{Scan\+Result}} Scanner::\+search\+For\+Target (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} \&}]{s}{, }\item[{\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} \&}]{sc}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00766}{766}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00767\ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00768\ \ \ \ \ \doxymbox{\hyperlink{struct_scanner_1_1_scan_result}{ScanResult}}\ result\ =\ \doxymbox{\hyperlink{namespace_scanner_ab87790bcae3f74789fffc8cfe1db0df2}{scan}}(s,\ sc);}
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{keywordtype}{int}\ angle\ =\ result.\doxymbox{\hyperlink{struct_scanner_1_1_scan_result_a0daed467a0b3ee6212732acfab4b68bb}{trueAngle}};}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \ \ \ \ \textcolor{keywordflow}{if}\ (angle\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Detected\ angle:\ "{}});}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ Serial.print(angle);}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}°"{}});}
+\DoxyCodeLine{00775\ }
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \textcolor{comment}{//\ point\ at\ target}}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a91242cede955a69bead3f9738824f22f}{servo}}.write(angle);}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ delay(200);}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \textcolor{comment}{//\ return\ to\ center}}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ center\ =\ (sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a38956f9a319845e2f5ee5d95d5b07f99}{minAngle}}\ +\ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a6af2cc39834fc3617551667e7773b4df}{maxAngle}})\ /\ 2;}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ sc.\doxymbox{\hyperlink{struct_scanner_1_1_servo_scanner_a91242cede955a69bead3f9738824f22f}{servo}}.write(center);}
+\DoxyCodeLine{00783\ }
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00785\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}No\ object\ detected"{}});}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ delay(100);}
+\DoxyCodeLine{00788\ \ \ \ \ \}}
+\DoxyCodeLine{00789\ \ \ \}}
+\DoxyCodeLine{00790\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 7
+
+
+\label{doc-var-members}
+\Hypertarget{namespace_scanner_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_scanner_aa947a209b2d3eac6767862fed142686f}\index{Scanner@{Scanner}!detectionThresholdcm@{detectionThresholdcm}}
+\index{detectionThresholdcm@{detectionThresholdcm}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{detectionThresholdcm}{detectionThresholdcm}}
+{\footnotesize\ttfamily \label{namespace_scanner_aa947a209b2d3eac6767862fed142686f} 
+float Scanner::\+detection\+Thresholdcm = 25}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00648}{648}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_scanner_a964c192b0d8adf3b5994381deac420d0}\index{Scanner@{Scanner}!distanceOffsetcm@{distanceOffsetcm}}
+\index{distanceOffsetcm@{distanceOffsetcm}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{distanceOffsetcm}{distanceOffsetcm}}
+{\footnotesize\ttfamily \label{namespace_scanner_a964c192b0d8adf3b5994381deac420d0} 
+float Scanner::\+distance\+Offsetcm = 0.\+6}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00649}{649}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_scanner_aaa7e6cce3bf89e61fa8eda8bdd5f368e}\index{Scanner@{Scanner}!EDGE\_EXTENSION@{EDGE\_EXTENSION}}
+\index{EDGE\_EXTENSION@{EDGE\_EXTENSION}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{EDGE\_EXTENSION}{EDGE\_EXTENSION}}
+{\footnotesize\ttfamily \label{namespace_scanner_aaa7e6cce3bf89e61fa8eda8bdd5f368e} 
+const int Scanner::\+\+EDGE\+\_\+\+EXTENSION = 90}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00650}{650}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_scanner_a394a843093c54fa767f3628cca17e499}\index{Scanner@{Scanner}!scanner@{scanner}}
+\index{scanner@{scanner}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{scanner}{scanner}}
+{\footnotesize\ttfamily \label{namespace_scanner_a394a843093c54fa767f3628cca17e499} 
+\doxymbox{\hyperlink{struct_servo_scanner}{Servo\+Scanner}} Scanner::\+scanner}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ .servo\ =\ Servo(),}
+\DoxyCodeLine{\ \ .pin\ =\ 11,}
+\DoxyCodeLine{\ \ .minAngle\ =\ 0,}
+\DoxyCodeLine{\ \ .maxAngle\ =\ 90,}
+\DoxyCodeLine{\ \ .stepSize\ =\ 1}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00640}{640}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00641\ \ \ .servo\ =\ Servo(),}
+\DoxyCodeLine{00642\ \ \ .pin\ =\ 11,}
+\DoxyCodeLine{00643\ \ \ .minAngle\ =\ 0,}
+\DoxyCodeLine{00644\ \ \ .maxAngle\ =\ 90,}
+\DoxyCodeLine{00645\ \ \ .stepSize\ =\ 1}
+\DoxyCodeLine{00646\ \};}
+
+\end{DoxyCode}
+\Hypertarget{namespace_scanner_ae9c2a1fd8ef94106939aabb12cbe1b5a}\index{Scanner@{Scanner}!sonar@{sonar}}
+\index{sonar@{sonar}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{sonar}{sonar}}
+{\footnotesize\ttfamily \label{namespace_scanner_ae9c2a1fd8ef94106939aabb12cbe1b5a} 
+\doxymbox{\hyperlink{struct_ultrasonic_sensor}{Ultrasonic\+Sensor}} Scanner::\+sonar = \{.trig\+Pin=9, .\doxymbox{\hyperlink{_sensor_pis_virker_nok_ikke_8ino_a0ae9ea9ab6dbfe4a2364397257e1005d}{echo\+Pin}}=10\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00638}{638}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00638\ \{.trigPin=9,\ .echoPin=10\};}
+
+\end{DoxyCode}

@@ -61,7 +61,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_angle_to_rotation_8ino.html",
-"struct_servo_scanner.html#a29e0d044c949ca3f1f140cac4af9176e"
+"namespace_scanner.html#aaa7e6cce3bf89e61fa8eda8bdd5f368e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

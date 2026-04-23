@@ -6,8 +6,10 @@ digraph "measureDistance"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="RL";
   Node1 [id="Node000001",label="measureDistance",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
-  Node1 -> Node2 [id="edge3_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="performScan",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sensor_pis_virker_nok_ikke_8ino.html#a99755815406a3b1519d3c7b2b4353479",tooltip=" "];
-  Node2 -> Node3 [id="edge4_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="loop",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sensor_pis_virker_nok_ikke_8ino.html#afe461d27b9c48d5921c00d521181f12f",tooltip=" "];
+  Node1 -> Node2 [id="edge5_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="averageDistance",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sensor_pis_virker_nok_ikke_8ino.html#a35f7c934ac4bb5147d24e426d6b024f3",tooltip=" "];
+  Node2 -> Node3 [id="edge6_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="performScan",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sensor_pis_virker_nok_ikke_8ino.html#a5832b16836ef177975ed5f5417bff22e",tooltip=" "];
+  Node3 -> Node3 [id="edge7_Node000003_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node3 [id="edge8_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -166,6 +166,8 @@ Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00105}{1
 \end{DoxyCode}
 Here is the call graph for this function:\+
 % FIG 5
+Here is the caller graph for this function:\+
+% FIG 6
 \Hypertarget{_angle_to_rotation_8ino_a73fa9ffd0f339a99bd7ed5662f023674}\index{AngleToRotation.ino@{AngleToRotation.ino}!rotateDegrees@{rotateDegrees}}
 \index{rotateDegrees@{rotateDegrees}!AngleToRotation.ino@{AngleToRotation.ino}}
 \doxysubsubsection{\texorpdfstring{rotateDegrees()}{rotateDegrees()}}
@@ -187,9 +189,9 @@ Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00061}{6
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
-% FIG 6
-Here is the caller graph for this function:\+
 % FIG 7
+Here is the caller graph for this function:\+
+% FIG 8
 \Hypertarget{_angle_to_rotation_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{AngleToRotation.ino@{AngleToRotation.ino}!setup@{setup}}
 \index{setup@{setup}!AngleToRotation.ino@{AngleToRotation.ino}}
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
@@ -219,7 +221,9 @@ Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00090}{9
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
-% FIG 8
+% FIG 9
+Here is the caller graph for this function:\+
+% FIG 10
 \Hypertarget{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}\index{AngleToRotation.ino@{AngleToRotation.ino}!stop\_motor@{stop\_motor}}
 \index{stop\_motor@{stop\_motor}!AngleToRotation.ino@{AngleToRotation.ino}}
 \doxysubsubsection{\texorpdfstring{stop\_motor()}{stop\_motor()}}
@@ -244,7 +248,7 @@ Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00047}{4
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
-% FIG 9
+% FIG 11
 \Hypertarget{_angle_to_rotation_8ino_ae4ffa4e701eaf2118317a3a2d6499700}\index{AngleToRotation.ino@{AngleToRotation.ino}!turn@{turn}}
 \index{turn@{turn}!AngleToRotation.ino@{AngleToRotation.ino}}
 \doxysubsubsection{\texorpdfstring{turn()}{turn()}}
@@ -270,7 +274,7 @@ Definition at line \doxymbox{\hyperlink{_angle_to_rotation_8ino_source_l00036}{3
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
-% FIG 10
+% FIG 12
 
 
 \label{doc-var-members}

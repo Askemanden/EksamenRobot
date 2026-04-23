@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['scanresult_0',['ScanResult',['../struct_scan_result.html',1,'']]],
-  ['servoscanner_1',['ServoScanner',['../struct_servo_scanner.html',1,'']]]
+  ['lcdrow_0',['LCDRow',['../struct_l_c_d_1_1_l_c_d_row.html',1,'LCD']]]
 ];

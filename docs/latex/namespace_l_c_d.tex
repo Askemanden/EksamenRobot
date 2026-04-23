@@ -1,0 +1,217 @@
+\doxysection{LCD Namespace Reference}
+\hypertarget{namespace_l_c_d}{}\label{namespace_l_c_d}\index{LCD@{LCD}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row}{LCDRow}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Liquid\+Crystal \doxymbox{\hyperlink{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}{lcd}} (\doxymbox{\hyperlink{namespace_l_c_d_a1b468c3f3cc6a891355b812ac7929a70}{rs}}, \doxymbox{\hyperlink{namespace_l_c_d_aa5a0d86178c10e59a718664bf0c3b130}{en}}, \doxymbox{\hyperlink{namespace_l_c_d_a2372e3bc9a5b6de93f97556343f62fea}{d4}}, \doxymbox{\hyperlink{namespace_l_c_d_adb9dc32b6f10ef4017dc14d1d8971bcc}{d5}}, \doxymbox{\hyperlink{namespace_l_c_d_a132ebf2baa19e435c09d7201fb7396f8}{d6}}, \doxymbox{\hyperlink{namespace_l_c_d_a6f9890f2d987111076cca030ee59ab56}{d7}})
+\item 
+void \doxymbox{\hyperlink{namespace_l_c_d_ade21c3a913d40b3099eb87fea2512f88}{Print}} (String text, int row)
+\item 
+void \doxymbox{\hyperlink{namespace_l_c_d_a598c44659253f78dc6e49cb742a0e795}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29}{LCD\+\_\+\+COLS}} = 16
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a8c7281ef66ce814d67a78ef48074c60e}{SCROLL\+\_\+\+DELAY}} = 300
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a5b11fd40284790a5440c66c1408cf294}{num\+Rows}} = 2
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a1b468c3f3cc6a891355b812ac7929a70}{rs}} = 12
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_aa5a0d86178c10e59a718664bf0c3b130}{en}} = 11
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a2372e3bc9a5b6de93f97556343f62fea}{d4}} = 5
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_adb9dc32b6f10ef4017dc14d1d8971bcc}{d5}} = 4
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a132ebf2baa19e435c09d7201fb7396f8}{d6}} = 3
+\item 
+const int \doxymbox{\hyperlink{namespace_l_c_d_a6f9890f2d987111076cca030ee59ab56}{d7}} = 2
+\item 
+\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row}{LCDRow}} \doxymbox{\hyperlink{namespace_l_c_d_a163f4f25f513b97a25b5daa54d2c372d}{lcd\+Rows}} \+[\doxymbox{\hyperlink{namespace_l_c_d_a5b11fd40284790a5440c66c1408cf294}{num\+Rows}}]\+
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_l_c_d_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}\index{LCD@{LCD}!lcd@{lcd}}
+\index{lcd@{lcd}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{lcd()}{lcd()}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3} 
+Liquid\+Crystal LCD::\+lcd (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_l_c_d_a1b468c3f3cc6a891355b812ac7929a70}{rs}}}]{}{, }\item[{\doxymbox{\hyperlink{namespace_l_c_d_aa5a0d86178c10e59a718664bf0c3b130}{en}}}]{}{, }\item[{\doxymbox{\hyperlink{namespace_l_c_d_a2372e3bc9a5b6de93f97556343f62fea}{d4}}}]{}{, }\item[{\doxymbox{\hyperlink{namespace_l_c_d_adb9dc32b6f10ef4017dc14d1d8971bcc}{d5}}}]{}{, }\item[{\doxymbox{\hyperlink{namespace_l_c_d_a132ebf2baa19e435c09d7201fb7396f8}{d6}}}]{}{, }\item[{\doxymbox{\hyperlink{namespace_l_c_d_a6f9890f2d987111076cca030ee59ab56}{d7}}}]{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+% FIG 0
+\Hypertarget{namespace_l_c_d_ade21c3a913d40b3099eb87fea2512f88}\index{LCD@{LCD}!Print@{Print}}
+\index{Print@{Print}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_ade21c3a913d40b3099eb87fea2512f88} 
+void LCD::\+\+Print (\begin{DoxyParamCaption}\item[{String}]{text}{, }\item[{int}]{row}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00040}{40}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row}{LCDRow}}\ \&r\ =\ \doxymbox{\hyperlink{namespace_l_c_d_a163f4f25f513b97a25b5daa54d2c372d}{lcdRows}}[row];}
+\DoxyCodeLine{00042\ \ \ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_aba03be4a924dc898b5e27ec70981ef08}{text}}\ \ \ \ \ \ =\ text;}
+\DoxyCodeLine{00043\ \ \ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a40f8cf8c62eba22f9b1cec86f485b313}{scrollPos}}\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_ae13e5ce1748da65c4f78a4cf0b004cba}{lastTick}}\ \ =\ 0;}
+\DoxyCodeLine{00045\ \ \ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a98e94cad7a0f7cdd13f9ebd28d4ff874}{scrolling}}\ =\ (text.length()\ >\ \doxymbox{\hyperlink{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29}{LCD\_COLS}});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \doxymbox{\hyperlink{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}{lcd}}.setCursor(0,\ row);}
+\DoxyCodeLine{00048\ \ \ \doxymbox{\hyperlink{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}{lcd}}.print(text.substring(0,\ \doxymbox{\hyperlink{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29}{LCD\_COLS}}));}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ text.length();\ i\ <\ \doxymbox{\hyperlink{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29}{LCD\_COLS}};\ i++)\ \doxymbox{\hyperlink{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}{lcd}}.print(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 1
+\Hypertarget{namespace_l_c_d_a598c44659253f78dc6e49cb742a0e795}\index{LCD@{LCD}!Update@{Update}}
+\index{Update@{Update}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a598c44659253f78dc6e49cb742a0e795} 
+void LCD::\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00052}{52}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ now\ =\ millis();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ \doxymbox{\hyperlink{namespace_l_c_d_a5b11fd40284790a5440c66c1408cf294}{numRows}};\ row++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row}{LCDRow}}\ \&r\ =\ \doxymbox{\hyperlink{namespace_l_c_d_a163f4f25f513b97a25b5daa54d2c372d}{lcdRows}}[row];}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (!r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a98e94cad7a0f7cdd13f9ebd28d4ff874}{scrolling}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (now\ -\/\ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_ae13e5ce1748da65c4f78a4cf0b004cba}{lastTick}}\ <\ \doxymbox{\hyperlink{namespace_l_c_d_a8c7281ef66ce814d67a78ef48074c60e}{SCROLL\_DELAY}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00059\ \ \ \ \ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_ae13e5ce1748da65c4f78a4cf0b004cba}{lastTick}}\ +=\ \doxymbox{\hyperlink{namespace_l_c_d_a8c7281ef66ce814d67a78ef48074c60e}{SCROLL\_DELAY}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ String\ padded\ =\ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_aba03be4a924dc898b5e27ec70981ef08}{text}}\ +\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}};}
+\DoxyCodeLine{00062\ \ \ \ \ \doxymbox{\hyperlink{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}{lcd}}.setCursor(0,\ row);}
+\DoxyCodeLine{00063\ \ \ \ \ \doxymbox{\hyperlink{namespace_l_c_d_a03f4783d3913849e9725fb15b68206f3}{lcd}}.print(padded.substring(r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a40f8cf8c62eba22f9b1cec86f485b313}{scrollPos}},\ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a40f8cf8c62eba22f9b1cec86f485b313}{scrollPos}}\ +\ \doxymbox{\hyperlink{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29}{LCD\_COLS}}));}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a40f8cf8c62eba22f9b1cec86f485b313}{scrollPos}}++;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a40f8cf8c62eba22f9b1cec86f485b313}{scrollPos}}\ >\ (\textcolor{keywordtype}{int})r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_aba03be4a924dc898b5e27ec70981ef08}{text}}.length())\ r.\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row_a40f8cf8c62eba22f9b1cec86f485b313}{scrollPos}}\ =\ 0;}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 2
+
+
+\label{doc-var-members}
+\Hypertarget{namespace_l_c_d_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_l_c_d_a2372e3bc9a5b6de93f97556343f62fea}\index{LCD@{LCD}!d4@{d4}}
+\index{d4@{d4}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{d4}{d4}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a2372e3bc9a5b6de93f97556343f62fea} 
+const int LCD::\+d4 = 5}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_adb9dc32b6f10ef4017dc14d1d8971bcc}\index{LCD@{LCD}!d5@{d5}}
+\index{d5@{d5}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{d5}{d5}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_adb9dc32b6f10ef4017dc14d1d8971bcc} 
+const int LCD::\+d5 = 4}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a132ebf2baa19e435c09d7201fb7396f8}\index{LCD@{LCD}!d6@{d6}}
+\index{d6@{d6}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{d6}{d6}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a132ebf2baa19e435c09d7201fb7396f8} 
+const int LCD::\+d6 = 3}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a6f9890f2d987111076cca030ee59ab56}\index{LCD@{LCD}!d7@{d7}}
+\index{d7@{d7}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{d7}{d7}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a6f9890f2d987111076cca030ee59ab56} 
+const int LCD::\+d7 = 2}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_aa5a0d86178c10e59a718664bf0c3b130}\index{LCD@{LCD}!en@{en}}
+\index{en@{en}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{en}{en}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_aa5a0d86178c10e59a718664bf0c3b130} 
+const int LCD::\+en = 11}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29}\index{LCD@{LCD}!LCD\_COLS@{LCD\_COLS}}
+\index{LCD\_COLS@{LCD\_COLS}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{LCD\_COLS}{LCD\_COLS}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a928f27db3ddc639328a63ee948a79c29} 
+const int LCD::\+\+LCD\+\_\+\+COLS = 16}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00022}{22}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a163f4f25f513b97a25b5daa54d2c372d}\index{LCD@{LCD}!lcdRows@{lcdRows}}
+\index{lcdRows@{lcdRows}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{lcdRows}{lcdRows}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a163f4f25f513b97a25b5daa54d2c372d} 
+\doxymbox{\hyperlink{struct_l_c_d_1_1_l_c_d_row}{LCDRow}} LCD::\+lcd\+Rows\+[\doxymbox{\hyperlink{namespace_l_c_d_a5b11fd40284790a5440c66c1408cf294}{num\+Rows}}]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00038}{38}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a5b11fd40284790a5440c66c1408cf294}\index{LCD@{LCD}!numRows@{numRows}}
+\index{numRows@{numRows}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{numRows}{numRows}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a5b11fd40284790a5440c66c1408cf294} 
+const int LCD::\+num\+Rows = 2}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00024}{24}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a1b468c3f3cc6a891355b812ac7929a70}\index{LCD@{LCD}!rs@{rs}}
+\index{rs@{rs}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{rs}{rs}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a1b468c3f3cc6a891355b812ac7929a70} 
+const int LCD::\+rs = 12}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+\Hypertarget{namespace_l_c_d_a8c7281ef66ce814d67a78ef48074c60e}\index{LCD@{LCD}!SCROLL\_DELAY@{SCROLL\_DELAY}}
+\index{SCROLL\_DELAY@{SCROLL\_DELAY}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{SCROLL\_DELAY}{SCROLL\_DELAY}}
+{\footnotesize\ttfamily \label{namespace_l_c_d_a8c7281ef66ce814d67a78ef48074c60e} 
+const int LCD::\+\+SCROLL\+\_\+\+DELAY = 300}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00023}{23}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+

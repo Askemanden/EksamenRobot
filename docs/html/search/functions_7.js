@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['performscan_0',['performScan',['../_sensor_pis_virker_nok_ikke_8ino.html#a99755815406a3b1519d3c7b2b4353479',1,'SensorPisVirkerNokIkke.ino']]],
-  ['printarmstate_1',['printArmState',['../_i_k_8ino.html#ae8b42eae11c961bb06c6bdafb185c204',1,'IK.ino']]],
-  ['printscanresult_2',['printScanResult',['../_sensor_pis_virker_nok_ikke_8ino.html#a0f1a9e21d6ca1ea5ebcb26e8157cd701',1,'SensorPisVirkerNokIkke.ino']]]
+  ['measuredistance_0',['measureDistance',['../namespace_scanner.html#aa23c6d875ba94d19fa8a42dcd06c0725',1,'Scanner::measureDistance()'],['../_sensor_pis_virker_nok_ikke_8ino.html#aa4840f5363bd8dd98325837547e9ee5c',1,'measureDistance(const UltrasonicSensor &amp;s):&#160;SensorPisVirkerNokIkke.ino'],['../_servobutitworks_8ino.html#aa4840f5363bd8dd98325837547e9ee5c',1,'measureDistance(const UltrasonicSensor &amp;s):&#160;Servobutitworks.ino']]],
+  ['move_1',['move',['../namespace_motor.html#a878e29514688d01318faaf7af55d50a5',1,'Motor']]]
 ];

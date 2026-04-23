@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['readcolorraw_0',['readColorRaw',['../namespace_color_sensor.html#ab8d399088bc2954cec1b77facce2fe32',1,'ColorSensor::readColorRaw()'],['../_color_sensor_8ino.html#a26bff309cee7214d34c4c8b9167b7cc1',1,'readColorRaw(uint16_t &amp;r, uint16_t &amp;g, uint16_t &amp;b, uint16_t &amp;c):&#160;ColorSensor.ino']]],
-  ['recv_5fpin_1',['recv_pin',['../_ultralyd_dist_8ino.html#a90b83b43730151362ca40d6f532ac486',1,'UltralydDist.ino']]],
-  ['rotatedegrees_2',['rotateDegrees',['../_angle_to_rotation_8ino.html#a73fa9ffd0f339a99bd7ed5662f023674',1,'rotateDegrees():&#160;AngleToRotation.ino'],['../namespace_motor.html#a1011e1ebbd8549e1c6941dc2178e9df5',1,'Motor::rotateDegrees()'],['../motor__pid_8ino.html#a73fa9ffd0f339a99bd7ed5662f023674',1,'rotateDegrees(double degrees):&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#a73fa9ffd0f339a99bd7ed5662f023674',1,'rotateDegrees(double degrees):&#160;ProlaMobilen.ino']]],
-  ['runiktest_3',['runIKTest',['../_i_k_8ino.html#a6eb805b1b0d23de634e3fd1cefa37c1d',1,'IK.ino']]]
+  ['objectdistance_0',['objectDistance',['../struct_scanner_1_1_scan_result.html#a7e7931d0b51047d34cb8166a26c909c8',1,'Scanner::ScanResult::objectDistance'],['../struct_scan_result.html#aeb232a2d610253227d77952091f484ab',1,'ScanResult::objectDistance']]],
+  ['objectwidth_1',['objectWidth',['../struct_scanner_1_1_scan_result.html#acb64a52726899b3405189a647c5d26e6',1,'Scanner::ScanResult::objectWidth'],['../struct_scan_result.html#acde76f19ca99c2f02bf2744c47d9fd4a',1,'ScanResult::objectWidth']]]
 ];

@@ -1,396 +1,327 @@
 \doxysection{Motor Namespace Reference}
 \hypertarget{namespace_motor}{}\label{namespace_motor}\index{Motor@{Motor}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_motor_1_1_p_i_d}{PID}}
+\item 
+struct \doxymbox{\hyperlink{struct_motor_1_1_motor_unit}{Motor\+Unit}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{namespace_motor_a10576d436aeca5fbed231040c2fc8590}{encoder\+ISR}} ()
+Encoder \doxymbox{\hyperlink{namespace_motor_ae01389ae2c15ff69b775f31fcfbd5572}{enc\+Base}} (20, 21)
 \item 
-void \doxymbox{\hyperlink{namespace_motor_aa7ae821b57c37e50a97dfee154337cad}{turn}} (bool cw, int speed)
+Encoder \doxymbox{\hyperlink{namespace_motor_a2704a9b54ce2865a3b5f3de388403697}{enc\+Shoulder}} (18, 19)
 \item 
-void \doxymbox{\hyperlink{namespace_motor_a570c5e5bbcad5f4910b51992234911ba}{stop\+\_\+motor}} ()
+Encoder \doxymbox{\hyperlink{namespace_motor_a24ad842b05cbb963b75178b7829d1ce1}{enc\+Elbow}} (2, 3)
 \item 
-long \doxymbox{\hyperlink{namespace_motor_a07831f7575d72e6b210d359168433add}{degrees\+\_\+to\+\_\+counts}} (double degrees)
+void \doxymbox{\hyperlink{namespace_motor_aa6fefdd1f726e5066123cbae75551010}{turn}} (Motor\+Unit \&m, bool cw, unsigned int speed)
 \item 
-void \doxymbox{\hyperlink{namespace_motor_a1011e1ebbd8549e1c6941dc2178e9df5}{rotate\+Degrees}} (double degrees)
+long \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\+\_\+to\+\_\+counts}} (Motor\+Unit \&m, double rad)
 \item 
-void \doxymbox{\hyperlink{namespace_motor_adb73dd9962ea30caa106f7c722218322}{dc\+\_\+motor\+\_\+update}} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
+void \doxymbox{\hyperlink{namespace_motor_af20fdc0d5acc04d27ce400de8bf7e881}{dc\+\_\+motor\+\_\+update}} (Motor\+Unit \&m)
 \item 
-const double \doxymbox{\hyperlink{namespace_motor_aec418e5f8f51ec3e64b0ef0409ff6e53}{DEGREES\+\_\+\+TO\+\_\+\+TURN}} = 90.\+0
+void \doxymbox{\hyperlink{namespace_motor_a3c3be0ee4670a77996723ce72edd4a89}{initialize\+\_\+motor}} (uint8\+\_\+t dir1, uint8\+\_\+t dir2, int FULL\+\_\+\+ROTATION, int MIN\+\_\+\+POWER, double kp, double ki, double kd, Motor\+Unit \&m, uint8\+\_\+t enable=0)
 \item 
-const double \doxymbox{\hyperlink{namespace_motor_ad393c6572049b1bbfedb61633c62526b}{GEAR\+\_\+\+RATIO}} = 30.\+0
+void \doxymbox{\hyperlink{namespace_motor_a795557cee06f2a45a28926277cc5e510}{turn\+All}} (\doxymbox{\hyperlink{struct_i_k_1_1_arm}{IK::\+\+Arm}} \doxymbox{\hyperlink{arm_8ino_a2e2711bf53c7ae9cb5d22dd237e858f0}{arm}})
 \item 
-const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5}{IN1}} = 9
+void \doxymbox{\hyperlink{namespace_motor_ab5ec4ecbc9b8f8b2f37fab270e6c5a89}{update\+All}} ()
 \item 
-const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67}{IN2}} = 10
+void \doxymbox{\hyperlink{namespace_motor_a4c12aba67edff86dc4cd3c703bf85059}{initialize}} (double theta1, double theta2, double base\+\_\+angle)
 \item 
-const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_af3f931d21585bd255945eefe36190478}{encoder1}} = 3
-\item 
-const uint8\+\_\+t \doxymbox{\hyperlink{namespace_motor_a6f90a749a6ce5d182eac1cebd95d31e9}{encoder2}} = 2
-\item 
-const long \doxymbox{\hyperlink{namespace_motor_ac18f52fda08f42e64113da6f3aca20ba}{COUNTS\+\_\+\+PER\+\_\+\+REV}} = 16 \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{namespace_motor_ad393c6572049b1bbfedb61633c62526b}{GEAR\+\_\+\+RATIO}}
-\item 
-const int \doxymbox{\hyperlink{namespace_motor_aade43b94adabee86a132e753bfa1e481}{threshold}} = 5
-\item 
-const double \doxymbox{\hyperlink{namespace_motor_ab69fc3b060d31938e105dece146d2ed9}{Kp}} = 0.\+5
-\item 
-const double \doxymbox{\hyperlink{namespace_motor_ae6e27edbb9f0ff9d5a919022aab493eb}{Ki}} = 0.\+2
-\item 
-const double \doxymbox{\hyperlink{namespace_motor_a92e029714211bd3c4e11b834fe58f07b}{Kd}} = 5.\+0
-\item 
-const int \doxymbox{\hyperlink{namespace_motor_a9aa0f96b2979209c0c42300f1043412f}{MIN\+\_\+\+SPEED}} = 40
-\item 
-const int \doxymbox{\hyperlink{namespace_motor_adddf83d8b61a9290b358fe22ed98feeb}{MAX\+\_\+\+SPEED}} = 180
-\item 
-volatile long \doxymbox{\hyperlink{namespace_motor_a2595bff9a45068391bf5da67ff999669}{current\+\_\+position}} = 0
-\item 
-long \doxymbox{\hyperlink{namespace_motor_aee1958a9356b045193625f421d2639ad}{target\+\_\+position}} = 0
-\item 
-bool \doxymbox{\hyperlink{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}} = false
-\item 
-double \doxymbox{\hyperlink{namespace_motor_a2cb00b271dec6a3efba7229351459b54}{integral}} = 0
-\item 
-long \doxymbox{\hyperlink{namespace_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\+\_\+error}} = 0
+void \doxymbox{\hyperlink{namespace_motor_a878e29514688d01318faaf7af55d50a5}{move}} ()
 \end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
 \Hypertarget{namespace_motor_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{namespace_motor_adb73dd9962ea30caa106f7c722218322}\index{Motor@{Motor}!dc\_motor\_update@{dc\_motor\_update}}
+\Hypertarget{namespace_motor_af20fdc0d5acc04d27ce400de8bf7e881}\index{Motor@{Motor}!dc\_motor\_update@{dc\_motor\_update}}
 \index{dc\_motor\_update@{dc\_motor\_update}!Motor@{Motor}}
 \doxysubsubsection{\texorpdfstring{dc\_motor\_update()}{dc\_motor\_update()}}
-{\footnotesize\ttfamily \label{namespace_motor_adb73dd9962ea30caa106f7c722218322} 
-void Motor::\+dc\+\_\+motor\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespace_motor_af20fdc0d5acc04d27ce400de8bf7e881} 
+void Motor::\+dc\+\_\+motor\+\_\+update (\begin{DoxyParamCaption}\item[{Motor\+Unit \&}]{m}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00337}{337}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00458}{458}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00339\ }
-\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{long}\ error\ =\ \doxymbox{\hyperlink{namespace_motor_aee1958a9356b045193625f421d2639ad}{target\_position}}\ -\/\ \doxymbox{\hyperlink{namespace_motor_a2595bff9a45068391bf5da67ff999669}{current\_position}};}
-\DoxyCodeLine{00341\ }
-\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(error)\ <=\ \doxymbox{\hyperlink{namespace_motor_aade43b94adabee86a132e753bfa1e481}{threshold}})\ \{}
-\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a570c5e5bbcad5f4910b51992234911ba}{stop\_motor}}();}
-\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00346\ \ \ \ \ \}}
-\DoxyCodeLine{00347\ }
-\DoxyCodeLine{00348\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +=\ error;}
-\DoxyCodeLine{00349\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ \ =\ constrain(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}},\ -\/1000,\ 1000);}
-\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordtype}{double}\ derivative\ =\ error\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}};}
-\DoxyCodeLine{00351\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ error;}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordtype}{double}\ output\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{Kp}}\ *\ error\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{Ki}}\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{Kd}}\ *\ derivative;}
-\DoxyCodeLine{00354\ }
-\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordtype}{int}\ speed\ =\ (int)abs(output);}
-\DoxyCodeLine{00356\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_aa7ae821b57c37e50a97dfee154337cad}{turn}}(output\ >\ 0,\ speed);}
-\DoxyCodeLine{00357\ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordtype}{long}\ error\ =\ m.target\_position\ -\/\ m.current\_position;}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordflow}{if}\ (m.finished)}
+\DoxyCodeLine{00462\ \ \ \ \ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_aa6fefdd1f726e5066123cbae75551010}{turn}}(m,\ \textcolor{keyword}{false},\ 0);}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00465\ \ \ \ \ \}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(error)\ <=\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}})}
+\DoxyCodeLine{00468\ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_aa6fefdd1f726e5066123cbae75551010}{turn}}(m,\ \textcolor{keyword}{false},\ 0);}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m.finished\_ticks\ >=\ 250)}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ m.finished\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ m.finished\_ticks\ =\ 0;}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ m.finished\_ticks++;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \}}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ m.pid\_data.integral\ +=\ error;}
+\DoxyCodeLine{00483\ \ \ \ \ m.pid\_data.integral\ =\ constrain(m.pid\_data.integral,\ -\/1000,\ 1000);}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keywordtype}{double}\ derivative\ =\ (error\ -\/\ m.pid\_data.last\_error);}
+\DoxyCodeLine{00486\ \ \ \ \ m.pid\_data.last\_error\ =\ error;}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{double}\ output\ =}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ m.pid\_data.kp\ *\ error\ +}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ m.pid\_data.ki\ *\ m.pid\_data.integral\ +}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ m.pid\_data.kd\ *\ derivative;}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keywordtype}{int}\ speed\ =\ abs(output);}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_aa6fefdd1f726e5066123cbae75551010}{turn}}(m,\ (output\ >\ 0),\ constrain(speed,\ (\textcolor{keywordtype}{int})m.MIN\_POWER,\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\_SPEED}}));}
+\DoxyCodeLine{00496\ \ \ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
 % FIG 0
-\Hypertarget{namespace_motor_a07831f7575d72e6b210d359168433add}\index{Motor@{Motor}!degrees\_to\_counts@{degrees\_to\_counts}}
-\index{degrees\_to\_counts@{degrees\_to\_counts}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{degrees\_to\_counts()}{degrees\_to\_counts()}}
-{\footnotesize\ttfamily \label{namespace_motor_a07831f7575d72e6b210d359168433add} 
-long Motor::\+degrees\+\_\+to\+\_\+counts (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
+\Hypertarget{namespace_motor_ae01389ae2c15ff69b775f31fcfbd5572}\index{Motor@{Motor}!encBase@{encBase}}
+\index{encBase@{encBase}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{encBase()}{encBase()}}
+{\footnotesize\ttfamily \label{namespace_motor_ae01389ae2c15ff69b775f31fcfbd5572} 
+Encoder Motor::\+enc\+Base (\begin{DoxyParamCaption}\item[{20}]{}{, }\item[{21}]{}{}\end{DoxyParamCaption})}
 
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00326}{326}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{long})(degrees\ *\ \doxymbox{\hyperlink{namespace_motor_ac18f52fda08f42e64113da6f3aca20ba}{COUNTS\_PER\_REV}}\ /\ 360.0);}
-\DoxyCodeLine{00328\ \ \ \ \ \}}
-
-\end{DoxyCode}
 Here is the caller graph for this function:\+
 % FIG 1
-\Hypertarget{namespace_motor_a10576d436aeca5fbed231040c2fc8590}\index{Motor@{Motor}!encoderISR@{encoderISR}}
-\index{encoderISR@{encoderISR}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{encoderISR()}{encoderISR()}}
-{\footnotesize\ttfamily \label{namespace_motor_a10576d436aeca5fbed231040c2fc8590} 
-void Motor::\+encoder\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{namespace_motor_a24ad842b05cbb963b75178b7829d1ce1}\index{Motor@{Motor}!encElbow@{encElbow}}
+\index{encElbow@{encElbow}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{encElbow()}{encElbow()}}
+{\footnotesize\ttfamily \label{namespace_motor_a24ad842b05cbb963b75178b7829d1ce1} 
+Encoder Motor::\+enc\+Elbow (\begin{DoxyParamCaption}\item[{2}]{}{, }\item[{3}]{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+% FIG 2
+\Hypertarget{namespace_motor_a2704a9b54ce2865a3b5f3de388403697}\index{Motor@{Motor}!encShoulder@{encShoulder}}
+\index{encShoulder@{encShoulder}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{encShoulder()}{encShoulder()}}
+{\footnotesize\ttfamily \label{namespace_motor_a2704a9b54ce2865a3b5f3de388403697} 
+Encoder Motor::\+enc\+Shoulder (\begin{DoxyParamCaption}\item[{18}]{}{, }\item[{19}]{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+% FIG 3
+\Hypertarget{namespace_motor_a4c12aba67edff86dc4cd3c703bf85059}\index{Motor@{Motor}!initialize@{initialize}}
+\index{initialize@{initialize}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{namespace_motor_a4c12aba67edff86dc4cd3c703bf85059} 
+void Motor::\+initialize (\begin{DoxyParamCaption}\item[{double}]{theta1}{, }\item[{double}]{theta2}{, }\item[{double}]{base\+\_\+angle}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00292}{292}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{if}\ (digitalRead(\doxymbox{\hyperlink{namespace_motor_a6f90a749a6ce5d182eac1cebd95d31e9}{encoder2}})\ ==\ HIGH)\ \{}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a2595bff9a45068391bf5da67ff999669}{current\_position}}++;}
-\DoxyCodeLine{00295\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}-\/-\/;}
-\DoxyCodeLine{00297\ \ \ \ \ \}}
-\DoxyCodeLine{00298\ \ \ \ \ \}}
-
-\end{DoxyCode}
-\Hypertarget{namespace_motor_a1011e1ebbd8549e1c6941dc2178e9df5}\index{Motor@{Motor}!rotateDegrees@{rotateDegrees}}
-\index{rotateDegrees@{rotateDegrees}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{rotateDegrees()}{rotateDegrees()}}
-{\footnotesize\ttfamily \label{namespace_motor_a1011e1ebbd8549e1c6941dc2178e9df5} 
-void Motor::\+rotate\+Degrees (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00330}{330}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00557}{557}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00331\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_aee1958a9356b045193625f421d2639ad}{target\_position}}\ =\ \doxymbox{\hyperlink{namespace_motor_a2595bff9a45068391bf5da67ff999669}{current\_position}}\ +\ \doxymbox{\hyperlink{namespace_motor_a07831f7575d72e6b210d359168433add}{degrees\_to\_counts}}(degrees);}
-\DoxyCodeLine{00332\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00333\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ =\ 0;}
-\DoxyCodeLine{00334\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\_error}}\ =\ 0;}
-\DoxyCodeLine{00335\ \ \ \ \ \}}
+\DoxyCodeLine{00558\ \ \ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a3c3be0ee4670a77996723ce72edd4a89}{initialize\_motor}}(8,\ 7,\ \ (\textcolor{keywordtype}{int})(6\ *\ 30\ *\ 64),\ 50,\ 0.6,\ 0.01,\ 0.5,\ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}},\ 9);\ }
+\DoxyCodeLine{00560\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a3c3be0ee4670a77996723ce72edd4a89}{initialize\_motor}}(5,\ 6,\ (\textcolor{keywordtype}{int})(2*102.083\ *\ 64),\ 50,\ 0.6,\ 0.01,\ 0.55,\ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}});}
+\DoxyCodeLine{00561\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a3c3be0ee4670a77996723ce72edd4a89}{initialize\_motor}}(11,\ 10,\ (\textcolor{keywordtype}{int})(2*30\ *\ 64),\ 50,\ 0.6,\ 0.01,\ 0.5,\ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}});}
+\DoxyCodeLine{00562\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.current\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}},base\_angle);}
+\DoxyCodeLine{00563\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.target\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}},\ base\_angle);}
+\DoxyCodeLine{00564\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.start\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}},\ base\_angle);}
+\DoxyCodeLine{00565\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.current\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}},\ theta1);\ \ \ \ }
+\DoxyCodeLine{00566\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.target\_position=\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}},\ theta1);\ }
+\DoxyCodeLine{00567\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.start\_position=\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}},\ theta1);}
+\DoxyCodeLine{00568\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.current\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}},\ (theta1\ +\ theta2));\ \ \ \ }
+\DoxyCodeLine{00569\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.target\_position=\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}},\ (theta1\ +\ theta2));\ }
+\DoxyCodeLine{00570\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.start\_position=\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}},\ (theta1\ +\ theta2));}
+\DoxyCodeLine{00571\ \ \ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
-% FIG 2
-\Hypertarget{namespace_motor_a570c5e5bbcad5f4910b51992234911ba}\index{Motor@{Motor}!stop\_motor@{stop\_motor}}
-\index{stop\_motor@{stop\_motor}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{stop\_motor()}{stop\_motor()}}
-{\footnotesize\ttfamily \label{namespace_motor_a570c5e5bbcad5f4910b51992234911ba} 
-void Motor::\+stop\+\_\+motor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+% FIG 4
+Here is the caller graph for this function:\+
+% FIG 5
+\Hypertarget{namespace_motor_a3c3be0ee4670a77996723ce72edd4a89}\index{Motor@{Motor}!initialize\_motor@{initialize\_motor}}
+\index{initialize\_motor@{initialize\_motor}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{initialize\_motor()}{initialize\_motor()}}
+{\footnotesize\ttfamily \label{namespace_motor_a3c3be0ee4670a77996723ce72edd4a89} 
+void Motor::\+initialize\+\_\+motor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{dir1}{, }\item[{uint8\+\_\+t}]{dir2}{, }\item[{int}]{FULL\+\_\+\+ROTATION}{, }\item[{int}]{MIN\+\_\+\+POWER}{, }\item[{double}]{kp}{, }\item[{double}]{ki}{, }\item[{double}]{kd}{, }\item[{Motor\+Unit \&}]{m}{, }\item[{uint8\+\_\+t}]{enable}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00316}{316}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00498}{498}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00317\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5}{IN1}},\ 255);}
-\DoxyCodeLine{00318\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67}{IN2}},\ 255);}
-\DoxyCodeLine{00319\ \ \ \ \ delay(30);}
-\DoxyCodeLine{00320\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5}{IN1}},\ 0);}
-\DoxyCodeLine{00321\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67}{IN2}},\ 0);}
-\DoxyCodeLine{00322\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ =\ 0;}
-\DoxyCodeLine{00323\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\_error}}\ =\ 0;}
-\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \{}
+\DoxyCodeLine{00507\ \ \ \ \ m.direction1\ =\ dir1;}
+\DoxyCodeLine{00508\ \ \ \ \ m.direction2\ =\ dir2;}
+\DoxyCodeLine{00509\ \ \ \ \ m.enable\ =\ enable;}
+\DoxyCodeLine{00510\ \ \ \ \ m.FULL\_ROTATION\ =\ FULL\_ROTATION;}
+\DoxyCodeLine{00511\ \ \ \ \ m.MIN\_POWER\ =\ MIN\_POWER;}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \ \ m.pid\_data.kp\ =\ kp;}
+\DoxyCodeLine{00514\ \ \ \ \ m.pid\_data.ki\ =\ ki;}
+\DoxyCodeLine{00515\ \ \ \ \ m.pid\_data.kd\ =\ kd;}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \ pinMode(dir1,\ OUTPUT);}
+\DoxyCodeLine{00518\ \ \ \ \ pinMode(dir2,\ OUTPUT);}
+\DoxyCodeLine{00519\ \ \ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
-% FIG 3
-\Hypertarget{namespace_motor_aa7ae821b57c37e50a97dfee154337cad}\index{Motor@{Motor}!turn@{turn}}
+% FIG 6
+\Hypertarget{namespace_motor_a878e29514688d01318faaf7af55d50a5}\index{Motor@{Motor}!move@{move}}
+\index{move@{move}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{namespace_motor_a878e29514688d01318faaf7af55d50a5} 
+void Motor::\+move (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00574}{574}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00575\ \{}
+\DoxyCodeLine{00576\ \ \ \textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.finished\ ||\ !\doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.finished\ ||\ !\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.finished)}
+\DoxyCodeLine{00577\ \ \ \{}
+\DoxyCodeLine{00578\ \ \ \ \ \doxymbox{\hyperlink{namespace_motor_ab5ec4ecbc9b8f8b2f37fab270e6c5a89}{updateAll}}();}
+\DoxyCodeLine{00579\ \ \ \}}
+\DoxyCodeLine{00580\ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00581\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 7
+Here is the caller graph for this function:\+
+% FIG 8
+\Hypertarget{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}\index{Motor@{Motor}!radians\_to\_counts@{radians\_to\_counts}}
+\index{radians\_to\_counts@{radians\_to\_counts}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{radians\_to\_counts()}{radians\_to\_counts()}}
+{\footnotesize\ttfamily \label{namespace_motor_a567a173bdb16c0866dd8f8290da7446f} 
+long Motor::\+radians\+\_\+to\+\_\+counts (\begin{DoxyParamCaption}\item[{Motor\+Unit \&}]{m}{, }\item[{double}]{rad}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00452}{452}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00453\ \ \ \{}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordtype}{double}\ degrees\ =\ rad\ *\ 180.0\ /\ PI;}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{long})(degrees\ *\ m.FULL\_ROTATION\ /\ 360.0);}
+\DoxyCodeLine{00456\ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function:\+
+% FIG 9
+\Hypertarget{namespace_motor_aa6fefdd1f726e5066123cbae75551010}\index{Motor@{Motor}!turn@{turn}}
 \index{turn@{turn}!Motor@{Motor}}
 \doxysubsubsection{\texorpdfstring{turn()}{turn()}}
-{\footnotesize\ttfamily \label{namespace_motor_aa7ae821b57c37e50a97dfee154337cad} 
-void Motor::\+turn (\begin{DoxyParamCaption}\item[{bool}]{cw}{, }\item[{int}]{speed}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespace_motor_aa6fefdd1f726e5066123cbae75551010} 
+void Motor::\+turn (\begin{DoxyParamCaption}\item[{Motor\+Unit \&}]{m}{, }\item[{bool}]{cw}{, }\item[{unsigned int}]{speed}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00305}{305}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00430}{430}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00306\ \ \ \ \ speed\ =\ constrain(speed,\ \doxymbox{\hyperlink{namespace_motor_a9aa0f96b2979209c0c42300f1043412f}{MIN\_SPEED}},\ \doxymbox{\hyperlink{namespace_motor_adddf83d8b61a9290b358fe22ed98feeb}{MAX\_SPEED}});}
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{if}\ (cw)\ \{}
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ analogWrite(\doxymbox{\hyperlink{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5}{IN1}},\ speed);}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ analogWrite(\doxymbox{\hyperlink{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67}{IN2}},\ 0);}
-\DoxyCodeLine{00310\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ speed);}
-\DoxyCodeLine{00313\ \ \ \ \ \}}
-\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00431\ \ \ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{if}\ (m.enable\ !=\ 0)}
+\DoxyCodeLine{00433\ \ \ \ \ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ digitalWrite(m.direction1,\ cw);}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ digitalWrite(m.direction2,\ !cw);}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ analogWrite(m.enable,\ speed);}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00438\ \ \ \ \ \}}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordflow}{if}\ (cw)}
+\DoxyCodeLine{00441\ \ \ \ \ \{}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ analogWrite(m.direction1,\ speed);}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ analogWrite(m.direction2,\ 0);}
+\DoxyCodeLine{00444\ \ \ \ \ \}}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00446\ \ \ \ \ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ analogWrite(m.direction1,\ 0);}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ analogWrite(m.direction2,\ speed);}
+\DoxyCodeLine{00449\ \ \ \ \ \}}
+\DoxyCodeLine{00450\ \ \ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
-% FIG 4
-
-
-\label{doc-var-members}
-\Hypertarget{namespace_motor_doc-var-members}
-\doxysubsection{Variable Documentation}
-\Hypertarget{namespace_motor_ac18f52fda08f42e64113da6f3aca20ba}\index{Motor@{Motor}!COUNTS\_PER\_REV@{COUNTS\_PER\_REV}}
-\index{COUNTS\_PER\_REV@{COUNTS\_PER\_REV}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{COUNTS\_PER\_REV}{COUNTS\_PER\_REV}}
-{\footnotesize\ttfamily \label{namespace_motor_ac18f52fda08f42e64113da6f3aca20ba} 
-const long Motor::\+\+COUNTS\+\_\+\+PER\+\_\+\+REV = 16 \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{namespace_motor_ad393c6572049b1bbfedb61633c62526b}{GEAR\+\_\+\+RATIO}}}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00280}{280}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a2595bff9a45068391bf5da67ff999669}\index{Motor@{Motor}!current\_position@{current\_position}}
-\index{current\_position@{current\_position}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{current\_position}{current\_position}}
-{\footnotesize\ttfamily \label{namespace_motor_a2595bff9a45068391bf5da67ff999669} 
-volatile long Motor::\+current\+\_\+position = 0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00290}{290}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_aec418e5f8f51ec3e64b0ef0409ff6e53}\index{Motor@{Motor}!DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}}
-\index{DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{DEGREES\_TO\_TURN}{DEGREES\_TO\_TURN}}
-{\footnotesize\ttfamily \label{namespace_motor_aec418e5f8f51ec3e64b0ef0409ff6e53} 
-const double Motor::\+\+DEGREES\+\_\+\+TO\+\_\+\+TURN = 90.\+0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00272}{272}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_af3f931d21585bd255945eefe36190478}\index{Motor@{Motor}!encoder1@{encoder1}}
-\index{encoder1@{encoder1}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{encoder1}{encoder1}}
-{\footnotesize\ttfamily \label{namespace_motor_af3f931d21585bd255945eefe36190478} 
-const uint8\+\_\+t Motor::\+encoder1 = 3}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00277}{277}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a6f90a749a6ce5d182eac1cebd95d31e9}\index{Motor@{Motor}!encoder2@{encoder2}}
-\index{encoder2@{encoder2}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{encoder2}{encoder2}}
-{\footnotesize\ttfamily \label{namespace_motor_a6f90a749a6ce5d182eac1cebd95d31e9} 
-const uint8\+\_\+t Motor::\+encoder2 = 2}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00278}{278}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a}\index{Motor@{Motor}!finished@{finished}}
-\index{finished@{finished}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{finished}{finished}}
-{\footnotesize\ttfamily \label{namespace_motor_a3cebf765d59f5b030a5342a441dbac5a} 
-bool Motor::\+finished = false}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00301}{301}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_ad393c6572049b1bbfedb61633c62526b}\index{Motor@{Motor}!GEAR\_RATIO@{GEAR\_RATIO}}
-\index{GEAR\_RATIO@{GEAR\_RATIO}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{GEAR\_RATIO}{GEAR\_RATIO}}
-{\footnotesize\ttfamily \label{namespace_motor_ad393c6572049b1bbfedb61633c62526b} 
-const double Motor::\+\+GEAR\+\_\+\+RATIO = 30.\+0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00273}{273}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5}\index{Motor@{Motor}!IN1@{IN1}}
-\index{IN1@{IN1}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{IN1}{IN1}}
-{\footnotesize\ttfamily \label{namespace_motor_a47c63ff0e095fa69233feb3fde0351a5} 
-const uint8\+\_\+t Motor::\+\+IN1 = 9}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00275}{275}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67}\index{Motor@{Motor}!IN2@{IN2}}
-\index{IN2@{IN2}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{IN2}{IN2}}
-{\footnotesize\ttfamily \label{namespace_motor_ab09f2aa1925c4de80a695d95c2d24e67} 
-const uint8\+\_\+t Motor::\+\+IN2 = 10}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00276}{276}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a2cb00b271dec6a3efba7229351459b54}\index{Motor@{Motor}!integral@{integral}}
-\index{integral@{integral}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{integral}{integral}}
-{\footnotesize\ttfamily \label{namespace_motor_a2cb00b271dec6a3efba7229351459b54} 
-double Motor::\+integral = 0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00302}{302}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a92e029714211bd3c4e11b834fe58f07b}\index{Motor@{Motor}!Kd@{Kd}}
-\index{Kd@{Kd}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{Kd}{Kd}}
-{\footnotesize\ttfamily \label{namespace_motor_a92e029714211bd3c4e11b834fe58f07b} 
-const double Motor::\+\+Kd = 5.\+0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00285}{285}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_ae6e27edbb9f0ff9d5a919022aab493eb}\index{Motor@{Motor}!Ki@{Ki}}
-\index{Ki@{Ki}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{Ki}{Ki}}
-{\footnotesize\ttfamily \label{namespace_motor_ae6e27edbb9f0ff9d5a919022aab493eb} 
-const double Motor::\+\+Ki = 0.\+2}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00284}{284}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_ab69fc3b060d31938e105dece146d2ed9}\index{Motor@{Motor}!Kp@{Kp}}
-\index{Kp@{Kp}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{Kp}{Kp}}
-{\footnotesize\ttfamily \label{namespace_motor_ab69fc3b060d31938e105dece146d2ed9} 
-const double Motor::\+\+Kp = 0.\+5}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00283}{283}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a09053eb34ec3428728ae1a1b192be2b7}\index{Motor@{Motor}!last\_error@{last\_error}}
-\index{last\_error@{last\_error}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{last\_error}{last\_error}}
-{\footnotesize\ttfamily \label{namespace_motor_a09053eb34ec3428728ae1a1b192be2b7} 
-long Motor::\+last\+\_\+error = 0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00303}{303}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_adddf83d8b61a9290b358fe22ed98feeb}\index{Motor@{Motor}!MAX\_SPEED@{MAX\_SPEED}}
-\index{MAX\_SPEED@{MAX\_SPEED}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{MAX\_SPEED}{MAX\_SPEED}}
-{\footnotesize\ttfamily \label{namespace_motor_adddf83d8b61a9290b358fe22ed98feeb} 
-const int Motor::\+\+MAX\+\_\+\+SPEED = 180}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00288}{288}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_a9aa0f96b2979209c0c42300f1043412f}\index{Motor@{Motor}!MIN\_SPEED@{MIN\_SPEED}}
-\index{MIN\_SPEED@{MIN\_SPEED}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{MIN\_SPEED}{MIN\_SPEED}}
-{\footnotesize\ttfamily \label{namespace_motor_a9aa0f96b2979209c0c42300f1043412f} 
-const int Motor::\+\+MIN\+\_\+\+SPEED = 40}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00287}{287}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_aee1958a9356b045193625f421d2639ad}\index{Motor@{Motor}!target\_position@{target\_position}}
-\index{target\_position@{target\_position}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{target\_position}{target\_position}}
-{\footnotesize\ttfamily \label{namespace_motor_aee1958a9356b045193625f421d2639ad} 
-long Motor::\+target\+\_\+position = 0}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00300}{300}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
-\Hypertarget{namespace_motor_aade43b94adabee86a132e753bfa1e481}\index{Motor@{Motor}!threshold@{threshold}}
-\index{threshold@{threshold}!Motor@{Motor}}
-\doxysubsubsection{\texorpdfstring{threshold}{threshold}}
-{\footnotesize\ttfamily \label{namespace_motor_aade43b94adabee86a132e753bfa1e481} 
-const int Motor::\+threshold = 5}
-
-
-
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00281}{281}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
-
+% FIG 10
+\Hypertarget{namespace_motor_a795557cee06f2a45a28926277cc5e510}\index{Motor@{Motor}!turnAll@{turnAll}}
+\index{turnAll@{turnAll}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{turnAll()}{turnAll()}}
+{\footnotesize\ttfamily \label{namespace_motor_a795557cee06f2a45a28926277cc5e510} 
+void Motor::\+turn\+All (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_i_k_1_1_arm}{IK::\+\+Arm}}}]{arm}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00522}{522}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00523\ \ \ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.target\_position\ \ \ \ \ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}},\ \doxymbox{\hyperlink{arm_8ino_a2e2711bf53c7ae9cb5d22dd237e858f0}{arm}}.base\_angle);}
+\DoxyCodeLine{00525\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.target\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}},\ \doxymbox{\hyperlink{arm_8ino_a2e2711bf53c7ae9cb5d22dd237e858f0}{arm}}.theta1);}
+\DoxyCodeLine{00526\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.target\_position\ =\ \doxymbox{\hyperlink{namespace_motor_a567a173bdb16c0866dd8f8290da7446f}{radians\_to\_counts}}(\doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}},\ (-\/(\doxymbox{\hyperlink{arm_8ino_a2e2711bf53c7ae9cb5d22dd237e858f0}{arm}}.theta1\ +\ \doxymbox{\hyperlink{arm_8ino_a2e2711bf53c7ae9cb5d22dd237e858f0}{arm}}.theta2)));}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{comment}{//\ Wrist\ (theta3)\ omitted\ as\ it\ is\ without\ motor}}
+\DoxyCodeLine{00528\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.finished\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00529\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.finished\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00530\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.finished\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00531\ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 11
+Here is the caller graph for this function:\+
+% FIG 12
+\Hypertarget{namespace_motor_ab5ec4ecbc9b8f8b2f37fab270e6c5a89}\index{Motor@{Motor}!updateAll@{updateAll}}
+\index{updateAll@{updateAll}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{updateAll()}{updateAll()}}
+{\footnotesize\ttfamily \label{namespace_motor_ab5ec4ecbc9b8f8b2f37fab270e6c5a89} 
+void Motor::\+update\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00533}{533}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00534\ \ \ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \textcolor{comment}{//\ Read\ encoders}}
+\DoxyCodeLine{00536\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.current\_position\ \ \ \ \ =\ \doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.start\_position\ +\ \doxymbox{\hyperlink{namespace_motor_ae01389ae2c15ff69b775f31fcfbd5572}{encBase}}.read();}
+\DoxyCodeLine{00537\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.current\_position\ =\ \doxymbox{\hyperlink{struct_motor_a7c52f38106b43c74e83e59104bd5256c}{shoulderMotor}}.start\_position\ +\ \doxymbox{\hyperlink{namespace_motor_a2704a9b54ce2865a3b5f3de388403697}{encShoulder}}.read();}
+\DoxyCodeLine{00538\ \ \ \ \ \doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.current\_position\ =\ -\/\doxymbox{\hyperlink{struct_motor_a5a58ae71a5ff9cb8d1ce94f4d3cf1c20}{elbowMotor}}.start\_position\ -\/\doxymbox{\hyperlink{namespace_motor_a24ad842b05cbb963b75178b7829d1ce1}{encElbow}}.read();}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{comment}{//\ Run\ PID}}
+\DoxyCodeLine{00541\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}(\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}});}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}}.finished)}
+\DoxyCodeLine{00544\ \ \ \ \ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}(\doxymbox{\hyperlink{struct_motor_ae910b354c3ff3b23b16ef86944efdad5}{baseMotor}});}
+\DoxyCodeLine{00546\ \ \ \ \ \}}
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!shoulderMotor.\doxymbox{\hyperlink{struct_motor_1_1_motor_unit_a32104d1fea82c9b34239e3cf7875cdd1}{finished}})}
+\DoxyCodeLine{00548\ \ \ \ \ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}(shoulderMotor);}
+\DoxyCodeLine{00550\ \ \ \ \ \}}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00552\ \ \ \ \ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}(elbowMotor);}
+\DoxyCodeLine{00554\ \ \ \ \ \}}
+\DoxyCodeLine{00555\ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 13
+Here is the caller graph for this function:\+
+% FIG 14

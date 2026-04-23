@@ -86,18 +86,18 @@ COLOR\+\_\+\+UNCERTAIN&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00012}{12}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00089}{89}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}},}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}},}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}},}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}},}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\_WHITE}},}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\_UNCERTAIN}}}
-\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00090\ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}},}
+\DoxyCodeLine{00092\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}},}
+\DoxyCodeLine{00093\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}},}
+\DoxyCodeLine{00094\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}},}
+\DoxyCodeLine{00095\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\_WHITE}},}
+\DoxyCodeLine{00096\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\_UNCERTAIN}}}
+\DoxyCodeLine{00097\ \ \ \};}
 
 \end{DoxyCode}
 
@@ -131,43 +131,45 @@ Classifies a color using thresholds and ratios to avoid false positives.
 \end{DoxyReturn}
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00068}{68}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00148}{148}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ <\ 200)\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}};}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ >\ 4000)\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{COLOR\_WHITE}};}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ rn\ =\ (float)r;}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ gn\ =\ (float)g;}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ bn\ =\ (float)b;}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minDiff\ =\ 0.03;}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minRatio\ =\ 1.025;}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rn\ >\ gn\ *\ minRatio\ \&\&\ rn\ >\ bn\ *\ minRatio\ \&\&}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ (rn\ -\/\ gn)\ >\ minDiff\ \&\&\ (rn\ -\/\ bn)\ >\ minDiff)\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}};}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gn\ >\ rn\ *\ minRatio\ \&\&\ gn\ >\ bn\ *\ minRatio\ \&\&}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ (gn\ -\/\ rn)\ >\ minDiff\ \&\&\ (gn\ -\/\ bn)\ >\ minDiff)\ \{}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}};}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bn\ >\ rn\ *\ minRatio\ \&\&\ bn\ >\ gn\ *\ minRatio\ \&\&}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ (bn\ -\/\ rn)\ >\ minDiff\ \&\&\ (bn\ -\/\ gn)\ >\ minDiff)\ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}};}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\_UNCERTAIN}};}
-\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \{}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ <\ 200)}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}};}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ >\ 4000)}
+\DoxyCodeLine{00156\ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_color_sensor_8ino_a49c14a96fbd3053a98ce53d9ec946c8ead47b4c240a0109970bb2a7fe3a07d3ec}{COLOR\_WHITE}};}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{float}\ rn\ =\ (float)r;}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{float}\ gn\ =\ (float)g;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{float}\ bn\ =\ (float)b;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minDiff\ =\ 0.03;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minRatio\ =\ 1.025;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}\ (rn\ >\ gn\ *\ minRatio\ \&\&\ rn\ >\ bn\ *\ minRatio\ \&\&\ (rn\ -\/\ gn)\ >\ minDiff\ \&\&\ (rn\ -\/\ bn)\ >\ minDiff)}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}};}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{if}\ (gn\ >\ rn\ *\ minRatio\ \&\&\ gn\ >\ bn\ *\ minRatio\ \&\&\ (gn\ -\/\ rn)\ >\ minDiff\ \&\&\ (gn\ -\/\ bn)\ >\ minDiff)}
+\DoxyCodeLine{00173\ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}};}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{if}\ (bn\ >\ rn\ *\ minRatio\ \&\&\ bn\ >\ gn\ *\ minRatio\ \&\&\ (bn\ -\/\ rn)\ >\ minDiff\ \&\&\ (bn\ -\/\ gn)\ >\ minDiff)}
+\DoxyCodeLine{00178\ \ \ \ \ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}};}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a8fa7bd3c2aaa490aae5bb774b63d480e}{COLOR\_UNCERTAIN}};}
+\DoxyCodeLine{00183\ \ \ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
@@ -192,20 +194,27 @@ const char\texorpdfstring{$\ast$}{*} String representation of the color.
 \end{DoxyReturn}
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00108}{108}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00191}{191}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (color)\ \{}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}}:\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RED"{}};}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GREEN"{}};}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}}:\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLUE"{}};}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLACK"{}};}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\_WHITE}}:\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}WHITE"{}};}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNCERTAIN"{}};}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{switch}\ (color)}
+\DoxyCodeLine{00194\ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ac92b0c55966e59fd7f43680e6ecbaba2}{COLOR\_RED}}:}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RED"{}};}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0ab3080bde65ec60db855e939f99dc04cf}{COLOR\_GREEN}}:}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GREEN"{}};}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a301c113e65c747d07c6ff06069cff585}{COLOR\_BLUE}}:}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLUE"{}};}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a7b9db68f19eeee45c57c58fd3070ccb5}{COLOR\_BLACK}}:}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BLACK"{}};}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0a57b5ab196799e057b78b57ab9e3efabf}{COLOR\_WHITE}}:}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}WHITE"{}};}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNCERTAIN"{}};}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
@@ -222,23 +231,27 @@ Reads the sensor, categorizes the color, and prints the result.
 
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00122}{122}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00213}{213}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ uint16\_t\ r,\ g,\ b,\ c;}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}{readColorRaw}}(r,\ g,\ b,\ c);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{DetectedColor}}\ color\ =\ \doxymbox{\hyperlink{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12}{categorizeColor}}(r,\ g,\ b,\ c);}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}R:\ "{}});\ Serial.print(r);}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ G:\ "{}});\ Serial.print(g);}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ B:\ "{}});\ Serial.print(b);}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ C:\ "{}});\ Serial.print(c);}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ -\/>\ Detected:\ "{}});}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ Serial.println(\doxymbox{\hyperlink{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe}{colorToString}}(color));}
-\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ uint16\_t\ r,\ g,\ b,\ c;}
+\DoxyCodeLine{00216\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}{readColorRaw}}(r,\ g,\ b,\ c);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_a6db6dada5af1b18d98ebbb570632b3a0}{DetectedColor}}\ color\ =\ \doxymbox{\hyperlink{namespace_color_sensor_aaec6c69ce30373a57077282caad11d12}{categorizeColor}}(r,\ g,\ b,\ c);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}R:\ "{}});}
+\DoxyCodeLine{00221\ \ \ \ \ Serial.print(r);}
+\DoxyCodeLine{00222\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ G:\ "{}});}
+\DoxyCodeLine{00223\ \ \ \ \ Serial.print(g);}
+\DoxyCodeLine{00224\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ B:\ "{}});}
+\DoxyCodeLine{00225\ \ \ \ \ Serial.print(b);}
+\DoxyCodeLine{00226\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ C:\ "{}});}
+\DoxyCodeLine{00227\ \ \ \ \ Serial.print(c);}
+\DoxyCodeLine{00228\ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ \ -\/>\ Detected:\ "{}});}
+\DoxyCodeLine{00229\ \ \ \ \ Serial.println(\doxymbox{\hyperlink{namespace_color_sensor_a09cc54fff9253d72d93fcfe09ec2b2fe}{colorToString}}(color));}
+\DoxyCodeLine{00230\ \ \ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
@@ -255,21 +268,22 @@ Initializes serial communication and the TCS34725 sensor.
 
 This function must be called before any color reading is attempted. If the sensor is not detected, the program halts. 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00035}{35}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00112}{112}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Serial.begin(9600);}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ delay(200);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}.begin())\ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}ERROR:\ TCS34725\ not\ detected"{}});}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1);}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}TCS34725\ initialized"{}});}
-\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ delay(200);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}.begin())}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}ERROR:\ TCS34725\ not\ detected"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}TCS34725\ initialized"{}});}
+\DoxyCodeLine{00124\ \ \ \}}
 
 \end{DoxyCode}
 \Hypertarget{namespace_color_sensor_ab8d399088bc2954cec1b77facce2fe32}\index{ColorSensor@{ColorSensor}!readColorRaw@{readColorRaw}}
@@ -295,13 +309,13 @@ Reads raw color values from the TCS34725 sensor.
 \end{DoxyParams}
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00055}{55}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00134}{134}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}.getRawData(\&r,\ \&g,\ \&b,\ \&c);}
-\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \doxymbox{\hyperlink{namespace_color_sensor_adbb0c6966ccf25baa54eaab98da897ee}{tcs}}.getRawData(\&r,\ \&g,\ \&b,\ \&c);}
+\DoxyCodeLine{00137\ \ \ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
@@ -319,10 +333,9 @@ Adafruit\+\_\+\+TCS34725 Color\+Sensor::\+tcs}
 
 {\bfseries Initial value:\+}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ Adafruit\_TCS34725(}
-\DoxyCodeLine{\ \ \ \ TCS34725\_INTEGRATIONTIME\_50MS,}
-\DoxyCodeLine{\ \ \ \ TCS34725\_GAIN\_4X}
-\DoxyCodeLine{)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ Adafruit\_TCS34725(}
+\DoxyCodeLine{TCS34725\_INTEGRATIONTIME\_50MS,}
+\DoxyCodeLine{TCS34725\_GAIN\_4X)}
 
 \end{DoxyCode}
 
@@ -331,5 +344,5 @@ TCS34725 sensor object with standard integration time and gain.
 
 
 
-Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00024}{24}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
+Definition at line \doxymbox{\hyperlink{arm_8ino_source_l00102}{102}} of file \doxymbox{\hyperlink{arm_8ino_source}{arm.\+ino}}.
 

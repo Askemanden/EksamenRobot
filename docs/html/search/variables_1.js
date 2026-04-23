@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['counts_5fper_5frev_0',['COUNTS_PER_REV',['../_angle_to_rotation_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;AngleToRotation.ino'],['../namespace_motor.html#ac18f52fda08f42e64113da6f3aca20ba',1,'Motor::COUNTS_PER_REV'],['../motor__pid_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;ProlaMobilen.ino']]],
-  ['current_5fposition_1',['current_position',['../_angle_to_rotation_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;AngleToRotation.ino'],['../namespace_motor.html#a2595bff9a45068391bf5da67ff999669',1,'Motor::current_position'],['../motor__pid_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;ProlaMobilen.ino']]]
+  ['base_5fangle_0',['base_angle',['../struct_i_k_1_1_arm.html#a86ae1f455f2ce8c05a9234765c601aae',1,'IK::Arm::base_angle'],['../struct_arm.html#ad4a95acb7473e88929e76a1504b86b72',1,'Arm::base_angle']]],
+  ['basemotor_1',['baseMotor',['../struct_motor.html#ae910b354c3ff3b23b16ef86944efdad5',1,'Motor']]]
 ];

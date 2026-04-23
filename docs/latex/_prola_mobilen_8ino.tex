@@ -3,20 +3,27 @@
 {\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
 Include dependency graph for Prola\+Mobilen.\+ino:\+
 % FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_motor}{Motor}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{_prola_mobilen_8ino_ae2676edb74235f0d21ef201ba600636a}{encoder\+ISR}} ()
+void \doxymbox{\hyperlink{_prola_mobilen_8ino_af0cdd0ee4c0625badbbbf0e3df458599}{encoder\+ISR}} (\doxymbox{\hyperlink{struct_motor}{Motor}} motor)
 \item 
-void \doxymbox{\hyperlink{_prola_mobilen_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{turn}} (bool cw, int speed)
+void \doxymbox{\hyperlink{_prola_mobilen_8ino_a16a055528659c2a412a98b6c37014d32}{turn}} (\doxymbox{\hyperlink{struct_motor}{Motor}} motor, bool cw, int speed)
 \item 
-void \doxymbox{\hyperlink{_prola_mobilen_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\+\_\+motor}} ()
+void \doxymbox{\hyperlink{_prola_mobilen_8ino_a7bf0bab148eb53b0b8c8791a40323a0d}{stop\+\_\+motor}} (\doxymbox{\hyperlink{struct_motor}{Motor}} motor)
 \item 
-long \doxymbox{\hyperlink{_prola_mobilen_8ino_a96b4e604292686084631843213912d0f}{degrees\+\_\+to\+\_\+counts}} (double degrees)
+long \doxymbox{\hyperlink{_prola_mobilen_8ino_a19a007dab6b7c1b240920818e80c4edd}{degrees\+\_\+to\+\_\+counts}} (\doxymbox{\hyperlink{struct_motor}{Motor}} motor, double degrees)
 \item 
-void \doxymbox{\hyperlink{_prola_mobilen_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{rotate\+Degrees}} (double degrees)
+void \doxymbox{\hyperlink{_prola_mobilen_8ino_af0e400dd38b5c16d4273317ac267da07}{rotate\+Degrees}} (\doxymbox{\hyperlink{struct_motor}{Motor}} motor, double degrees)
 \item 
-void \doxymbox{\hyperlink{_prola_mobilen_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\+\_\+motor\+\_\+update}} ()
+void \doxymbox{\hyperlink{_prola_mobilen_8ino_ae9094d95a90752fd98d6879ab067a2cf}{dc\+\_\+motor\+\_\+update}} (\doxymbox{\hyperlink{struct_motor}{Motor}} motor)
+\item 
+void \doxymbox{\hyperlink{_prola_mobilen_8ino_a264b9d01dc286635dd1a18e9527bd6a0}{post\+\_\+init\+\_\+motor}} (\doxymbox{\hyperlink{struct_motor}{Motor}} \texorpdfstring{$\ast$}{*}motor, void(ISR \texorpdfstring{$\ast$}{*})())
 \item 
 void \doxymbox{\hyperlink{_prola_mobilen_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
 \item 
@@ -25,7 +32,7 @@ void \doxymbox{\hyperlink{_prola_mobilen_8ino_afe461d27b9c48d5921c00d521181f12f}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const double \doxymbox{\hyperlink{_prola_mobilen_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\+\_\+\+TO\+\_\+\+TURN}} = 90.\+0
+struct \doxymbox{\hyperlink{struct_motor}{Motor}} \doxymbox{\hyperlink{_prola_mobilen_8ino_a6fa6010d164c497d0dfa19a37aa6147a}{DEGREES\+\_\+\+TO\+\_\+\+TURN}} = 90.\+0
 \item 
 const double \doxymbox{\hyperlink{_prola_mobilen_8ino_ac981f98e8b41b0e5f0d753279da10c82}{GEAR\+\_\+\+RATIO}} = 30.\+0
 \item 
@@ -66,83 +73,81 @@ long \doxymbox{\hyperlink{_prola_mobilen_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}
 \label{doc-func-members}
 \Hypertarget{_prola_mobilen_8ino_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{_prola_mobilen_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!dc\_motor\_update@{dc\_motor\_update}}
+\Hypertarget{_prola_mobilen_8ino_ae9094d95a90752fd98d6879ab067a2cf}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!dc\_motor\_update@{dc\_motor\_update}}
 \index{dc\_motor\_update@{dc\_motor\_update}!ProlaMobilen.ino@{ProlaMobilen.ino}}
 \doxysubsubsection{\texorpdfstring{dc\_motor\_update()}{dc\_motor\_update()}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8} 
-void dc\+\_\+motor\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_ae9094d95a90752fd98d6879ab067a2cf} 
+void dc\+\_\+motor\+\_\+update (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}}}]{motor}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00068}{68}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00088}{88}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{long}\ error\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{if}\ (abs(error)\ <=\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}})\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
-\DoxyCodeLine{00075\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00077\ \ \ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +=\ error;}
-\DoxyCodeLine{00080\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ \ =\ constrain(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}},\ -\/1000,\ 1000);}
-\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{double}\ derivative\ =\ error\ -\/\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}};}
-\DoxyCodeLine{00082\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ error;}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{double}\ output\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac6dd8cf133db4505d84f2144ea261181}{Kp}}\ *\ error\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_afe6fd874b1259cef0710b2c9d23bc087}{Ki}}\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ +\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}{Kd}}\ *\ derivative;}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{int}\ speed\ =\ (int)abs(output);}
-\DoxyCodeLine{00087\ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_ae4ffa4e701eaf2118317a3a2d6499700}{turn}}(output\ >\ 0,\ speed);}
-\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordflow}{if}\ (motor.\doxymbox{\hyperlink{struct_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{long}\ error\ =\ motor.\doxymbox{\hyperlink{struct_motor_aee1958a9356b045193625f421d2639ad}{target\_position}}\ -\/\ motor.\doxymbox{\hyperlink{struct_motor_a2595bff9a45068391bf5da67ff999669}{current\_position}};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{if}\ (abs(error)\ <=\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a56b3a14c16578ab062169a624f735e06}{threshold}})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
+\DoxyCodeLine{00095\ \ \ \ \ motor.\doxymbox{\hyperlink{struct_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00097\ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ +=\ error;}
+\DoxyCodeLine{00100\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ \ =\ constrain(motor.\doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}},\ -\/1000,\ 1000);}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{double}\ derivative\ =\ error\ -\/\ motor.\doxymbox{\hyperlink{struct_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\_error}};}
+\DoxyCodeLine{00102\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\_error}}\ =\ error;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{double}\ output\ =\ motor.\doxymbox{\hyperlink{struct_motor_a0cd3fc243e829e6f46398f6524a73a6b}{Kp}}\ *\ error\ +\ motor.\doxymbox{\hyperlink{struct_motor_a4fbf64b30f9aaad083fa879f5fda777c}{Ki}}\ *\ motor.\doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ +\ motor.\doxymbox{\hyperlink{struct_motor_aab425a84331125979c347524cd102374}{Kd}}\ *\ derivative;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{int}\ speed\ =\ (int)abs(output);}
+\DoxyCodeLine{00107\ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_a16a055528659c2a412a98b6c37014d32}{turn}}(output\ >\ 0,\ speed);}
+\DoxyCodeLine{00108\ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
 % FIG 1
-Here is the caller graph for this function:\+
-% FIG 2
-\Hypertarget{_prola_mobilen_8ino_a96b4e604292686084631843213912d0f}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!degrees\_to\_counts@{degrees\_to\_counts}}
+\Hypertarget{_prola_mobilen_8ino_a19a007dab6b7c1b240920818e80c4edd}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!degrees\_to\_counts@{degrees\_to\_counts}}
 \index{degrees\_to\_counts@{degrees\_to\_counts}!ProlaMobilen.ino@{ProlaMobilen.ino}}
 \doxysubsubsection{\texorpdfstring{degrees\_to\_counts()}{degrees\_to\_counts()}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a96b4e604292686084631843213912d0f} 
-long degrees\+\_\+to\+\_\+counts (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a19a007dab6b7c1b240920818e80c4edd} 
+long degrees\+\_\+to\+\_\+counts (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}}}]{motor}{, }\item[{double}]{degrees}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00057}{57}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00077}{77}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{long})(degrees\ *\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a360c1952676949f31406f60c6012b5df}{COUNTS\_PER\_REV}}\ /\ 360.0);}
-\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{long})(degrees\ *\ motor.COUNTS\_PER\_REV\ /\ 360.0);}
+\DoxyCodeLine{00079\ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
-% FIG 3
-\Hypertarget{_prola_mobilen_8ino_ae2676edb74235f0d21ef201ba600636a}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!encoderISR@{encoderISR}}
+% FIG 2
+\Hypertarget{_prola_mobilen_8ino_af0cdd0ee4c0625badbbbf0e3df458599}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!encoderISR@{encoderISR}}
 \index{encoderISR@{encoderISR}!ProlaMobilen.ino@{ProlaMobilen.ino}}
 \doxysubsubsection{\texorpdfstring{encoderISR()}{encoderISR()}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_ae2676edb74235f0d21ef201ba600636a} 
-void encoder\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_af0cdd0ee4c0625badbbbf0e3df458599} 
+void encoder\+ISR (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}}}]{motor}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00023}{23}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00043}{43}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00024\ \ \ \textcolor{keywordflow}{if}\ (digitalRead(\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}})\ ==\ HIGH)\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}++;}
-\DoxyCodeLine{00026\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}-\/-\/;}
-\DoxyCodeLine{00028\ \ \ \}}
-\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{if}\ (digitalRead(motor.encoder2)\ ==\ HIGH)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}++;}
+\DoxyCodeLine{00046\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}-\/-\/;}
+\DoxyCodeLine{00048\ \ \ \}}
+\DoxyCodeLine{00049\ \}}
 
 \end{DoxyCode}
 \Hypertarget{_prola_mobilen_8ino_afe461d27b9c48d5921c00d521181f12f}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!loop@{loop}}
@@ -153,35 +158,61 @@ void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00105}{105}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00129}{129}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00106\ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}();}
-\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a12ae01fc8d59155d68aabc4bb8a0e6b8}{dc\_motor\_update}}();}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function:\+
+% FIG 3
+\Hypertarget{_prola_mobilen_8ino_a264b9d01dc286635dd1a18e9527bd6a0}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!post\_init\_motor@{post\_init\_motor}}
+\index{post\_init\_motor@{post\_init\_motor}!ProlaMobilen.ino@{ProlaMobilen.ino}}
+\doxysubsubsection{\texorpdfstring{post\_init\_motor()}{post\_init\_motor()}}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a264b9d01dc286635dd1a18e9527bd6a0} 
+void post\+\_\+init\+\_\+motor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}} \texorpdfstring{$\ast$}{*}}]{motor}{, }\item[{void(ISR \texorpdfstring{$\ast$}{*}}]{~}{)()}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00110}{110}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ pinMode(motor.IN1,\ OUTPUT);}
+\DoxyCodeLine{00112\ \ \ pinMode(motor.IN2,\ OUTPUT);}
+\DoxyCodeLine{00113\ \ \ pinMode(motor.encoder1,\ INPUT\_PULLUP);}
+\DoxyCodeLine{00114\ \ \ pinMode(motor.encoder2,\ INPUT\_PULLUP);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ attachInterrupt(digitalPinToInterrupt(motor.encoder1),\ ISR,\ RISING);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
+\DoxyCodeLine{00119\ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
 % FIG 4
-\Hypertarget{_prola_mobilen_8ino_a73fa9ffd0f339a99bd7ed5662f023674}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!rotateDegrees@{rotateDegrees}}
+\Hypertarget{_prola_mobilen_8ino_af0e400dd38b5c16d4273317ac267da07}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!rotateDegrees@{rotateDegrees}}
 \index{rotateDegrees@{rotateDegrees}!ProlaMobilen.ino@{ProlaMobilen.ino}}
 \doxysubsubsection{\texorpdfstring{rotateDegrees()}{rotateDegrees()}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a73fa9ffd0f339a99bd7ed5662f023674} 
-void rotate\+Degrees (\begin{DoxyParamCaption}\item[{double}]{degrees}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_af0e400dd38b5c16d4273317ac267da07} 
+void rotate\+Degrees (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}}}]{motor}{, }\item[{double}]{degrees}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00061}{61}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00081}{81}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00062\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a88ecd98e92f19966696e51d812b8ff91}{target\_position}}\ =\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aff8fe45e64b81cb750423c08a406fdb5}{current\_position}}\ +\ \doxymbox{\hyperlink{_prola_mobilen_8ino_a96b4e604292686084631843213912d0f}{degrees\_to\_counts}}(degrees);}
-\DoxyCodeLine{00063\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9324389a5cdc532c6417a87ccafe18ce}{finished}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00064\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
-\DoxyCodeLine{00065\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
-\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ motor.\doxymbox{\hyperlink{struct_motor_aee1958a9356b045193625f421d2639ad}{target\_position}}\ =\ motor.\doxymbox{\hyperlink{struct_motor_a2595bff9a45068391bf5da67ff999669}{current\_position}}\ +\ \doxymbox{\hyperlink{_prola_mobilen_8ino_a19a007dab6b7c1b240920818e80c4edd}{degrees\_to\_counts}}(degrees);}
+\DoxyCodeLine{00083\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a3cebf765d59f5b030a5342a441dbac5a}{finished}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00084\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ =\ 0;}
+\DoxyCodeLine{00085\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{00086\ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
@@ -196,79 +227,70 @@ void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00090}{90}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00121}{121}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00091\ \ \ Serial.begin(9600);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ OUTPUT);}
-\DoxyCodeLine{00094\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ OUTPUT);}
-\DoxyCodeLine{00095\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}},\ INPUT\_PULLUP);}
-\DoxyCodeLine{00096\ \ \ pinMode(\doxymbox{\hyperlink{_angle_to_rotation_8ino_ae8d15ec90c8e7f603bcd2d683638d401}{encoder2}},\ INPUT\_PULLUP);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ attachInterrupt(digitalPinToInterrupt(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a8089b307bda83bb41f954a7859e994cb}{encoder1}}),\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ae2676edb74235f0d21ef201ba600636a}{encoderISR}},\ RISING);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_a763695f567d8c1d2494de1c8d28b9989}{stop\_motor}}();}
-\DoxyCodeLine{00101\ \ \ delay(500);}
-\DoxyCodeLine{00102\ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_a73fa9ffd0f339a99bd7ed5662f023674}{rotateDegrees}}(\doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\_TO\_TURN}});}
-\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ Serial.begin(9600);}
+\DoxyCodeLine{00123\ \ \ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ delay(500);}
+\DoxyCodeLine{00126\ \ \ \doxymbox{\hyperlink{_prola_mobilen_8ino_af0e400dd38b5c16d4273317ac267da07}{rotateDegrees}}(\doxymbox{\hyperlink{_angle_to_rotation_8ino_aae6c32be3217cdff7f9204d14b7630c1}{DEGREES\_TO\_TURN}});}
+\DoxyCodeLine{00127\ \}}
 
 \end{DoxyCode}
 Here is the call graph for this function:\+
 % FIG 7
-\Hypertarget{_prola_mobilen_8ino_a763695f567d8c1d2494de1c8d28b9989}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!stop\_motor@{stop\_motor}}
+\Hypertarget{_prola_mobilen_8ino_a7bf0bab148eb53b0b8c8791a40323a0d}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!stop\_motor@{stop\_motor}}
 \index{stop\_motor@{stop\_motor}!ProlaMobilen.ino@{ProlaMobilen.ino}}
 \doxysubsubsection{\texorpdfstring{stop\_motor()}{stop\_motor()}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a763695f567d8c1d2494de1c8d28b9989} 
-void stop\+\_\+motor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a7bf0bab148eb53b0b8c8791a40323a0d} 
+void stop\+\_\+motor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}}}]{motor}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00047}{47}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00067}{67}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00048\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 255);}
-\DoxyCodeLine{00049\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 255);}
-\DoxyCodeLine{00050\ \ \ delay(30);}
-\DoxyCodeLine{00051\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
-\DoxyCodeLine{00052\ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 0);}
-\DoxyCodeLine{00053\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9157f0915da305914350c5922cee2c1c}{integral}}\ =\ 0;}
-\DoxyCodeLine{00054\ \ \ \doxymbox{\hyperlink{_angle_to_rotation_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}{last\_error}}\ =\ 0;}
-\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ analogWrite(motor.IN1,\ 255);}
+\DoxyCodeLine{00069\ \ \ analogWrite(motor.IN2,\ 255);}
+\DoxyCodeLine{00070\ \ \ delay(30);}
+\DoxyCodeLine{00071\ \ \ analogWrite(motor.IN1,\ 0);}
+\DoxyCodeLine{00072\ \ \ analogWrite(motor.IN2,\ 0);}
+\DoxyCodeLine{00073\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a2cb00b271dec6a3efba7229351459b54}{integral}}\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ motor.\doxymbox{\hyperlink{struct_motor_a09053eb34ec3428728ae1a1b192be2b7}{last\_error}}\ =\ 0;}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_prola_mobilen_8ino_a16a055528659c2a412a98b6c37014d32}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!turn@{turn}}
+\index{turn@{turn}!ProlaMobilen.ino@{ProlaMobilen.ino}}
+\doxysubsubsection{\texorpdfstring{turn()}{turn()}}
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a16a055528659c2a412a98b6c37014d32} 
+void turn (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_motor}{Motor}}}]{motor}{, }\item[{bool}]{cw}{, }\item[{int}]{speed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00056}{56}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ speed\ =\ constrain(speed,\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{MIN\_SPEED}},\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\_SPEED}});}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{if}\ (cw)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ analogWrite(motor.IN1,\ speed);}
+\DoxyCodeLine{00060\ \ \ \ \ analogWrite(motor.IN2,\ 0);}
+\DoxyCodeLine{00061\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ analogWrite(motor.IN1,\ 0);}
+\DoxyCodeLine{00063\ \ \ \ \ analogWrite(motor.IN2,\ speed);}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function:\+
 % FIG 8
-\Hypertarget{_prola_mobilen_8ino_ae4ffa4e701eaf2118317a3a2d6499700}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!turn@{turn}}
-\index{turn@{turn}!ProlaMobilen.ino@{ProlaMobilen.ino}}
-\doxysubsubsection{\texorpdfstring{turn()}{turn()}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_ae4ffa4e701eaf2118317a3a2d6499700} 
-void turn (\begin{DoxyParamCaption}\item[{bool}]{cw}{, }\item[{int}]{speed}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00036}{36}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ speed\ =\ constrain(speed,\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_aa7dc52880b41eb022f995991d2815519}{MIN\_SPEED}},\ \doxymbox{\hyperlink{_angle_to_rotation_8ino_ac325e333efe4ffd6691636f4f58405fc}{MAX\_SPEED}});}
-\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (cw)\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ speed);}
-\DoxyCodeLine{00040\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ 0);}
-\DoxyCodeLine{00041\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00042\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a1eb873c54df7336fbe5619cc541ac390}{IN1}},\ 0);}
-\DoxyCodeLine{00043\ \ \ \ \ analogWrite(\doxymbox{\hyperlink{_angle_to_rotation_8ino_a3ba44431357ea5229b299eddc511c8c8}{IN2}},\ speed);}
-\DoxyCodeLine{00044\ \ \ \}}
-\DoxyCodeLine{00045\ \}}
-
-\end{DoxyCode}
-Here is the caller graph for this function:\+
-% FIG 9
 
 
 \label{doc-var-members}
@@ -282,7 +304,7 @@ const long COUNTS\+\_\+\+PER\+\_\+\+REV = 16 \texorpdfstring{$\ast$}{*} \doxymbo
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00011}{11}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00030}{30}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_aff8fe45e64b81cb750423c08a406fdb5}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!current\_position@{current\_position}}
 \index{current\_position@{current\_position}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -292,17 +314,13 @@ volatile long current\+\_\+position = 0}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00021}{21}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00040}{40}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
-\Hypertarget{_prola_mobilen_8ino_aae6c32be3217cdff7f9204d14b7630c1}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}}
+\Hypertarget{_prola_mobilen_8ino_a6fa6010d164c497d0dfa19a37aa6147a}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}}
 \index{DEGREES\_TO\_TURN@{DEGREES\_TO\_TURN}!ProlaMobilen.ino@{ProlaMobilen.ino}}
 \doxysubsubsection{\texorpdfstring{DEGREES\_TO\_TURN}{DEGREES\_TO\_TURN}}
-{\footnotesize\ttfamily \label{_prola_mobilen_8ino_aae6c32be3217cdff7f9204d14b7630c1} 
-const double DEGREES\+\_\+\+TO\+\_\+\+TURN = 90.\+0}
-
-
-
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00003}{3}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+{\footnotesize\ttfamily \label{_prola_mobilen_8ino_a6fa6010d164c497d0dfa19a37aa6147a} 
+struct \doxymbox{\hyperlink{struct_motor}{Motor}} DEGREES\+\_\+\+TO\+\_\+\+TURN = 90.\+0}
 
 \Hypertarget{_prola_mobilen_8ino_a8089b307bda83bb41f954a7859e994cb}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!encoder1@{encoder1}}
 \index{encoder1@{encoder1}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -312,7 +330,7 @@ const uint8\+\_\+t encoder1 = 3}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00008}{8}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00027}{27}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_ae8d15ec90c8e7f603bcd2d683638d401}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!encoder2@{encoder2}}
 \index{encoder2@{encoder2}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -322,7 +340,7 @@ const uint8\+\_\+t encoder2 = 2}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00009}{9}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00028}{28}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a9324389a5cdc532c6417a87ccafe18ce}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!finished@{finished}}
 \index{finished@{finished}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -332,7 +350,7 @@ bool finished = false}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00032}{32}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00052}{52}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_ac981f98e8b41b0e5f0d753279da10c82}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!GEAR\_RATIO@{GEAR\_RATIO}}
 \index{GEAR\_RATIO@{GEAR\_RATIO}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -342,7 +360,7 @@ const double GEAR\+\_\+\+RATIO = 30.\+0}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00004}{4}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00023}{23}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a1eb873c54df7336fbe5619cc541ac390}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!IN1@{IN1}}
 \index{IN1@{IN1}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -352,7 +370,7 @@ const uint8\+\_\+t IN1 = 9}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00006}{6}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00025}{25}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a3ba44431357ea5229b299eddc511c8c8}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!IN2@{IN2}}
 \index{IN2@{IN2}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -362,7 +380,7 @@ const uint8\+\_\+t IN2 = 10}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00007}{7}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00026}{26}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a9157f0915da305914350c5922cee2c1c}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!integral@{integral}}
 \index{integral@{integral}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -372,7 +390,7 @@ double integral = 0}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00033}{33}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00053}{53}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_ac650d3f965d8f8ed28a7f45b96d4ebdd}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!Kd@{Kd}}
 \index{Kd@{Kd}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -382,7 +400,7 @@ const double Kd = 5.\+0}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00016}{16}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00035}{35}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_afe6fd874b1259cef0710b2c9d23bc087}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!Ki@{Ki}}
 \index{Ki@{Ki}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -392,7 +410,7 @@ const double Ki = 0.\+2}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00015}{15}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00034}{34}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_ac6dd8cf133db4505d84f2144ea261181}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!Kp@{Kp}}
 \index{Kp@{Kp}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -402,7 +420,7 @@ const double Kp = 0.\+5}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00014}{14}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00033}{33}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a9fd669a2ea1ebbb2434c2d1d3ca686af}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!last\_error@{last\_error}}
 \index{last\_error@{last\_error}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -412,7 +430,7 @@ long last\+\_\+error = 0}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00034}{34}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00054}{54}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_ac325e333efe4ffd6691636f4f58405fc}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!MAX\_SPEED@{MAX\_SPEED}}
 \index{MAX\_SPEED@{MAX\_SPEED}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -422,7 +440,7 @@ const int MAX\+\_\+\+SPEED = 180}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00019}{19}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00038}{38}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_aa7dc52880b41eb022f995991d2815519}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!MIN\_SPEED@{MIN\_SPEED}}
 \index{MIN\_SPEED@{MIN\_SPEED}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -432,7 +450,7 @@ const int MIN\+\_\+\+SPEED = 40}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00018}{18}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00037}{37}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a88ecd98e92f19966696e51d812b8ff91}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!target\_position@{target\_position}}
 \index{target\_position@{target\_position}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -442,7 +460,7 @@ long target\+\_\+position = 0}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00031}{31}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00051}{51}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 
 \Hypertarget{_prola_mobilen_8ino_a56b3a14c16578ab062169a624f735e06}\index{ProlaMobilen.ino@{ProlaMobilen.ino}!threshold@{threshold}}
 \index{threshold@{threshold}!ProlaMobilen.ino@{ProlaMobilen.ino}}
@@ -452,5 +470,5 @@ const int threshold = 5}
 
 
 
-Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00012}{12}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
+Definition at line \doxymbox{\hyperlink{_prola_mobilen_8ino_source_l00031}{31}} of file \doxymbox{\hyperlink{_prola_mobilen_8ino_source}{Prola\+Mobilen.\+ino}}.
 

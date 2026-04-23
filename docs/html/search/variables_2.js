@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['degrees_5fto_5fturn_0',['DEGREES_TO_TURN',['../_angle_to_rotation_8ino.html#aae6c32be3217cdff7f9204d14b7630c1',1,'DEGREES_TO_TURN:&#160;AngleToRotation.ino'],['../namespace_motor.html#aec418e5f8f51ec3e64b0ef0409ff6e53',1,'Motor::DEGREES_TO_TURN'],['../motor__pid_8ino.html#aae6c32be3217cdff7f9204d14b7630c1',1,'DEGREES_TO_TURN:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#aae6c32be3217cdff7f9204d14b7630c1',1,'DEGREES_TO_TURN:&#160;ProlaMobilen.ino']]],
-  ['detected_1',['detected',['../struct_scan_result.html#aa489d230847081627bf5714c6ee27c5d',1,'ScanResult']]],
-  ['detectionthresholdcm_2',['detectionThresholdcm',['../_sensor_pis_virker_nok_ikke_8ino.html#a6190d8780a8c886e6e5f2a5df89a6fdb',1,'SensorPisVirkerNokIkke.ino']]]
+  ['counts_5fper_5frev_0',['COUNTS_PER_REV',['../_angle_to_rotation_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;AngleToRotation.ino'],['../motor__pid_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#a360c1952676949f31406f60c6012b5df',1,'COUNTS_PER_REV:&#160;ProlaMobilen.ino']]],
+  ['counts_5fper_5frev_1',['counts_per_rev',['../struct_motor.html#af6a639b410d691b72f787c08d0e06272',1,'Motor']]],
+  ['current_5fposition_2',['current_position',['../struct_motor_1_1_motor_unit.html#abbf370afcea32b12289b5ce68b5c5cda',1,'Motor::MotorUnit::current_position'],['../struct_motor.html#a2595bff9a45068391bf5da67ff999669',1,'Motor::current_position'],['../_angle_to_rotation_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;AngleToRotation.ino'],['../motor__pid_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;motor_pid.ino'],['../_prola_mobilen_8ino.html#aff8fe45e64b81cb750423c08a406fdb5',1,'current_position:&#160;ProlaMobilen.ino']]]
 ];
