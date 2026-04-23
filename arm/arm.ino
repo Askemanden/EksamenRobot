@@ -261,7 +261,7 @@ namespace IK
 
   const double STEP_DIST = 1;
 
-  const double GRAB_HEIGHT = 0; // Højden håndledet er over målet.
+  const double GRAB_HEIGHT = L3; // Højden håndledet er over målet.
 
   /**
    * @struct Vector2
@@ -303,18 +303,25 @@ namespace IK
   /**
    * @brief Calculates base_angle and writes it to self and calculates final_targetUV
    * @param self The arm for which to calculate data.
-   * @param sensor_position_distance Distance of sensor from origin. $d_s$
-   * @param sensor_reading_distance The reading of the sensor in centimeters. $L_s$
-   * @param sensor_angle_rad Angle in the sensors servo. $\theta_s$
+   * @param d_s Distance of sensor from origin. $d_s$
+   * @param L_s The reading of the sensor in centimeters. $L_s$
+   * @param theta_s Angle in the sensors servo. $\theta_s$
    */
-  int calculateFinalTarget(Arm *self, double sensor_position_distance, double sensor_reading_distance, double sensor_angle_rad)
+  int calculateFinalTarget(Arm *self, double d_s, double L_s, double theta_s)
   {
-    /*$d_s*/
-    double target_distance = sqrt(sq(sensor_position_distance) + sq(sensor_reading_distance) - 2 * sensor_position_distance * sensor_reading_distance * cos(sensor_angle_rad));
-    double sin_theta_O = sin(sensor_angle_rad) * sensor_reading_distance / target_distance;
-    double cos_theta_O = (sq(target_distance) + sq(sensor_position_distance) - sq(sensor_reading_distance)) / (2 * target_distance * sensor_position_distance);
-    self->base_angle = atan2(sin_theta_O, cos_theta_O);
-    self->final_targetUV = {.u = target_distance, .v = 0};
+    theta_s -= PI/4;
+    theta_s = PI - theta_s;
+    // d_mal = sqrt(d_s^2 + L_s^2 - 2*d_s*L_s*cos(theta_s))
+    double d_mal = sqrt(sq(d_s) + sq(L_s) - 2.0 * d_s * L_s * cos(theta_s));
+
+    // numerator = (sin(theta_s) / d_mal) * L_s
+    double num = (sin(theta_s) / d_mal) * L_s;
+
+    // denominator = (d_mal^2 + d_s^2 - L_s^2) / (2 * d_mal * d_s)
+    double den = (sq(d_mal) + sq(d_s) - sq(L_s)) / (2.0 * d_mal * d_s);
+
+    self->base_angle = atan2(num, den);
+    self->final_targetUV = {.u = d_mal, 0};
     return 0;
   }
 
@@ -412,9 +419,9 @@ namespace Motor
 
     uint8_t enable = 0;
     uint8_t direction1 = 0, direction2 = 0;
-    long current_position = 0, target_position = 0, start_position = 0;
+    long current_position = 0, target_position = 0, start_position = 0, previous_position = current_position;
     bool finished = false;
-    uint8_t finished_ticks = 0;
+    uint8_t finished_ticks = 0, stop_ticks = 0;
 
     PID pid_data = {};
   };
@@ -458,12 +465,14 @@ namespace Motor
   void dc_motor_update(MotorUnit &m)
   {
     long error = m.target_position - m.current_position;
+    
+    // Spring motoren over, hvis den allerede er færdig
     if (m.finished)
     {
       turn(m, false, 0);
       return;
     }
-
+    // Hvis motoren er inden for threshold længe nok, bliver den færdig.
     if (abs(error) <= threshold)
     {
       turn(m, false, 0);
@@ -477,6 +486,21 @@ namespace Motor
       {
         m.finished_ticks++;
       }
+    }
+    else
+    {
+      m.finished_ticks = 0;
+    }
+
+    // Tjek om motoren forhindres i at bevæge sig
+    if (m.current_position <= m.previous_position + threshold && m.current_position >= m.previous_position - threshold)
+    {
+      m.stop_ticks++;
+    }
+    if (m.stop_ticks >= 200)
+    {
+      m.finished = true;
+      return;
     }
 
     m.pid_data.integral += error;
@@ -526,8 +550,11 @@ namespace Motor
     elbowMotor.target_position = radians_to_counts(elbowMotor, (-(arm.theta1 + arm.theta2)));
     // Wrist (theta3) omitted as it is without motor
     baseMotor.finished = false;
+    baseMotor.finished_ticks = 0;
     shoulderMotor.finished = false;
+    shoulderMotor.finished_ticks = 0;
     elbowMotor.finished = false;
+    elbowMotor.finished_ticks = 0;
   }
 
   void updateAll()
@@ -536,9 +563,6 @@ namespace Motor
     baseMotor.current_position     = baseMotor.start_position + encBase.read();
     shoulderMotor.current_position = shoulderMotor.start_position + encShoulder.read();
     elbowMotor.current_position = -elbowMotor.start_position -encElbow.read();
-
-    // Run PID
-    dc_motor_update(baseMotor);
 
     if (!baseMotor.finished)
     {
@@ -635,11 +659,11 @@ struct ScanResult {
   int resetAngle;
 };
 
-UltrasonicSensor sonar = {.trigPin=9, .echoPin=10};
+UltrasonicSensor sonar = {.trigPin=24, .echoPin=13};
 
 ServoScanner scanner = {
   .servo = Servo(),
-  .pin = 11,
+  .pin = 12,
   .minAngle = 0,
   .maxAngle = 90,
   .stepSize = 1
@@ -650,15 +674,16 @@ float distanceOffsetcm = 0.6;
 const int EDGE_EXTENSION = 90;
 
 float measureDistance(const UltrasonicSensor &s) {
+  
   digitalWrite(s.trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(s.trigPin, HIGH);
-  delayMicroseconds(10);
+  delayMicroseconds(4);
   digitalWrite(s.trigPin, LOW);
-
   long duration = pulseIn(s.echoPin, HIGH, 30000);
   if (duration == 0) return -1;
   return (duration / 58.0) + distanceOffsetcm;
+
 }
 
 float averageDistance(const UltrasonicSensor &s, int samples) {
@@ -746,7 +771,7 @@ ScanResult performScan(const UltrasonicSensor &s, ServoScanner &sc, int startAng
   return result;
 }
 
-// MAIN CALLABLE FUNCTION
+
 ScanResult scan(UltrasonicSensor &s, ServoScanner &sc) {
   ScanResult r1 = performScan(s, sc, sc.minAngle, sc.maxAngle);
   if (r1.detected) return r1;
@@ -762,7 +787,7 @@ void initScanner(){
   pinMode(sonar.echoPin, INPUT);
   scanner.servo.attach(scanner.pin);
 }
-
+// MAIN CALLABLE FUNCTION
 ScanResult searchForTarget(UltrasonicSensor &s, ServoScanner &sc) {
   while (true) {
     ScanResult result = scan(s, sc);
@@ -969,32 +994,39 @@ void setup() {
   Serial.begin(921600);
 
   arm.final_targetUV = {IK::L2 + IK::L1,0};
-  arm.targetUV       = {IK::L2, IK::L1};
+  arm.targetUV       = {IK::L2, IK::L1 - IK::L3};
 
   IK::calculateArmAngles(&arm);
 
   Motor::initialize(arm.theta1, arm.theta2, arm.base_angle);
+  Scanner::initScanner();
+  Scanner::ScanResult skid = Scanner::searchForTarget(Scanner::sonar, Scanner::scanner);
 
-  IK::calculateFinalTarget(&arm, 15, 15, PI);
+  Serial.println(skid.trueAngle);
+  Serial.println(skid.objectDistance);
+
+  IK::calculateFinalTarget(&arm, 15, skid.objectDistance, skid.trueAngle*PI/180);
 
 }
 
 void loop() {
-  
-  Motor::move();
-
   arm.targetUV = arm.final_targetUV;
 
   // Clamp to final target to prevent overshoot
   if (abs(arm.targetUV.u - arm.final_targetUV.u) < IK::STEP_DIST)
-    arm.targetUV.u = arm.final_targetUV.u;
+     arm.targetUV.u = arm.final_targetUV.u;
   if (abs(arm.targetUV.v - arm.final_targetUV.v) < IK::STEP_DIST)
-    arm.targetUV.v = arm.final_targetUV.v;
+     arm.targetUV.v = arm.final_targetUV.v;
 
 
   IK::calculateArmAngles(&arm);
   Motor::turnAll(arm);
-
+  ;
+  Serial.print("Base angle ");
+  Serial.println(arm.base_angle);
+  Serial.print("Basemotor position: "); Serial.println(Motor::baseMotor.current_position);
+  Serial.print("Base motor target ");
+  Serial.println(Motor::baseMotor.target_position);
   Serial.print("UV: (");
   Serial.print(arm.targetUV.u);
   Serial.print(", ");
@@ -1004,4 +1036,5 @@ void loop() {
   Serial.print("  t2: ");
   Serial.println(String(Motor::elbowMotor.current_position) + " " + String(Motor::elbowMotor.target_position));
 
+  Motor::move();
 }
