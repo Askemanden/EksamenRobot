@@ -410,6 +410,7 @@ namespace Motor
   {
     unsigned int FULL_ROTATION = 0, MIN_POWER = 0;
 
+    uint8_t enable = 0;
     uint8_t direction1 = 0, direction2 = 0;
     long current_position = 0, target_position = 0, start_position = 0;
     bool finished = false;
@@ -428,6 +429,14 @@ namespace Motor
 
   void turn(MotorUnit &m, bool cw, unsigned int speed)
   {
+    if (m.enable != 0)
+    {
+      digitalWrite(m.direction1, cw);
+      digitalWrite(m.direction2, !cw);
+      analogWrite(m.enable, speed);
+      return;
+    }
+
     if (cw)
     {
       analogWrite(m.direction1, speed);
@@ -492,10 +501,12 @@ namespace Motor
       int FULL_ROTATION,
       int MIN_POWER,
       double kp, double ki, double kd,
-      MotorUnit &m)
+      MotorUnit &m,
+      uint8_t enable = 0)
   {
     m.direction1 = dir1;
     m.direction2 = dir2;
+    m.enable = enable;
     m.FULL_ROTATION = FULL_ROTATION;
     m.MIN_POWER = MIN_POWER;
 
@@ -545,7 +556,7 @@ namespace Motor
 
   void initialize(double theta1,double theta2,double base_angle)
   {
-    init_motor(5, 6,  (int)(6 * 30 * 64), 35, 0.6, 0.01, 0.5, baseMotor); 
+    initialize_motor(8, 7,  (int)(6 * 30 * 64), 50, 0.6, 0.01, 0.5, baseMotor, 9); 
     initialize_motor(5, 6, (int)(2*102.083 * 64), 50, 0.6, 0.01, 0.55,  shoulderMotor);
     initialize_motor(11, 10, (int)(2*30 * 64), 50, 0.6, 0.01, 0.5,  elbowMotor);
     baseMotor.current_position = radians_to_counts(baseMotor,base_angle);
@@ -964,16 +975,11 @@ void setup() {
 
   Motor::initialize(arm.theta1, arm.theta2, arm.base_angle);
 
-  IK::calculateFinalTarget(&arm, 10, 10, PI/2);
+  IK::calculateFinalTarget(&arm, 15, 15, PI);
 
 }
 
 void loop() {
-
-
-  bool atTarget =
-    abs(arm.targetUV.u - arm.final_targetUV.u) < 0.5 &&
-    abs(arm.targetUV.v - arm.final_targetUV.v) < 0.5;
   
   Motor::move();
 
